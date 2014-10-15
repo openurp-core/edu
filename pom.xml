@@ -15,11 +15,11 @@
     <bundle.symbolicName>org.openurp.teach.base.parent</bundle.symbolicName>
     <bundle.namespace>org.openurp.teach.base</bundle.namespace>
   </properties>
-  <!--
   <modules>
     <module>core</module>
-    <module>ws</module>
+<!--    <module>ws</module>
     <module>webapp</module>
-  </modules>
 -->
+  </modules>
+
 </project>

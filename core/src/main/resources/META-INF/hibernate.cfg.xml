@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>  
+<!DOCTYPE hibernate-configuration PUBLIC  
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"  
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <mapping resource="org/openurp/teach/base/domain/code/industry.hbm.xml"/>
+    <mapping resource="org/openurp/teach/base/domain/code/nation.hbm.xml"/>
+    <mapping resource="org/openurp/teach/base/domain/code/school.hbm.xml"/>
+    <mapping resource="org/openurp/teach/base/domain/code/ministry.hbm.xml"/>
+    <mapping resource="org/openurp/teach/base/domain/AdminclassBean.hbm.xml"/>
+    <mapping resource="org/openurp/teach/base/domain/DirectionBean.hbm.xml"/>
+    <mapping resource="org/openurp/teach/base/domain/MajorBean.hbm.xml"/>
+    <mapping resource="org/openurp/teach/base/domain/ProjectBean.hbm.xml"/>
+    <mapping resource="org/openurp/teach/base/domain/StudentBean.hbm.xml"/>
+    <mapping resource="org/openurp/teach/base/domain/TeacherBean.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>
