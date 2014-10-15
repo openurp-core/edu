@@ -37,7 +37,6 @@
         <property name="updatedAt"/>
         <property name="remark" length="30"/>
         <property name="stdCount" />
-        <many-to-one name="department"/>
     </class>
        
 </hibernate-mapping>

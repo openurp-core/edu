@@ -16,7 +16,7 @@ import org.openurp.platform.model.BaseCodeBean
  * @since 2005-9-7
  */
 class CourseTypeBean extends BaseCodeBean{
-  var thoretical:Boolean=_
+  var theoretical:Boolean=_
 } 
 
 /**

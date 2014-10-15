@@ -16,7 +16,6 @@
         <many-to-one name="idType"/>
         <many-to-one name="country"/>
         <property name="idcard" unique="true" not-null="true"/>
-        <many-to-one name="country"/>
         <many-to-one name="nation"/>
         <many-to-one name="politicalAffiliation"/>
         <property name="joinOn" />

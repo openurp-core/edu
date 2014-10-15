@@ -14,5 +14,7 @@
     <mapping resource="org/openurp/teach/base/domain/ProjectBean.hbm.xml"/>
     <mapping resource="org/openurp/teach/base/domain/StudentBean.hbm.xml"/>
     <mapping resource="org/openurp/teach/base/domain/TeacherBean.hbm.xml"/>
+    <mapping resource="org/openurp/teach/base/domain/code/exam.hbm.xml"/>
+    <mapping resource="org/openurp/teach/base/domain/code/grade.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
