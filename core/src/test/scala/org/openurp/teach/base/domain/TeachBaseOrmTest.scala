@@ -16,7 +16,7 @@ class TeachBaseOrmTest extends FunSpec with Matchers {
       println(ClassLoaders.getResource("org/openurp/teach/base/domain/code/nation.hbm.xml"))
       val generator = new DdlGenerator(new PostgreSQL82Dialect(), Locale.SIMPLIFIED_CHINESE)
       val dir = "/tmp"
-      generator.gen(dir,null)
+      generator.gen(dir,"org.openurp.teach.base")
       for (fileName <- Array("/1-tables.sql", "/2-sequences.sql", "/3-comments.sql")) {
         val file = new File(dir + fileName)
         assert(file.exists())
