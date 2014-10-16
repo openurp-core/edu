@@ -2,11 +2,11 @@
 <project>
   <parent>
     <groupId>org.openurp.teach</groupId>
-    <artifactId>openurp-teach-base-parent</artifactId>
+    <artifactId>openurp-teach-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <artifactId>openurp-teach-base-ws</artifactId>
+  <artifactId>openurp-teach-ws</artifactId>
   <packaging>war</packaging>
   <name>OpenURP Base Web Service</name>
 
@@ -36,7 +36,7 @@
     </dependency>
     <dependency>
       <groupId>org.openurp.teach</groupId>
-      <artifactId>openurp-teach-base-core</artifactId>
+      <artifactId>openurp-teach-core</artifactId>
       <scope>compile</scope>
     </dependency>
     <dependency>

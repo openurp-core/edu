@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping xmlns="http://www.hibernate.org/xsd/hibernate-mapping"
+ xsi:schemaLocation="http://www.hibernate.org/xsd/hibernate-mapping classpath://org/hibernate/hibernate-mapping-4.0.xsd" 
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" package="org.openurp.teach.domain.code"
+  default-access="org.beangle.data.jpa.hibernate.PropertyAccessor">
+ 
+    <class name="StdTypeBean" entity-name="org.openurp.teach.code.StdType">
+        <cache usage="read-write"/>
+        <id name="id" unsaved-value="null" type="integer"><generator class="code"/></id>
+        <property name="code" length="20" unique="true" not-null="true"/>
+        <property name="name" length="20" unique="true" not-null="true"/>
+        <property name="enName" length="100" />
+        <property name="beginOn"/>
+        <property name="endOn"/>
+        <property name="updatedAt"/>
+        <property name="remark" length="30"/>
+    </class>
+    <class name="StdLabelTypeBean" entity-name="org.openurp.teach.code.StdLabelType">
+        <cache usage="read-write"/>
+        <id name="id" unsaved-value="null" type="integer"><generator class="code"/></id>
+        <property name="code" length="20" unique="true" not-null="true"/>
+        <property name="name" length="20" unique="true" not-null="true"/>
+        <property name="enName" length="100" />
+        <property name="beginOn"/>
+        <property name="endOn"/>
+        <property name="updatedAt"/>
+        <property name="remark" length="30"/>
+    </class>
+    <class name="StdLabelBean" entity-name="org.openurp.teach.code.StdLabel">
+        <cache usage="read-write"/>
+        <id name="id" unsaved-value="null" type="integer"><generator class="code"/></id>
+        <property name="code" length="20" unique="true" not-null="true"/>
+        <property name="name" length="20" unique="true" not-null="true"/>
+        <property name="labelType" not-null="true"/>
+        <property name="enName" length="100" />
+        <property name="beginOn"/>
+        <property name="endOn"/>
+        <property name="updatedAt"/>
+        <property name="remark" length="30"/>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping xmlns="http://www.hibernate.org/xsd/hibernate-mapping"
+ xsi:schemaLocation="http://www.hibernate.org/xsd/hibernate-mapping classpath://org/hibernate/hibernate-mapping-4.0.xsd" 
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" package="org.openurp.teach.domain"
+  default-access="org.beangle.data.jpa.hibernate.PropertyAccessor">
+ 
+    <class name="ProjectBean" entity-name="org.openurp.teach.Project">
+        <cache usage="read-write"/>
+        <id name="id" unsaved-value="null" type="integer"><generator class="code"/></id>
+        <property name="name" length="100" unique="true" not-null="true"/>
+        <many-to-one name="school" not-null="true"/>
+        <bag name="campuses" collection-type="seq">
+            <key column="project_id" />
+            <many-to-many column="campus_id" class="org.openurp.base.Campus"/>
+        </bag>
+        <bag name="departments" collection-type="seq">
+            <key column="project_id" />
+            <many-to-many column="department_id" class="org.openurp.base.Department"/>
+        </bag>
+        <bag name="educations" collection-type="seq">
+            <key column="project_id" />
+            <many-to-many column="education_id" class="org.openurp.base.code.Education"/>
+        </bag>
+        <bag name="labels" collection-type="seq">
+            <key column="project_id" />
+            <many-to-many column="std_label_id" class="org.openurp.teach.code.StdLabel"/>
+        </bag>
+        <bag name="types" collection-type="seq">
+            <key column="project_id" />
+            <many-to-many column="std_type_id" class="org.openurp.teach.code.StdType"/>
+        </bag>
+        <many-to-one name="calendar" not-null="true"/>
+        <bag name="timeSettings" collection-type="seq">
+            <key column="project_id" />
+            <many-to-many column="time_setting_id" class="org.openurp.base.TimeSetting"/>
+        </bag>
+        <property name="description" length="500"/>
+        <property name="minor" />
+        <property name="effectiveAt"/>
+        <property name="invalidAt"/>
+    </class>
+    
+       
+</hibernate-mapping>

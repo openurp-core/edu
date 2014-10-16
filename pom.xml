@@ -7,13 +7,13 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <groupId>org.openurp.teach</groupId>
-  <artifactId>openurp-teach-base-parent</artifactId>
+  <artifactId>openurp-teach-parent</artifactId>
   <packaging>pom</packaging>
-  <name>OpenURP Teach Base Parent</name>
+  <name>OpenURP Teach Parent</name>
   
   <properties>
-    <bundle.symbolicName>org.openurp.teach.base.parent</bundle.symbolicName>
-    <bundle.namespace>org.openurp.teach.base</bundle.namespace>
+    <bundle.symbolicName>org.openurp.teach.parent</bundle.symbolicName>
+    <bundle.namespace>org.openurp.teach</bundle.namespace>
   </properties>
   <modules>
     <module>core</module>
@@ -27,7 +27,7 @@
     <dependencies>
       <dependency>
         <groupId>org.openurp.teach</groupId>
-        <artifactId>openurp-teach-base-core</artifactId>
+        <artifactId>openurp-teach-core</artifactId>
         <version>${project.version}</version>
         <scope>test</scope>
       </dependency>

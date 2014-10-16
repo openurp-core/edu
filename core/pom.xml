@@ -3,23 +3,23 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.openurp.teach</groupId>
-    <artifactId>openurp-teach-base-parent</artifactId>
+    <artifactId>openurp-teach-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <groupId>org.openurp.teach</groupId>
-  <artifactId>openurp-teach-base-core</artifactId>
+  <artifactId>openurp-teach-core</artifactId>
   <packaging>jar</packaging>
-  <name>OpenURP Teach Base Core</name>
+  <name>OpenURP Teach Core</name>
   
   <properties>
-    <bundle.symbolicName>org.openurp.teach.base.core</bundle.symbolicName>
-    <bundle.namespace>org.openurp.teach.base</bundle.namespace>
+    <bundle.symbolicName>org.openurp.teach.core</bundle.symbolicName>
+    <bundle.namespace>org.openurp.teach</bundle.namespace>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>org.openurp.teach</groupId>
-      <artifactId>openurp-teach-base-api</artifactId>
+      <artifactId>openurp-teach-api</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>

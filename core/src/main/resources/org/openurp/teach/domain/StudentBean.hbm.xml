@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping xmlns="http://www.hibernate.org/xsd/hibernate-mapping"
+ xsi:schemaLocation="http://www.hibernate.org/xsd/hibernate-mapping classpath://org/hibernate/hibernate-mapping-4.0.xsd" 
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" package="org.openurp.teach.domain"
+  default-access="org.beangle.data.jpa.hibernate.PropertyAccessor">
+ 
+    <class name="StudentBean" entity-name="org.openurp.teach.Student">
+        <cache usage="read-write"/>
+        <id name="id" unsaved-value="null" type="integer"><generator class="code"/></id>
+        <property name="code" length="32" unique="true" not-null="true"/>
+        <property name="name" length="20" unique="true" not-null="true"/>
+        <property name="engName" length="255"/>
+        <property name="gender" unique="true" not-null="true"/>
+        <property name="grade" unique="true" not-null="true"/>
+        <many-to-one name="department"/>
+        <many-to-one name="major"/>
+        <many-to-one name="direction"/>
+        <many-to-one name="majorDepart"/>
+        <many-to-one name="type1"/>
+        <!--<map name="labels" collection-type="map">
+            <key column="student_id" />
+            <many-to-many column="label_id" class="org.openurp.teach.ProjectProperty"/>
+        </map>-->    
+        <many-to-one name="campus"/>
+        <property name="duration" />
+        <property name="registed" />
+        <property name="enrollOn" />
+        <property name="registOn" />
+        <property name="graduateOn" />
+        <many-to-one name="adminclass"/>
+        <property name="remark" length="2000" />
+        <many-to-one name="studyType"/>
+        <set name="journals" collection-type="set">
+            <key column="journal_id" />
+            <one-to-many class="org.openurp.teach.StudentJournal"/>
+        </set>
+        <many-to-one name="tutor"/>
+        <many-to-one name="person"/>
+     </class>
+     
+     <!--<class name="StudentScopeBean" entity-name="org.openurp.teach.StudentScope">
+        <cache usage="read-write"/>
+        <property name="grades"  />
+        <many-to-one name="project"/>
+        <set name="educations" collection-type="set">
+            <key column="studentScope_id" />
+            <many-to-many column="education_id" class="org.openurp.base.code.Education"/>
+        </set>     
+        <set name="stdTypes" collection-type="set">
+            <key column="studentScope_id" />
+            <many-to-many column="stdType_id" class="org.openurp.teach.code.StdType"/>
+        </set>  
+        <set name="departments" collection-type="set">
+            <key column="studentScope_id" />
+            <many-to-many column="department_id" class="org.openurp.base.Department"/>
+        </set>
+        <set name="majors" collection-type="set">
+            <key column="studentScope_id" />
+            <many-to-many column="major_id" class="org.openurp.teach.Major"/>
+        </set>  
+        <set name="directions" collection-type="set">
+            <key column="studentScope_id" />
+            <many-to-many column="direction_id" class="org.openurp.teach.Direction"/>
+        </set> 
+     </class>
+       -->
+</hibernate-mapping>

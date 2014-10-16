@@ -4,32 +4,32 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
-    <mapping resource="org/openurp/teach/base/domain/code/industry.hbm.xml"/>
-    <mapping resource="org/openurp/teach/base/domain/code/nation.hbm.xml"/>
-    <mapping resource="org/openurp/teach/base/domain/code/school.hbm.xml"/>
-    <mapping resource="org/openurp/teach/base/domain/code/ministry.hbm.xml"/>
-    <mapping resource="org/openurp/teach/base/domain/code/exam.hbm.xml"/>
-    <mapping resource="org/openurp/teach/base/domain/code/grade.hbm.xml"/>
-    <mapping resource="org/openurp/teach/base/domain/AdminclassBean.hbm.xml"/>
-    <mapping resource="org/openurp/teach/base/domain/Course.hbm.xml"/>
-    <mapping resource="org/openurp/teach/base/domain/CourseGrade.hbm.xml"/>
-    <mapping resource="org/openurp/teach/base/domain/CourseHour.hbm.xml"/>
-    <mapping resource="org/openurp/teach/base/domain/DirectionBean.hbm.xml"/>
-    <mapping resource="org/openurp/teach/base/domain/DirectionJournalBean.hbm.xml"/>
-    <mapping resource="org/openurp/teach/base/domain/ExamGrade.hbm.xml"/>
-    <mapping resource="org/openurp/teach/base/domain/HabilitationBean.hbm.xml"/>
-    <mapping resource="org/openurp/teach/base/domain/MajorBean.hbm.xml"/>
-    <mapping resource="org/openurp/teach/base/domain/MajorJournalBean.hbm.xml"/>
-    <mapping resource="org/openurp/teach/base/domain/ProjectBean.hbm.xml"/>
-    <mapping resource="org/openurp/teach/base/domain/ProjectClassroomBean.hbm.xml"/>
-    <mapping resource="org/openurp/teach/base/domain/ProjectCode.hbm.xml"/>
-    <mapping resource="org/openurp/teach/base/domain/ProjectConfigBean.hbm.xml"/>
-    <mapping resource="org/openurp/teach/base/domain/ProjectPropertyBean.hbm.xml"/>
-    <mapping resource="org/openurp/teach/base/domain/StudentBean.hbm.xml"/>
-    <mapping resource="org/openurp/teach/base/domain/StdPersonBean.hbm.xml"/>
-    <mapping resource="org/openurp/teach/base/domain/StudentJournalBean.hbm.xml"/>
-    <mapping resource="org/openurp/teach/base/domain/TeacherBean.hbm.xml"/>
-    <mapping resource="org/openurp/teach/base/domain/TeacherJournalBean.hbm.xml"/>
+    <mapping resource="org/openurp/teach/domain/code/industry.hbm.xml"/>
+    <mapping resource="org/openurp/teach/domain/code/nation.hbm.xml"/>
+    <mapping resource="org/openurp/teach/domain/code/school.hbm.xml"/>
+    <mapping resource="org/openurp/teach/domain/code/ministry.hbm.xml"/>
+    <mapping resource="org/openurp/teach/domain/code/exam.hbm.xml"/>
+    <mapping resource="org/openurp/teach/domain/code/grade.hbm.xml"/>
+    <mapping resource="org/openurp/teach/domain/AdminclassBean.hbm.xml"/>
+    <mapping resource="org/openurp/teach/domain/Course.hbm.xml"/>
+    <mapping resource="org/openurp/teach/domain/CourseGrade.hbm.xml"/>
+    <mapping resource="org/openurp/teach/domain/CourseHour.hbm.xml"/>
+    <mapping resource="org/openurp/teach/domain/DirectionBean.hbm.xml"/>
+    <mapping resource="org/openurp/teach/domain/DirectionJournalBean.hbm.xml"/>
+    <mapping resource="org/openurp/teach/domain/ExamGrade.hbm.xml"/>
+    <mapping resource="org/openurp/teach/domain/HabilitationBean.hbm.xml"/>
+    <mapping resource="org/openurp/teach/domain/MajorBean.hbm.xml"/>
+    <mapping resource="org/openurp/teach/domain/MajorJournalBean.hbm.xml"/>
+    <mapping resource="org/openurp/teach/domain/ProjectBean.hbm.xml"/>
+    <mapping resource="org/openurp/teach/domain/ProjectClassroomBean.hbm.xml"/>
+    <mapping resource="org/openurp/teach/domain/ProjectCode.hbm.xml"/>
+    <mapping resource="org/openurp/teach/domain/ProjectConfigBean.hbm.xml"/>
+    <mapping resource="org/openurp/teach/domain/ProjectPropertyBean.hbm.xml"/>
+    <mapping resource="org/openurp/teach/domain/StudentBean.hbm.xml"/>
+    <mapping resource="org/openurp/teach/domain/StdPersonBean.hbm.xml"/>
+    <mapping resource="org/openurp/teach/domain/StudentJournalBean.hbm.xml"/>
+    <mapping resource="org/openurp/teach/domain/TeacherBean.hbm.xml"/>
+    <mapping resource="org/openurp/teach/domain/TeacherJournalBean.hbm.xml"/>
     
   </session-factory>
 </hibernate-configuration>

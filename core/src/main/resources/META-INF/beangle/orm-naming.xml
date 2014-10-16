@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <modules>
-  <module package = "org.openurp.teach.base" pluralize="true" schema="teach_base">
+  <module package = "org.openurp.teach" pluralize="true" schema="teach">
     <class annotation = "org.beangle.data.model.annotation.code" prefix="gb_" value="nation" />
     <class annotation = "org.beangle.data.model.annotation.code" prefix="jb_" value="ministry" />
     <class annotation = "org.beangle.data.model.annotation.code" prefix="xb_" value="school" />

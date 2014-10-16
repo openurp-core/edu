@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping xmlns="http://www.hibernate.org/xsd/hibernate-mapping"
+ xsi:schemaLocation="http://www.hibernate.org/xsd/hibernate-mapping classpath://org/hibernate/hibernate-mapping-4.0.xsd" 
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" package="org.openurp.teach.domain"
+  default-access="org.beangle.data.jpa.hibernate.PropertyAccessor">
+ 
+    <class name="TeacherBean" entity-name="org.openurp.teach.Teacher">
+        <cache usage="read-write"/>
+        <id name="id" unsaved-value="null" type="integer"><generator class="code"/></id>
+        <property name="code" length="32" unique="true" not-null="true"/>
+        <property name="name" length="20" unique="true" not-null="true"/>
+        <many-to-one name="person"/>
+        <many-to-one name="department"/>
+        <many-to-one name="parttimeDepart"/>
+        <many-to-one name="title"/>
+        <many-to-one name="teacherType"/>
+        <many-to-one name="education"/>
+        <property name="graduateOn"/>
+        <property name="degree"/>
+        <property name="degreeAwardOn"/>
+        <property name="school"/>
+        <property name="tutorAwardOn"/>
+        <property name="teaching"/>
+        <many-to-one name="tutorType"/>
+        <property name="effectiveAt"/>
+        <property name="invalidAt"/>
+        <property name="remark" length="500"/>
+        <property name="unit"/>
+        <many-to-one name="unitType"/>
+        <set name="journals" collection-type="set">
+            <key column="journal_id" />
+            <one-to-many class="org.openurp.teach.TeacherJournal"/>
+        </set>
+    </class>
+    
+       
+</hibernate-mapping>
