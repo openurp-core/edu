@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <parent>
+    <groupId>org.openurp.teach</groupId>
+    <artifactId>openurp-teach-base-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.openurp.teach</groupId>
+  <artifactId>openurp-teach-base-webapp</artifactId>
+  <packaging>war</packaging>
+  <name>Openurp Base Webapp</name>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.openurp.platform</groupId>
+      <artifactId>openurp-platform-web</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.beangle.webmvc</groupId>
+      <artifactId>beangle-webmvc-config-plugin</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.openurp.base</groupId>
+      <artifactId>openurp-base-core</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openurp.teach</groupId>
+      <artifactId>openurp-teach-base-core</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+    </dependency>
+  </dependencies>
+</project>
+

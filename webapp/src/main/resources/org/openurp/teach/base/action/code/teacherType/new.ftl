@@ -1,0 +1,17 @@
+[#ftl]
+[@b.head/]
+[@b.toolbar title="新建教师类型"]bar.addBack();[/@]
+[@b.tabs]
+  [@b.form action="!save" theme="list"]
+    [@b.textfield name="teacherType.code" label="代码" value="${teacherType.code!}" required="true" maxlength="20"/]
+    [@b.textfield name="teacherType.name" label="教师类型名称" value="${teacherType.name!}" required="true" maxlength="20"/]
+    [@b.startend label="生效失效时间" 
+      name="teacherType.beginOn,teacherType.endOn" required="false,false" 
+      start=teacherType.beginOn end=teacherType.endOn format="date"/]
+    [@b.textfield name="teacherType.remark" label="备注" value="${teacherType.remark!}" maxlength="30"/]
+    [@b.formfoot]
+      [@b.reset/]&nbsp;&nbsp;[@b.submit value="action.submit"/]
+    [/@]
+  [/@]
+[/@]
+[@b.foot/]
