@@ -40,42 +40,5 @@
         <property name="invalidAt"/>
     </class>
     
-    <class name="ProjectClassroomBean" entity-name="org.openurp.teach.base.ProjectClassroom">
-        <cache usage="read-write"/>
-        <id name="id" unsaved-value="null" type="integer"><generator class="code"/></id>
-        <many-to-one name="room"/>
-        <set name="departs" collection-type="set">
-            <key column="project_classroom_id" />
-            <many-to-many column="depart_id" class="org.openurp.base.Department"/>
-        </set>
-        <!--<property name="reserved" not-null="true"/>-->
-        <property name="project" />
-     </class>
-     <class name="ProjectCode">
-        <cache usage="read-write"/>
-        <id name="id" unsaved-value="null" type="integer"><generator class="code"/></id>
-        <many-to-one name="project"/>
-        <many-to-one name="meta"/>
-        <property name="codeId" not-null="true"/>
-     </class>
-     <class name="ProjectConfigBean" entity-name="org.openurp.teach.base.ProjectConfig">
-        <cache usage="read-write"/>
-        <id name="id" unsaved-value="null" type="integer"><generator class="code"/></id>
-        <!--<map name="properties" collection-type="seq">
-            <key column="property_id" />
-            <one-to-many class="org.openurp.teach.base.ProjectProperty"/>
-        </map>-->     
-     </class>
-     <class name="ProjectPropertyBean" entity-name="org.openurp.teach.base.ProjectProperty">
-        <cache usage="read-write"/>
-        <id name="id" unsaved-value="null" type="integer"><generator class="code"/></id>
-        <property name="name" length="20" unique="true" not-null="true"/>  
-        <many-to-one name="config"/>
-        <!--<map name="properties" collection-type="seq">
-            <key column="projectConfig_id" />
-            <one-to-many class="org.openurp.teach.base.ProjectProperty"/>
-        </map>-->
-        <property name="value" not-null="true"/>     
-     </class>
        
 </hibernate-mapping>

@@ -4,39 +4,24 @@
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" package="org.openurp.teach.base.domain"
   default-access="org.beangle.data.jpa.hibernate.PropertyAccessor">
  
-    <class name="StudentBean" entity-name="org.openurp.teach.base.Student">
+    <class name="StdPersonBean" entity-name="org.openurp.teach.base.StdPerson">
         <cache usage="read-write"/>
         <id name="id" unsaved-value="null" type="integer"><generator class="code"/></id>
         <property name="code" length="32" unique="true" not-null="true"/>
         <property name="name" length="20" unique="true" not-null="true"/>
         <property name="engName" length="255"/>
+        <property name="oldname" length="255"/>
         <property name="gender" unique="true" not-null="true"/>
-        <property name="grade" unique="true" not-null="true"/>
-        <many-to-one name="department"/>
-        <many-to-one name="major"/>
-        <many-to-one name="direction"/>
-        <many-to-one name="majorDepart"/>
-        <many-to-one name="type1"/>
-        <!--<map name="labels" collection-type="map">
-            <key column="student_id" />
-            <many-to-many column="label_id" class="org.openurp.teach.base.ProjectProperty"/>
-        </map>-->    
-        <many-to-one name="campus"/>
-        <property name="duration" />
-        <property name="registed" />
-        <property name="enrollOn" />
-        <property name="registOn" />
-        <property name="graduateOn" />
-        <many-to-one name="adminclass"/>
-        <property name="remark" length="2000" />
-        <many-to-one name="studyType"/>
-        <set name="journals" collection-type="set">
-            <key column="journal_id" />
-            <one-to-many class="org.openurp.teach.base.StudentJournal"/>
-        </set>
-        <many-to-one name="tutor"/>
-        <many-to-one name="person"/>
-     </class>
+        <property name="birthday" unique="true" not-null="true"/>
+        <many-to-one name="idType"/>
+        <many-to-one name="country"/>
+        <property name="idcard" unique="true" not-null="true"/>
+        <many-to-one name="nation"/>
+        <many-to-one name="politicalAffiliation"/>
+        <property name="joinOn" />
+        <property name="ancestralAddr" />
+        <property name="charactor" />
+    </class>
      
      <!--<class name="StudentScopeBean" entity-name="org.openurp.teach.base.StudentScope">
         <cache usage="read-write"/>

@@ -18,9 +18,9 @@
   <modules>
     <module>core</module>
     <module>ws</module>
-<!--    
+   
     <module>webapp</module>
--->
+
   </modules>
 
   <dependencyManagement>

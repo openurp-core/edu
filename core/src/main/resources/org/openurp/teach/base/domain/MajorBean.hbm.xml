@@ -30,23 +30,5 @@
         <property name="abbreviation"/>
     </class>
     
-    <class name="MajorJournalBean" entity-name="org.openurp.teach.base.MajorJournal">
-        <cache usage="read-write"/>
-        <id name="id" unsaved-value="null" type="integer"><generator class="code"/></id>
-      <!--
-      <property name="code" length="30" unique="true" not-null="true"/>
-        <property name="name" length="50" unique="true" not-null="true"/>
-        <property name="engName" length="255" unique="true" not-null="true"/>
-        -->
-        <many-to-one name="major"/>
-        <property name="disciplineCode" length="50" unique="true" not-null="true"/>
-        <many-to-one name="category"/>
-        <property name="duration"/>
-        <many-to-one name="education"/>
-        <many-to-one name="depart"/>
-        <property name="effectiveAt"/>
-        <property name="invalidAt"/>
-        <property name="remark" length="255"/>
-      </class>
        
 </hibernate-mapping>

@@ -33,26 +33,5 @@
         </set>
     </class>
     
-    <class name="TeacherJournalBean" entity-name="org.openurp.teach.base.TeacherJournal">
-        <cache usage="read-write"/>
-        <id name="id" unsaved-value="null" type="integer"><generator class="code"/></id>
-        <many-to-one name="teacher"/>
-        <many-to-one name="department"/>
-        <many-to-one name="title"/>
-        <many-to-one name="education"/>
-        <many-to-one name="degree"/>
-        <many-to-one name="tutorType"/>
-        <property name="beginOn"/>
-        <property name="endOn"/>
-        <property name="remark"/>
-     </class>
-     <class name="HabilitationBean" entity-name="org.openurp.teach.base.Habilitation">
-        <cache usage="read-write"/>
-        <id name="id" unsaved-value="null" type="integer"><generator class="code"/></id>
-        <many-to-one name="teacher"/>
-        <property name="effectiveOn"/>
-        <property name="invalidOn"/>
-        <property name="qualified"/>
-     </class>
        
 </hibernate-mapping>

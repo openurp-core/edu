@@ -1,14 +1,13 @@
 package org.openurp.teach.base.domain
 
-import org.beangle.data.model.bean.IntIdBean
+import org.beangle.data.model.bean.LongIdBean
 import org.openurp.teach.base.CourseGrade
 import org.openurp.teach.base.ExamGrade
+import org.openurp.teach.base.Grade
 import org.openurp.teach.base.code.ExamStatus
 import org.openurp.teach.base.code.ExamType
 import org.openurp.teach.base.code.GradeType
 import org.openurp.teach.base.code.ScoreMarkStyle
-import org.beangle.data.model.bean.LongIdBean
-import org.openurp.teach.base.Grade
 
 /**
  * 考试成绩
@@ -42,7 +41,7 @@ class ExamGradeBean extends LongIdBean with ExamGrade {
   /** 操作者 */
   var operator: String = _
   /**考试情况 */
-  var examstatus: ExamStatus = _
+  var examStatus: ExamStatus = _
   /**个人百分比 */
   var percent: Integer = _
 

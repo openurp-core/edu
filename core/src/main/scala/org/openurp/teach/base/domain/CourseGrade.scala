@@ -22,6 +22,7 @@ import org.openurp.teach.base.code.GradeType
 import org.openurp.teach.base.code.ScoreMarkStyle
 import org.openurp.teach.base.Grade
 import org.beangle.data.model.bean.LongIdBean
+import org.openurp.teach.base.code.CourseAbilityRate
 
 /**
  * 课程基本信息 </p>
@@ -68,7 +69,7 @@ class CourseBean extends IntIdBean with CodedBean with NamedBean with Course {
   var markStyle: ScoreMarkStyle = _
 
   /** 能力等级 */
-  //  var  abilityRates:Set[CourseAbilityRate]=_
+ var  abilityRates:Set[CourseAbilityRate]=_
   /**针对专业*/
   var majors: Set[Major] = _
   /**排除专业*/
@@ -184,7 +185,7 @@ class CourseGradeBean extends LongIdBean with CourseGrade {
    *            成绩类型
    * @return 考试成绩
    */
-  var examGrade: GradeType = _
+  var examGrade: ExamGrade= _
   /**
    * 返回考核方式
    *
