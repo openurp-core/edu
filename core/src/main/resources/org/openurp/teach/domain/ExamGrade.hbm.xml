@@ -10,7 +10,6 @@
         <many-to-one name="gradeType"  not-null="true"/>
         <many-to-one name="markStyle"  not-null="true"/>
         <many-to-one name="examStatus"  not-null="true"/>
-        <many-to-one name="gradeType"  not-null="true"/>
         <property name="score"/>
         <property name="scoreText"/>
         <many-to-one name="courseGrade"  not-null="true"/>
