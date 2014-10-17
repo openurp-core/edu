@@ -1,8 +1,6 @@
 package org.openurp.teach.ws.code
 
-import org.openurp.teach.code.StdType
-import org.openurp.teach.code.StdLabel
-import org.openurp.teach.code.StdLabelType
+import org.openurp.teach.code.{StdLabel, StdLabelType, StdType}
 
 
 class StdLabelAction extends AbstractAction[StdLabel]

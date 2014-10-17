@@ -1,27 +1,12 @@
 package org.openurp.teach.domain
 
 import java.util.Date
-import org.beangle.data.model.bean.CodedBean
-import org.beangle.data.model.bean.IntIdBean
-import org.beangle.data.model.bean.NamedBean
-import org.openurp.base.Department
-import org.openurp.base.Semester
+
+import org.beangle.data.model.bean.{CodedBean, IntIdBean, LongIdBean, NamedBean}
+import org.openurp.base.{Department, Semester}
 import org.openurp.base.code.Education
-import org.openurp.teach.code.ScoreMarkStyle
-import org.openurp.teach.CourseHour
-import org.openurp.teach.ExamGrade
-import org.openurp.teach.code.CourseHourType
-import org.openurp.teach.code.CourseType
-import org.openurp.teach.code.CourseCategory
-import org.openurp.teach.code.CourseTakeType
-import org.openurp.teach.Major
-import org.openurp.teach.Grade
-import org.openurp.teach.code.ExamMode
-import org.openurp.teach.Course
-import org.openurp.teach.code.CourseAbilityRate
-import org.beangle.data.model.bean.LongIdBean
-import org.openurp.teach.CourseGrade
-import org.openurp.teach.Student
+import org.openurp.teach.{Course, CourseGrade, CourseHour, ExamGrade, Grade, Major, Student}
+import org.openurp.teach.code.{CourseAbilityRate, CourseCategory, CourseHourType, CourseTakeType, CourseType, ExamMode, ScoreMarkStyle}
 
 /**
  * 课程基本信息 </p>
@@ -38,7 +23,7 @@ import org.openurp.teach.Student
  * @author chaostone
  * @since 2008-09-24
  */
-class CourseBean extends IntIdBean with CodedBean with NamedBean with Course {
+class CourseBean extends LongIdBean with CodedBean with NamedBean with Course {
 
   /**课程英文名*/
   var engName: String = _

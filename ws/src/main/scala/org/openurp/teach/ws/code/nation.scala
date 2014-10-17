@@ -1,9 +1,6 @@
 package org.openurp.teach.ws.code
 
-import org.openurp.teach.code.TeacherTitle
-import org.openurp.teach.code.Degree
-import org.openurp.teach.code.TeacherTitleLevel
-import org.openurp.teach.code.StudyType
+import org.openurp.teach.code.{Degree, StudyType, TeacherTitle, TeacherTitleLevel}
 
 class TeacherTitleAction extends AbstractAction[TeacherTitle]
 
