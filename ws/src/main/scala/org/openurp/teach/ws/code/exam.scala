@@ -1,8 +1,6 @@
 package org.openurp.teach.ws.code
 
-import org.openurp.teach.code.ExamMode
-import org.openurp.teach.code.ExamStatus
-import org.openurp.teach.code.ExamType
+import org.openurp.teach.code.{ExamMode, ExamStatus, ExamType}
 
 
 class ExamModeAction extends AbstractAction[ExamMode]

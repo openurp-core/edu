@@ -1,10 +1,6 @@
 package org.openurp.teach.ws.code
 
-import org.openurp.teach.code.TeacherUnitType
-import org.openurp.teach.code.TeacherType
-import org.openurp.teach.code.StdStatus
-import org.openurp.teach.code.TeacherState
-import org.openurp.teach.code.TutorType
+import org.openurp.teach.code.{StdStatus, TeacherState, TeacherType, TeacherUnitType, TutorType}
 
 
 class StdStatusAction extends AbstractAction[StdStatus]
