@@ -18,7 +18,12 @@ class TeacherTypeBean extends BaseCodeBean with TeacherType {
   var parttime: Boolean = _
 
 }
-
+/**
+ * 学生学籍状态
+ * 
+ * @author chaostone
+ * @since 2005-9-7
+ */
 class StdStatusBean extends BaseCodeBean with StdStatus{
   
 }

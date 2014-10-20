@@ -5,6 +5,7 @@
   [@b.form action="!save" theme="list"]
     [@b.textfield name="teacherType.code" label="代码" value="${teacherType.code!}" required="true" maxlength="20"/]
     [@b.textfield name="teacherType.name" label="名称" value="${teacherType.name!}" required="true" maxlength="20"/]
+    [@b.textfield name="teacherType.enName" label="英文名" value="${teacherType.enName!}" maxlength="100"/]
     [@b.radios label="是否兼职"  name="teacherType.parttime" value=teacherType.parttime items="1:common.yes,0:common.no"/]
     [@b.startend label="生效失效时间" 
       name="teacherType.beginOn,teacherType.endOn" required="false,false" 

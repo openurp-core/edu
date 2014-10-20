@@ -1,14 +1,15 @@
 [#ftl]
 [@b.head/]
-[@b.toolbar title="修改教师类型类型"]bar.addBack();[/@]
+[@b.toolbar title="修改教师在职状态"]bar.addBack();[/@]
 [@b.tabs]
-  [@b.form action="!update?id=${teacherType.id}" theme="list"]
-    [@b.textfield name="teacherType.code" label="代码" value="${teacherType.code!}" required="true" maxlength="20"/]
-    [@b.textfield name="teacherType.name" label="教师类型名称" value="${teacherType.name!}" required="true" maxlength="20"/]
+  [@b.form action="!update?id=${teacherState.id}" theme="list"]
+    [@b.textfield name="teacherState.code" label="代码" value="${teacherState.code!}" required="true" maxlength="20"/]
+    [@b.textfield name="teacherState.name" label="名称" value="${teacherState.name!}" required="true" maxlength="20"/]
+    [@b.textfield name="teacherState.enName" label="英文名" value="${teacherState.enName!}" maxlength="100"/]
     [@b.startend label="生效失效时间" 
-      name="teacherType.beginOn,teacherType.endOn" required="false,false" 
-      start=teacherType.beginOn end=teacherType.endOn format="date"/]
-    [@b.textfield name="teacherType.remark" label="备注" value="${teacherType.remark!}" maxlength="3"/]
+      name="teacherState.beginOn,teacherState.endOn" required="false,false" 
+      start=teacherState.beginOn end=teacherState.endOn format="date"/]
+    [@b.textfield name="teacherState.remark" label="备注" value="${teacherState.remark!}" maxlength="3"/]
     [@b.formfoot]
       [@b.reset/]&nbsp;&nbsp;[@b.submit value="action.submit"/]
     [/@]
