@@ -17,6 +17,10 @@
     <td class="content">${teacherType.enName!}</td>
   </tr>
   <tr>
+    <td class="title" width="20%">是否兼职</td>
+    <td class="content">${(teacherType.parttime?string("是","否"))!}</td>
+  </tr>
+  <tr>
     <td class="title" width="20%">生效时间</td>
     <td class="content" >${teacherType.beginOn!}</td>
   </tr>

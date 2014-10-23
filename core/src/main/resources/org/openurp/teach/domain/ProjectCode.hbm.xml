@@ -6,9 +6,9 @@
  
      <class name="ProjectCode">
         <cache usage="read-write"/>
-        <id name="id" unsaved-value="null" type="integer"><generator class="code"/></id>
-        <many-to-one name="project"/>
-        <many-to-one name="meta"/>
+        <id name="id" unsaved-value="null" type="long"><generator class="auto_increment"/></id>
+        <many-to-one name="project" not-null="true"/>
+        <many-to-one name="meta" not-null="true"/>
         <property name="codeId" not-null="true"/>
      </class>
        

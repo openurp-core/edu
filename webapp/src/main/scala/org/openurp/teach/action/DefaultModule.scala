@@ -15,6 +15,7 @@ import org.openurp.teach.action.code.TeacherTitleLevelAction
 import org.openurp.teach.action.code.TeacherTypeAction
 import org.openurp.teach.action.code.TeacherUnitTypeAction
 import org.openurp.teach.action.code.TutorTypeAction
+import org.openurp.teach.action.ProjectConfigAction
 
 class DefaultModule extends AbstractBindModule {
 
@@ -24,7 +25,7 @@ class DefaultModule extends AbstractBindModule {
     bind(classOf[TeacherTitleAction],classOf[TeacherTitleLevelAction],classOf[StudyTypeAction],classOf[DegreeAction])
     bind(classOf[StdLabelAction],classOf[StdLabelTypeAction],classOf[StdTypeAction])
     bind(classOf[AdminclassAction],classOf[MajorAction],classOf[DirectionAction]
-    		,classOf[DirectionJournalAction],classOf[ProjectAction],classOf[MajorJournalAction])
-    bind(classOf[ProjectClassroomAction],classOf[ProjectConfigAction])
+    		,classOf[DirectionJournalAction],classOf[ProjectAction],classOf[ProjectCodeAction],classOf[MajorJournalAction])
+    bind(classOf[ProjectClassroomAction],classOf[ProjectConfigAction],classOf[ProjectPropertyAction])
   }
 }

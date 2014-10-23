@@ -8,7 +8,8 @@
   [/@]
   [@b.row]
     [@b.boxcol /]
-    [@b.col width="15%" property="name" title="项目名称"]${projectClassroom.project.name}[/@]
+    [@b.col width="15%" property="name" title="项目名称"][@b.a href="!info?id=${projectClassroom.id}"]${projectClassroom.project.name}[/@][/@]
+    [@b.col width="15%" property="room" title="教室"]${projectClassroom.room.name}[/@]
     [@b.col width="20%" property="departs" title="使用部门"]
     [#list (projectClassroom.departs)! as department]
 	    ${department.name!}

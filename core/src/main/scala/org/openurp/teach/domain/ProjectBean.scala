@@ -98,7 +98,7 @@ class ProjectCode extends LongIdBean {
  *
  */
 class ProjectConfigBean extends ProjectBasedObject[Integer] with ProjectConfig{
-  
+
   	/**
 	 * 项目配置项
 	 */
@@ -111,7 +111,7 @@ class ProjectConfigBean extends ProjectBasedObject[Integer] with ProjectConfig{
  * @author chaostone
  *
  */
-class ProjectPropertyBean extends  IntIdBean with NamedBean with ProjectProperty{
+class ProjectPropertyBean extends  LongIdBean with NamedBean with ProjectProperty{
   
   
 	/**项目配置*/
@@ -119,7 +119,7 @@ class ProjectPropertyBean extends  IntIdBean with NamedBean with ProjectProperty
   	/**值*/
   var value:String=_
   
-  var  properties:Map[String,ProjectProperty]=_
+//  var  properties:Map[String,ProjectProperty]=_
 }
 
 
