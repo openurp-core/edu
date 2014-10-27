@@ -68,16 +68,6 @@ class CourseBean extends LongIdBean with CodedBean with NamedBean with Course {
   var remark: String = _
   /** 是否计算绩点 **/
   var calGp: Boolean = _
-  /** 是否阶段课 **/
-  var stage: Boolean = _
-  /** 分几个阶段上课 **/
-  var stageNum: Integer = _
-  /** 需获得几个成绩才算通过 **/
-  var stageGradeNum: Integer = _
-  /**建议教材**/
-  var suggestTextbook: String = _
-  /**建议参考书**/
-  var suggestRefBooks: String = _
 
   override def compare(other: Course): Int = {
     code.compareTo(other.code)
@@ -222,7 +212,7 @@ class CourseHourBean extends IntIdBean with CourseHour {
   var period: Integer = _
   var weekHour: Integer = _
   var weeks: Integer = _
-  var courseHourType: CourseHourType = _
+  var hourType: CourseHourType = _
 }
 
 

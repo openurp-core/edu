@@ -5,9 +5,9 @@ AdminclassBean.abbreviation=简称
 AdminclassBean.department=院系
 AdminclassBean.direction=方向
 AdminclassBean.effectiveAt=开始日期
-AdminclassBean.grade=年级,形式为yyyy-p
+AdminclassBean.grade=年级
 AdminclassBean.instructors=辅导员
-AdminclassBean.invalidAt=结束日期 结束日期包括在有效期内
+AdminclassBean.invalidAt=结束日期
 AdminclassBean.major=专业
 AdminclassBean.planCount=计划人数
 AdminclassBean.remark=备注
@@ -74,11 +74,11 @@ StdPersonBean.engName=英文名
 StdPersonBean.oldname=曾用名
 StdPersonBean.gender=性别
 StdPersonBean.birthday=出生年月
-StdPersonBean.idType=证件类型 身份证/护照等
+StdPersonBean.idType=证件类型
 StdPersonBean.idcard=身份证
 StdPersonBean.country=国家地区
 StdPersonBean.nation=民族 留学生使用外国民族
-StdPersonBean.politicalAffiliation=政治面貌 不适用留学生
+StdPersonBean.politicalAffiliation=政治面貌
 StdPersonBean.joinOn=入团(党)时间
 #StdPersonBean.maritalStatus=婚姻状况
 StdPersonBean.ancestralAddr=籍贯
@@ -90,7 +90,7 @@ StudentBean.code=学号
 StudentBean.name=姓名
 StudentBean.engName=英文名
 StudentBean.gender=性别
-StudentBean.grade=年级 表示现在年级，不同于入学时间
+StudentBean.grade=年级
 StudentBean.department=管理院系 行政管理院系
 StudentBean.major=专业 当前修读专业
 StudentBean.direction=方向 当前修读方向
@@ -98,14 +98,14 @@ StudentBean.majorDepart=专业所在院系
 StudentBean.type1=学生类别 所在项目内的学生类别
 StudentBean.labels=学生分类标签
 StudentBean.campus=校区
-StudentBean.duration=学制 学习年限（允许0.5年出现）
+StudentBean.duration=学制/学习年限
 StudentBean.registed=是否有学籍
 StudentBean.enrollOn=入学报到日期
 StudentBean.registOn=学籍生效日期
 StudentBean.graduateOn=应毕业时间 预计毕业日期
 StudentBean.adminclass=行政班级
 StudentBean.remark=备注
-StudentBean.studyType=学习形式 全日制/业余/函授
+StudentBean.studyType=学习形式
 StudentBean.journals=状态变化日志
 StudentBean.tutor=导师
 StudentBean.person=基本信息
@@ -194,6 +194,7 @@ ProjectBean.endOn=失效日期
 
 
 ProjectClassroomBean=项目教室配置
+ProjectClassroomBean.project=项目
 ProjectClassroomBean.room=教室
 ProjectClassroomBean.departs=固定使用部门
 #ProjectClassroomBean.reserved=保留时间
@@ -240,7 +241,7 @@ CourseBean.prerequisites=先修课程
 CourseBean.enabled=课程使用状态
 CourseBean.remark=课程备注
 CourseBean.exchange=是否外校交流课程
-
+CourseBean.subcourses=先修课程
 
 CourseGradeBean=课程成绩实现
 CourseGradeBean.beyondSubmit=是否提交
@@ -258,7 +259,7 @@ CourseGradeBean.status=成绩状态
 CourseGradeBean.semester=学期
 CourseGradeBean.std=学生
 CourseGradeBean.courseType=课程类别
-CourseGradeBean.courseTakeType=上课信息 修读类别
+CourseGradeBean.courseTakeType=修读类别
 CourseGradeBean.examGrade=指定的考试成绩
 CourseGradeBean.examGrades=考试成绩
 CourseGradeBean.gp=绩点
@@ -272,8 +273,7 @@ CourseHourBean.period=学时/总课时
 CourseHourBean.weekHour=周课时
 CourseHourBean.weeks=周数
 CourseHourBean.course=课程
-CourseHourBean.courseHoureTyep=课时类别代码
-
+CourseHourBean.hourType=课时类别代码
 
 ExamGradeBean=考试成绩
 ExamGradeBean.beyondSubmit=是否提交
@@ -289,9 +289,3 @@ ExamGradeBean.status=成绩状态
 ExamGradeBean.passed=是否通过
 ExamGradeBean.operator=操作者
 ExamGradeBean.percent=百分比描述
-
-
-
-
-
-

@@ -3,7 +3,6 @@
  xsi:schemaLocation="http://www.hibernate.org/xsd/hibernate-mapping classpath://org/hibernate/hibernate-mapping-4.0.xsd" 
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" package="org.openurp.teach.domain"
   default-access="org.beangle.data.jpa.hibernate.PropertyAccessor">
- 
    
     <class name="CourseGradeBean" entity-name="org.openurp.teach.CourseGrade">
         <cache usage="read-write"/>
