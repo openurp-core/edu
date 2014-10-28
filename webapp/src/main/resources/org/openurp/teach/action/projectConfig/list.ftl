@@ -8,9 +8,9 @@
   [/@]
   [@b.row]
     [@b.boxcol /]
-    [@b.col width="15%" property="name" title="项目名称"]${projectConfig.project.name!}[/@]
-    [@b.col width="20%" property="meta" title="代码元"]${projectConfig.meta.name!}[/@]
-    [@b.col width="20%" property="codeId" title="代码Id"]${projectConfig.codeId!}[/@]
+    [@b.col width="15%" property="name" title="项目名称"][@b.a href="!info?id=${projectConfig.id}"]${projectConfig.project.name!}[/@][/@]
+    [@b.col width="15%" property="id" title="项目配置ID"]${projectConfig.id!}[/@]
+
   [/@]
 [/@]
 [@b.foot/]

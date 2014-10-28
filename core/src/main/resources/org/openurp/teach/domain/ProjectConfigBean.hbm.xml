@@ -6,12 +6,13 @@
  
      <class name="ProjectConfigBean" entity-name="org.openurp.teach.ProjectConfig">
         <cache usage="read-write"/>
-        <id name="id" unsaved-value="null" type="integer"><generator class="code"/></id>
+        <id name="id" unsaved-value="null" type="long"><generator class="auto_increment"/></id>
         <many-to-one name="project" not-null="true"/>
-        <!--<map name="properties" collection-type="seq">
-            <key column="property_id" />
+        <map name="properties" cascade="all">
+            <key column="config_id" />
+            <index column="id" type="long"></index> 
             <one-to-many class="org.openurp.teach.ProjectProperty"/>
-        </map>-->     
+        </map>   
      </class>
        
 </hibernate-mapping>

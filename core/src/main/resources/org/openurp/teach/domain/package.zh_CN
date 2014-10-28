@@ -52,9 +52,9 @@ MajorBean.journals=部门
 MajorBean.abbreviation=简称
 
 MajorJournalBean=专业建设过程
-MajorJournalBean.code=代码
-MajorJournalBean.name=名称
-MajorJournalBean.engName=英文名
+#MajorJournalBean.code=代码
+#MajorJournalBean.name=名称
+#MajorJournalBean.engName=英文名
 MajorJournalBean.major=专业
 MajorJournalBean.disciplineCode=教育部代码
 MajorJournalBean.category=学科门类

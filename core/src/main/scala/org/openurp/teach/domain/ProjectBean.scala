@@ -102,7 +102,7 @@ class ProjectConfigBean extends ProjectBasedObject[Integer] with ProjectConfig{
   	/**
 	 * 项目配置项
 	 */
-  var properties:Map[String,ProjectProperty]=_
+  var properties:java.util.Map[Long,ProjectProperty]=_
 }
 
 

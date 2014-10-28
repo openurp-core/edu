@@ -5,9 +5,9 @@
   <tr>
     <td class="index_view">
     [@b.form name="projectPropertySearchForm" action="!search" target="projectPropertylist" title="ui.searchForm" theme="search"]
-      
-      [@b.textfields names="projectProperty.name;名称"/]
-      <input type="hidden" name="orderBy" value="projectProperty.name"/>
+      [@b.textfields names="projectProperty.config.project.name;项目名称"/]
+      [@b.textfields names="projectProperty.config.id;项目配置id"/]
+      <input type="hidden" name="orderBy" value="projectProperty.config.id"/>
     [/@]
     </td>
     <td class="index_content">[@b.div id="projectPropertylist" href="!search?orderBy=projectProperty.id"/]

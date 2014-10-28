@@ -8,7 +8,7 @@
   [/@]
   [@b.row]
     [@b.boxcol /]
-    [@b.col width="15%" property="name" title="项目名称"]${projectCode.project.name!}[/@]
+    [@b.col width="15%" property="name" title="项目名称"][@b.a href="!info?id=${projectCode.id}"]${projectCode.project.name!}[/@][/@]
     [@b.col width="20%" property="meta" title="代码元"]${projectCode.meta.name!}[/@]
     [@b.col width="20%" property="codeId" title="代码Id"]${projectCode.codeId!}[/@]
   [/@]

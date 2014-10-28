@@ -13,9 +13,9 @@
         <bag name="journals" collection-type="seq">
             <key column="direction_id" />
             <one-to-many  class="org.openurp.teach.DirectionJournal"/>
-        </bag>
-        <property name="effectiveAt"/>
-        <property name="invalidAt"/>
+        </bag> 
+        <property name="beginOn"/>
+        <property name="endOn"/>
         <property name="remark" length="500"/>
         <many-to-one name="major"/>
     </class>

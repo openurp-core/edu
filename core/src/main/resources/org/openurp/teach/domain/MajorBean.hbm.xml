@@ -24,8 +24,8 @@
             <key column="major_id" />
             <one-to-many class="org.openurp.teach.MajorJournal"/>
         </bag>
-        <property name="effectiveAt"/>
-        <property name="invalidAt"/>
+        <property name="beginOn"/>
+        <property name="endOn"/>
         <property name="remark" length="30"/>
         <property name="abbreviation"/>
     </class>

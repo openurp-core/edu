@@ -1,0 +1,20 @@
+[#ftl]
+[@b.head/]
+[@b.toolbar title="新建专业方向"]bar.addBack();[/@]
+[@b.tabs]
+  [@b.form action="!save" theme="list"]
+    [@b.textfield name="studentJournal.code" label="代码" value="${studentJournal.code!}" required="true" maxlength="20"/]
+    [@b.textfield name="studentJournal.name" label="名称" value="${studentJournal.name!}" required="true" maxlength="20"/]
+    [@b.textfield name="studentJournal.engName" label="英文名" value="${studentJournal.engName!}" maxlength="100"/]
+    [@b.startend label="生效失效日期" 
+      name="studentJournal.beginOn,studentJournal.endOn" required="false,false" 
+      start=studentJournal.beginOn end=studentJournal.endOn format="date"/]
+    [@b.textfield name="studentJournal.remark" label="备注" value="${studentJournal.remark!}" maxlength="30"/]
+    [@b.select name="studentJournal.major.id" label="专业" value="${(studentJournal.major.id)!}" required="true" 
+               style="width:200px;" items=majors option="id,name" empty="..."/]
+    [@b.formfoot]
+      [@b.reset/]&nbsp;&nbsp;[@b.submit value="action.submit"/]
+    [/@]
+  [/@]
+[/@]
+[@b.foot/]

@@ -12,6 +12,10 @@
     <td class="title" width="20%">代码元</td>
     <td class="content">${projectCode.meta.name!}</td>
   </tr>
+  <tr>
+    <td class="title" width="20%">代码id</td>
+    <td class="content">${projectCode.codeId!}</td>
+  </tr>
 </table>
 
 [@b.foot/]

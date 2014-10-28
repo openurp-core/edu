@@ -6,7 +6,7 @@
     [@b.textfield name="degree.code" label="代码" value="${degree.code!}" required="true" maxlength="20"/]
     [@b.textfield name="degree.name" label="名称" value="${degree.name!}" required="true" maxlength="20"/]
     [@b.textfield name="degree.enName" label="英文名" value="${degree.enName!}" maxlength="100"/]
-    [@b.startend label="生效失效时间" 
+    [@b.startend label="生效失效日期" 
       name="degree.beginOn,degree.endOn" required="false,false" 
       start=degree.beginOn end=degree.endOn format="date"/]
     [@b.textfield name="degree.remark" label="备注" value="${degree.remark!}" maxlength="30"/]

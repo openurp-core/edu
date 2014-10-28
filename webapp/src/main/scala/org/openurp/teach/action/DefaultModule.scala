@@ -24,8 +24,8 @@ class DefaultModule extends AbstractBindModule {
     bind(classOf[DisciplineAction],classOf[DisciplineCatalogAction])
     bind(classOf[TeacherTitleAction],classOf[TeacherTitleLevelAction],classOf[StudyTypeAction],classOf[DegreeAction])
     bind(classOf[StdLabelAction],classOf[StdLabelTypeAction],classOf[StdTypeAction])
-    bind(classOf[AdminclassAction],classOf[MajorAction],classOf[DirectionAction]
-    		,classOf[DirectionJournalAction],classOf[ProjectAction],classOf[ProjectCodeAction],classOf[MajorJournalAction])
-    bind(classOf[ProjectClassroomAction],classOf[ProjectConfigAction],classOf[ProjectPropertyAction])
+    bind(classOf[AdminclassAction],classOf[MajorAction],classOf[DirectionAction],classOf[DirectionJournalAction],classOf[MajorJournalAction])
+    bind(classOf[ProjectAction],classOf[ProjectCodeAction],classOf[ProjectClassroomAction],classOf[ProjectConfigAction],classOf[ProjectPropertyAction])
+    bind(classOf[StdPersonAction],classOf[StudentAction],classOf[StudentJournalAction],classOf[TeacherAction],classOf[TeacherJournalAction])
   }
 }

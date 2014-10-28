@@ -4,7 +4,7 @@
 [@b.tabs]
   [@b.form action="!save" theme="list"]
 
-    [@b.select name="projectClassroom.project.id" label="项目名称" value="${(projectClassroom.project.name)!}" required="true" 
+    [@b.select name="projectClassroom.project.id" label="项目名称" value="${(projectClassroom.project.id)!}" required="true" 
                style="width:200px;" items=projects option="id,name" empty="..."/]
     [@b.select name="projectClassroom.room.id" label="教室" value="${(projectClassroom.room.id)!}" required="true" 
                style="width:200px;" items=rooms option="id,name" empty="..."/]

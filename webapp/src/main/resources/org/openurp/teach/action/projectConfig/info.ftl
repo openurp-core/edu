@@ -9,8 +9,8 @@
     <td class="content">${projectConfig.project.name!}</td>
   </tr>
   <tr>
-    <td class="title" width="20%">代码元</td>
-    <td class="content">${projectConfig.meta.name!}</td>
+    <td class="title" width="20%">项目配置id</td>
+    <td class="content">${projectConfig.id!}</td>
   </tr>
 </table>
 
