@@ -23,13 +23,13 @@ CourseTakeTypeBean.exam=是否考核
 
 
 CourseTypeBean=课程类别
-CourseTypeBean.theoretical=是否理论课:true:理论课 false:实践课
+CourseTypeBean.theoretical=是否理论课
 
 GradeTypeBean=成绩类型
 GradeTypeBean.shortName=简名
 
 ScoreMarkStyleBean=成绩记录方式
-ScoreMarkStyleBean.numStyle=是否为数字类型 是否以数字方式显示成绩，默认为false表示以等级方式显示成绩
+ScoreMarkStyleBean.numStyle=是否为数字类型
 
 StdStatusBean=学生学籍状态
 

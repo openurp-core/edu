@@ -80,15 +80,13 @@ class ProjectClassroomBean extends ProjectBasedObject[java.lang.Long] with Proje
  * 
  * @author chaostone
  */
-class ProjectCode extends LongIdBean {
+class ProjectCodeBean extends LongIdBean {
   	/**项目*/
   var project:Project=_
   	/**代码元*/
   var meta:CodeMeta=_
   	/**代码ID*/
   var codeId:Integer=_
-  
-  
 }
 
 

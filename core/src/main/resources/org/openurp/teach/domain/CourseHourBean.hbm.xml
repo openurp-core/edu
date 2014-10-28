@@ -10,7 +10,7 @@
         <property name="period"/>
         <property name="weekHour"/>
         <property name="weeks"/>
-        <many-to-one name="courseHourType"  not-null="true"/>       
+        <many-to-one name="hourType"  not-null="true"/>       
         <many-to-one name="course"  not-null="true"/>
     </class>
     

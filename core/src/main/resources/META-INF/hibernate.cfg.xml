@@ -11,9 +11,9 @@
     <mapping resource="org/openurp/teach/domain/code/exam.hbm.xml"/>
     <mapping resource="org/openurp/teach/domain/code/grade.hbm.xml"/>
     <mapping resource="org/openurp/teach/domain/AdminclassBean.hbm.xml"/>
-    <mapping resource="org/openurp/teach/domain/Course.hbm.xml"/>
+    <mapping resource="org/openurp/teach/domain/CourseBean.hbm.xml"/>
     <mapping resource="org/openurp/teach/domain/CourseGrade.hbm.xml"/>
-    <mapping resource="org/openurp/teach/domain/CourseHour.hbm.xml"/>
+    <mapping resource="org/openurp/teach/domain/CourseHourBean.hbm.xml"/>
     <mapping resource="org/openurp/teach/domain/DirectionBean.hbm.xml"/>
     <mapping resource="org/openurp/teach/domain/DirectionJournalBean.hbm.xml"/>
     <mapping resource="org/openurp/teach/domain/ExamGrade.hbm.xml"/>
@@ -22,7 +22,7 @@
     <mapping resource="org/openurp/teach/domain/MajorJournalBean.hbm.xml"/>
     <mapping resource="org/openurp/teach/domain/ProjectBean.hbm.xml"/>
     <mapping resource="org/openurp/teach/domain/ProjectClassroomBean.hbm.xml"/>
-    <mapping resource="org/openurp/teach/domain/ProjectCode.hbm.xml"/>
+    <mapping resource="org/openurp/teach/domain/ProjectCodeBean.hbm.xml"/>
     <mapping resource="org/openurp/teach/domain/ProjectConfigBean.hbm.xml"/>
     <mapping resource="org/openurp/teach/domain/ProjectPropertyBean.hbm.xml"/>
     <mapping resource="org/openurp/teach/domain/StudentBean.hbm.xml"/>
