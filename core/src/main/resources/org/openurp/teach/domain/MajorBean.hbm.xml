@@ -11,13 +11,13 @@
         <property name="name" length="20" unique="true" not-null="true"/>
         <many-to-one name="project"/>
         <set name="directions" collection-type="set" inverse="true">
-            <key column="direction_id" />
+            <key column="major_id" />
             <one-to-many class="org.openurp.teach.Direction"/>
         </set>
        <many-to-one name="category"/>
-       <set name="educations" collection-type="set" inverse="true">
+       <set name="educations" collection-type="set" >
             <key column="major_id" />
-            <one-to-many class="org.openurp.base.code.Education"/>
+            <many-to-many class="org.openurp.base.code.Education"/>
         </set>
         <property name="duration"/>
         <bag name="journals" collection-type="seq">
