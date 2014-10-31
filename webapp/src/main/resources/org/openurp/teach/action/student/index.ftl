@@ -1,6 +1,6 @@
 [#ftl]
 [@b.head/]
-[@b.toolbar title="专业方向"/]
+[@b.toolbar title="学籍信息"/]
 <table class="indexpanel">
   <tr>
     <td class="index_view">

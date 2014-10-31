@@ -35,7 +35,7 @@ import org.openurp.teach.code.StudyType
 class StudentBean extends  EducationBasedObject[java.lang.Long] with CodedBean with NamedBean with Student {
 
   /** 英文名 */
-  var engName: String = _
+  var enName: String = _
   /** 性别 */
   var gender: Gender = _
   /** 年级 表示现在年级，不同于入学时间 */
@@ -88,7 +88,7 @@ class StudentBean extends  EducationBasedObject[java.lang.Long] with CodedBean w
 class StdPersonBean extends LongIdBean with CodedBean with NamedBean with StdPerson {
 
   /** 英文名 */
-  var engName: String = _
+  var enName: String = _
   /** 曾用名 */
   var oldname: String = _
   /** 性别 */

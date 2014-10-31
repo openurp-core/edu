@@ -1,6 +1,6 @@
 [#ftl]
 [@b.head/]
-[@b.toolbar title="修改专业方向"]bar.addBack();[/@]
+[@b.toolbar title="修改教师日志信息"]bar.addBack();[/@]
 [@b.tabs]
   [@b.tab label="基本信息"]
   [@b.form action="!update?id=${teacherJournal.id}" theme="list"]

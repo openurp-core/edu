@@ -38,6 +38,11 @@
         <property name="minor" />
         <property name="beginOn"/>
         <property name="endOn"/>
+         <map name="properties">
+            <key column="project_id" />
+            <map-key column="name" type="string" />
+            <element column="value" type="string"/>
+        </map>   
     </class>
     
        

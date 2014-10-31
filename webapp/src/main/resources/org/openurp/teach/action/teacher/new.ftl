@@ -1,6 +1,6 @@
 [#ftl]
 [@b.head/]
-[@b.toolbar title="新建专业方向"]bar.addBack();[/@]
+[@b.toolbar title="新建教师信息"]bar.addBack();[/@]
 [@b.tabs]
   [@b.form action="!save" theme="list"]
     [@b.textfield name="teacher.code" label="代码" value="${teacher.code!}" required="true" maxlength="20"/]

@@ -9,7 +9,7 @@
         <id name="id" unsaved-value="null" type="integer"><generator class="code"/></id>
         <property name="code" length="32" unique="true" not-null="true"/>
         <property name="name" length="222" unique="true" not-null="true"/>
-        <property name="engName" length="300"/>
+        <property name="enName" length="300"/>
         <many-to-one name="education"  />
         <many-to-one name="category"  />
         <property name="credits"/>

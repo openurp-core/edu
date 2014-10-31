@@ -12,6 +12,7 @@ import org.beangle.data.model.bean.NamedBean
 import org.beangle.data.model.bean.UpdatedBean
 import java.util.Date
 import org.openurp.teach.Direction
+import org.beangle.data.model.bean.TemporalOnBean
 
 /**
  * 学生行政班级信息
@@ -19,7 +20,7 @@ import org.openurp.teach.Direction
  * @author chaostone
  * @since 2005-9-12
  */
-class AdminclassBean extends EducationBasedObject[Integer] with CodedBean with NamedBean with UpdatedBean with Adminclass {
+class AdminclassBean extends EducationBasedObject[Integer] with CodedBean with NamedBean with UpdatedBean  with TemporalOnBean with Adminclass {
   /** 简称 */
   var abbreviation: String = _
   /**备注*/
@@ -37,9 +38,9 @@ class AdminclassBean extends EducationBasedObject[Integer] with CodedBean with N
   /** 计划人数 */
   var planCount: Int = _
   /** 开始日期 */
-  var effectiveAt: Date = _
+//  var effectiveAt: Date = _
   /** 结束日期 结束日期包括在有效期内 */
-  var invalidAt: Date = _
+//  var invalidAt: Date = _
   /** 学籍有效人数 */
   var stdCount: Int = _
   /** 辅导员 */

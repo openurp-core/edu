@@ -24,7 +24,7 @@ import org.openurp.teach.Project
 class MajorBean extends IntIdBean with CodedBean with NamedBean  with TemporalOnBean with Major {
 
   /** 专业英文名 */
-  var engName: String = _
+  var enName: String = _
   /** 备注 */
   var remark: String = _
   /** 生效时间 */
@@ -69,8 +69,6 @@ class MajorBean extends IntIdBean with CodedBean with NamedBean  with TemporalOn
  *
  */
 class MajorJournalBean extends IntIdBean with TemporalOnBean  with MajorJournal {
-  /** 英文名 */
-//  var engName: String = _
   /**专业*/
   var major: Major = _
   /** 教育部代码 */

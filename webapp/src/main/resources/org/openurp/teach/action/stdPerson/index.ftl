@@ -1,13 +1,12 @@
 [#ftl]
 [@b.head/]
-[@b.toolbar title="专业方向"/]
+[@b.toolbar title="学生基本信息"/]
 <table class="indexpanel">
   <tr>
     <td class="index_view">
     [@b.form name="stdPersonSearchForm" action="!search" target="stdPersonlist" title="ui.searchForm" theme="search"]
-      [@b.textfields names="stdPerson.code;代码"/]
-      [@b.textfields names="stdPerson.name;名称"/]
-      [@b.textfields names="stdPerson.major.name;专业"/]
+      [@b.textfields names="stdPerson.code;人员编码"/]
+      [@b.textfields names="stdPerson.name;姓名"/]
       <input type="hidden" name="orderBy" value="stdPerson.name"/>
     [/@]
     </td>

@@ -1,15 +1,15 @@
 [#ftl]
 [@b.head/]
-[@b.toolbar title="专业方向信息"]
+[@b.toolbar title="学籍信息"]
   bar.addBack("${b.text("action.back")}");
 [/@]
 <table class="infoTable">
   <tr>
-    <td class="title" width="20%">代码</td>
+    <td class="title" width="20%">学号</td>
     <td class="content">${student.code}</td>
   </tr>
   <tr>
-    <td class="title" width="20%">名称</td>
+    <td class="title" width="20%">姓名</td>
     <td class="content">${student.name}</td>
   </tr>
   <tr>
@@ -17,16 +17,16 @@
     <td class="content">${student.enName!}</td>
   </tr>
   <tr>
-    <td class="title" width="20%">生效时间</td>
-    <td class="content" >${student.beginOn!}</td>
+    <td class="title" width="20%">性别</td>
+    <td class="content" >${student.gender.name!}</td>
   </tr>
   <tr>
-    <td class="title" width="20%">失效时间</td>
-    <td class="content" >${student.endOn!}</td>
+    <td class="title" width="20%">年级</td>
+    <td class="content" >${student.grade!}</td>
   </tr>
   <tr>
-    <td class="title" width="20%">备注</td>
-    <td class="content">${student.remark!}</td>
+    <td class="title" width="20%">行政管理院系</td>
+    <td class="content">${student.department.name!}</td>
   </tr>
   <tr>
     <td class="title" width="20%">专业</td>

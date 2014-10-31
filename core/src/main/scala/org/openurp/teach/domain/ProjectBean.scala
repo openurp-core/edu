@@ -51,28 +51,36 @@ class ProjectBean extends IntIdBean with NamedBean with TemporalOnBean with Proj
  var description:String=_
  	/** 是否辅修 */
  var minor:Boolean=_
-// 	/** 生效时间 */
-// var effectiveAt:Date=_
-//	/** 失效时间 */
-// var invalidAt : Date=_
- 
- 
+
+ var properties = new collection.mutable.HashMap[String,String]
 
 }
-
-/**
- * 项目教室配置
- * @author chaostone
- *
- */
-class ProjectClassroomBean extends ProjectBasedObject[java.lang.Long] with ProjectClassroom {
-  	/** 教室 */
-  var room:Room=_
-  	/** 固定使用部门 */
-  var departs:collection.mutable.Set[Department]= new collection.mutable.HashSet[Department]
-  /** 保留时间 */
-//  var reserved:List[TimeUnit]=_
-} 
+//
+///**
+// * 项目配置
+// * @author chaostone
+// *
+// */
+//class ProjectConfigBean extends ProjectBasedObject[Integer] with ProjectConfig{
+//
+//  	/**
+//	 * 项目配置项
+//	 */
+//  var properties:java.util.Map[Long,ProjectProperty]=_
+//}
+//
+//
+///**
+// * 项目配置属性
+// * @author chaostone
+// *
+// */
+//class ProjectPropertyBean extends  LongIdBean with NamedBean with ProjectProperty{
+//	/**项目配置*/
+//  var config:ProjectConfig=_
+//  	/**值*/
+//  var value:String=_
+//}
 
 /**
  * 项目基础代码配置
@@ -89,35 +97,17 @@ class ProjectCodeBean extends LongIdBean {
   var codeId:Integer=_
 }
 
-
 /**
- * 项目配置
+ * 项目教室配置
  * @author chaostone
  *
  */
-class ProjectConfigBean extends ProjectBasedObject[Integer] with ProjectConfig{
-
-  	/**
-	 * 项目配置项
-	 */
-  var properties:java.util.Map[Long,ProjectProperty]=_
-}
-
-
-/**
- * 项目配置属性
- * @author chaostone
- *
- */
-class ProjectPropertyBean extends  LongIdBean with NamedBean with ProjectProperty{
-  
-  
-	/**项目配置*/
-  var config:ProjectConfig=_
-  	/**值*/
-  var value:String=_
-  
-//  var  properties:Map[String,ProjectProperty]=_
-}
-
+class ProjectClassroomBean extends ProjectBasedObject[java.lang.Long] with ProjectClassroom {
+  	/** 教室 */
+  var room:Room=_
+  	/** 固定使用部门 */
+  var departs:collection.mutable.Set[Department]= new collection.mutable.HashSet[Department]
+  /** 保留时间 */
+//  var reserved:List[TimeUnit]=_
+} 
 

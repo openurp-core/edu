@@ -20,7 +20,7 @@ import scala.collection.mutable.Buffer
  */
 class DirectionBean extends IntIdBean with CodedBean with NamedBean  with TemporalOnBean with Direction {
 	/** 专业方向英文名 */
-  var engName:String=_
+  var enName:String=_
   /** 备注 */
   var remark:String=_
   	/** 生效时间 */

@@ -26,7 +26,7 @@ import org.openurp.teach.code.{CourseAbilityRate, CourseCategory, CourseHourType
 class CourseBean extends LongIdBean with CodedBean with NamedBean with Course {
 
   /**课程英文名*/
-  var engName: String = _
+  var enName: String = _
   /** 学历层次 */
   var education: Education = _
   /**课程种类代码*/

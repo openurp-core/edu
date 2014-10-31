@@ -11,7 +11,7 @@
  <!-- 
         <property name="code" length="30" unique="true" not-null="true"/>
         <property name="name" length="50" unique="true" not-null="true"/>
-        <property name="engName" length="255" unique="true" not-null="true"/>
+        <property name="enName" length="255" unique="true" not-null="true"/>
  -->
         <many-to-one name="major"/>
         <property name="disciplineCode" length="50" unique="true" not-null="true"/>
