@@ -40,9 +40,9 @@ class CourseBean extends LongIdBean with CodedBean with NamedBean with Course {
   /** 分类课时 */
   var hours: collection.mutable.Seq[CourseHour] = _
   /** 周数*/
-  var weeks: Int = _
+  var weeks: Integer = _
   /**周课时*/
-  var weekHour: Integer = _
+  var weekHour: Int = _
   /**院系*/
   var department: Department = _
   /** 设立时间 */

@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
   <parent>
-    <groupId>org.openurp.teach</groupId>
-    <artifactId>openurp-teach-parent</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <groupId>org.openurp</groupId>
+    <artifactId>openurp-webapp-parent</artifactId>
+    <version>0.0.1</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.openurp.teach</groupId>
   <artifactId>openurp-teach-webapp</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
   <name>Openurp Base Webapp</name>
 
@@ -15,24 +16,19 @@
     <dependency>
       <groupId>org.openurp.platform</groupId>
       <artifactId>openurp-platform-web</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.beangle.webmvc</groupId>
-      <artifactId>beangle-webmvc-config-plugin</artifactId>
+      <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>org.openurp.base</groupId>
       <artifactId>openurp-base-core</artifactId>
       <version>${project.version}</version>
+      <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.openurp.teach</groupId>
       <artifactId>openurp-teach-core</artifactId>
       <version>${project.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>javax.servlet-api</artifactId>
+      <scope>compile</scope>
     </dependency>
   </dependencies>
 </project>

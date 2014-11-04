@@ -3,34 +3,23 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.openurp</groupId>
-    <artifactId>openurp-module</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <artifactId>openurp-parent</artifactId>
+    <version>0.0.1</version>
   </parent>
   <groupId>org.openurp.teach</groupId>
-  <artifactId>openurp-teach-parent</artifactId>
+  <artifactId>openurp-teach-aggregate</artifactId>
   <packaging>pom</packaging>
-  <name>OpenURP Teach Parent</name>
+  <name>OpenURP Teach Aggregate</name>
   
   <properties>
     <bundle.symbolicName>org.openurp.teach.parent</bundle.symbolicName>
     <bundle.namespace>org.openurp.teach</bundle.namespace>
   </properties>
+
   <modules>
     <module>core</module>
     <module>ws</module>
-   
     <module>webapp</module>
-
   </modules>
 
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>org.openurp.teach</groupId>
-        <artifactId>openurp-teach-core</artifactId>
-        <version>${project.version}</version>
-        <scope>test</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
 </project>

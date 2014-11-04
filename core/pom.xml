@@ -2,12 +2,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>org.openurp.teach</groupId>
-    <artifactId>openurp-teach-parent</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <groupId>org.openurp</groupId>
+    <artifactId>openurp-parent</artifactId>
+    <version>0.0.1</version>
   </parent>
   <groupId>org.openurp.teach</groupId>
   <artifactId>openurp-teach-core</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>OpenURP Teach Core</name>
   
@@ -18,6 +19,15 @@
 
   <dependencies>
     <dependency>
+      <groupId>org.beangle.data</groupId>
+      <artifactId>beangle-data-jpa</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.openurp.platform</groupId>
+      <artifactId>openurp-platform-kernel</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
       <groupId>org.openurp.teach</groupId>
       <artifactId>openurp-teach-api</artifactId>
       <version>${project.version}</version>
@@ -26,7 +36,7 @@
       <groupId>org.openurp.base</groupId>
       <artifactId>openurp-base-core</artifactId>
       <version>${project.version}</version>
-      <scope>test</scope>
+      <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.beangle.data</groupId>

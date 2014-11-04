@@ -41,9 +41,9 @@
             <key column="course_id" />
             <many-to-many column="subcourse_id" class="org.openurp.teach.Course"/>
         </set>
-        <property name="enabled"/>
+        <property name="enabled" not-null="true"/>
         <property name="remark" length="500"/>
-        <property name="calGp"/>
+        <property name="calGp" not-null="true"/>
     </class>
     
 </hibernate-mapping>
