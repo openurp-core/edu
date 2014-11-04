@@ -23,15 +23,10 @@ class DirectionBean extends IntIdBean with CodedBean with NamedBean  with Tempor
   var enName:String=_
   /** 备注 */
   var remark:String=_
-  	/** 生效时间 */
-//  var effectiveAt:Date=_
-	/** 失效时间 */
-//  var invalidAt:Date=_
     /** 所属专业 */
   var major:Major=_
   /** 部门 */
   var journals:Buffer[DirectionJournal]=new collection.mutable.ListBuffer[DirectionJournal]
-//  List[DirectionJournal]=_
 }
 
 
@@ -43,10 +38,6 @@ class DirectionBean extends IntIdBean with CodedBean with NamedBean  with Tempor
    var education:Education=_
    /**部门*/
    var depart:Department=_
-     	/** 生效时间 */
-//  var beginOn:Date=_
-	/** 失效时间 */
-//  var endOn:Date=_
   /**备注*/
   var remark:String=_
  }

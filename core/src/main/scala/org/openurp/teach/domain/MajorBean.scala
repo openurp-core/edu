@@ -27,10 +27,6 @@ class MajorBean extends IntIdBean with CodedBean with NamedBean  with TemporalOn
   var enName: String = _
   /** 备注 */
   var remark: String = _
-  /** 生效时间 */
-//  var beginOn: Date = _
-  /** 失效时间 */
-//  var endOn: Date = _
   /** 项目 */
   var project: Project = _
   /** 获得方向 */
@@ -39,12 +35,10 @@ class MajorBean extends IntIdBean with CodedBean with NamedBean  with TemporalOn
   var category: DisciplineCategory = _
   /** 培养层次 */
   var educations:collection.mutable.Set[Education]=new collection.mutable.HashSet[Education]
-//  Set[Education] = _
   /** 修读年限 */
   var duration: Float = _
   /** 部门 */
   var journals:Buffer[MajorJournal]=new collection.mutable.ListBuffer[MajorJournal]
-//  List[MajorJournal] = _
   
   /** 简称 */
   var abbreviation: String = _
@@ -57,7 +51,7 @@ class MajorBean extends IntIdBean with CodedBean with NamedBean  with TemporalOn
     departments(new Date)
   }
 
-  def departments(date: Date): Set[Department] = {
+  def departments(date: Date):Set[Department] = {
     journals.filter(j => date.after(j.beginOn) && (null == j.endOn || date.before(j.endOn)))
       .map(j => j.depart).toSet
   }
@@ -81,10 +75,6 @@ class MajorJournalBean extends IntIdBean with TemporalOnBean  with MajorJournal 
   var education: Education = _
   /**部门*/
   var depart: Department = _
-  /** 生效时间 */
-//  var effectiveAt: Date = _
-  /** 失效时间 */
-//  var invalidAt: Date = _
   /**备注*/
   var remark: String = _
 

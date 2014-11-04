@@ -159,14 +159,14 @@ class StudentScope extends Component {
   /**项目*/
   var project: Project = _
   /**培养层次集合*/
-  var educations: Set[Education] = _
+  var educations: collection.mutable.Set[Education] = _
   /**学生类别集合*/
-  var stdTypes: Set[StdType] = _
+  var stdTypes: collection.mutable.Set[StdType] = _
   /**部门集合*/
-  var departments: Set[Department] = _
+  var departments: collection.mutable.Set[Department] = _
   /**专业集合*/
-  var majors: Set[Major] = _
+  var majors: collection.mutable.Set[Major] = _
   /**专业方向集合*/
-  var directions: Set[Direction] = _
+  var directions: collection.mutable.Set[Direction] = _
 
 }

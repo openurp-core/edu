@@ -38,7 +38,7 @@ class CourseBean extends LongIdBean with CodedBean with NamedBean with Course {
   /**课程类型*/
   var courseType: CourseType = _
   /** 分类课时 */
-  var hours: Seq[CourseHour] = _
+  var hours: collection.mutable.Seq[CourseHour] = _
   /** 周数*/
   var weeks: Int = _
   /**周课时*/
@@ -53,15 +53,15 @@ class CourseBean extends LongIdBean with CodedBean with NamedBean with Course {
   var markStyle: ScoreMarkStyle = _
 
   /** 能力等级 */
- var  abilityRates:Set[CourseAbilityRate]=_
+ var  abilityRates:collection.mutable.Set[CourseAbilityRate]=_
   /**针对专业*/
-  var majors: Set[Major] = _
+  var majors: collection.mutable.Set[Major] = _
   /**排除专业*/
-  var xmajors: Set[Major] = _
+  var xmajors: collection.mutable.Set[Major] = _
   /**先修课程*/
-  var prerequisites: Set[Course] = _
+  var prerequisites: collection.mutable.Set[Course] = _
   /** 小项课程(板块课) */
-  var subcourses: Set[Course] = _
+  var subcourses: collection.mutable.Set[Course] = _
   /**课程使用状态*/
   var enabled: Boolean = _
   /**课程备注*/
