@@ -13,8 +13,8 @@
     <td class="content">${adminclass.name}</td>
   </tr>
   <tr>
-    <td class="title" width="20%">英文名</td>
-    <td class="content">${adminclass.enName!}</td>
+    <td class="title" width="20%">简称</td>
+    <td class="content">${adminclass.abbreviation!}</td>
   </tr>
   <tr>
     <td class="title" width="20%">生效时间</td>

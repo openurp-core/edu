@@ -17,6 +17,7 @@
                style="width:200px;" items=directions option="id,name" empty="..."/]
     [@b.select name="adminclass.stdType.id" label="学生类别" value="${(adminclass.stdType.id)!}" required="true" 
                style="width:200px;" items=stdTypes option="id,name" empty="..."/]
+
     [@b.select2 label="辅导员" name1st="instructorsId1st" name2nd="instructorsId2nd" 
       items1st=instructors items2nd= adminclass.instructors
       option="id,name"/]

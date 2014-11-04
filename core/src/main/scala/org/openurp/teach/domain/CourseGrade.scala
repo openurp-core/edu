@@ -2,11 +2,27 @@ package org.openurp.teach.domain
 
 import java.util.Date
 
-import org.beangle.data.model.bean.{CodedBean, IntIdBean, LongIdBean, NamedBean}
-import org.openurp.base.{Department, Semester}
+import org.beangle.data.model.bean.CodedBean
+import org.beangle.data.model.bean.IntIdBean
+import org.beangle.data.model.bean.LongIdBean
+import org.beangle.data.model.bean.NamedBean
+import org.openurp.base.Department
+import org.openurp.base.Semester
 import org.openurp.base.code.Education
-import org.openurp.teach.{Course, CourseGrade, CourseHour, ExamGrade, Grade, Major, Student}
-import org.openurp.teach.code.{CourseAbilityRate, CourseCategory, CourseHourType, CourseTakeType, CourseType, ExamMode, ScoreMarkStyle}
+import org.openurp.teach.Course
+import org.openurp.teach.CourseGrade
+import org.openurp.teach.CourseHour
+import org.openurp.teach.ExamGrade
+import org.openurp.teach.Grade
+import org.openurp.teach.Major
+import org.openurp.teach.Student
+import org.openurp.teach.code.CourseAbilityRate
+import org.openurp.teach.code.CourseCategory
+import org.openurp.teach.code.CourseHourType
+import org.openurp.teach.code.CourseTakeType
+import org.openurp.teach.code.CourseType
+import org.openurp.teach.code.ExamMode
+import org.openurp.teach.code.ScoreMarkStyle
 
 /**
  * 课程基本信息 </p>
@@ -38,7 +54,7 @@ class CourseBean extends LongIdBean with CodedBean with NamedBean with Course {
   /**课程类型*/
   var courseType: CourseType = _
   /** 分类课时 */
-  var hours: collection.mutable.Seq[CourseHour] = _
+  var hours: collection.mutable.Seq[CourseHour] = new collection.mutable.ListBuffer[CourseHour]
   /** 周数*/
   var weeks: Integer = _
   /**周课时*/
@@ -53,15 +69,15 @@ class CourseBean extends LongIdBean with CodedBean with NamedBean with Course {
   var markStyle: ScoreMarkStyle = _
 
   /** 能力等级 */
- var  abilityRates:collection.mutable.Set[CourseAbilityRate]=_
+ var  abilityRates:collection.mutable.Set[CourseAbilityRate]=new collection.mutable.HashSet[CourseAbilityRate]
   /**针对专业*/
-  var majors: collection.mutable.Set[Major] = _
+  var majors: collection.mutable.Set[Major] = new collection.mutable.HashSet[Major]
   /**排除专业*/
-  var xmajors: collection.mutable.Set[Major] = _
+  var xmajors: collection.mutable.Set[Major] = new collection.mutable.HashSet[Major]
   /**先修课程*/
-  var prerequisites: collection.mutable.Set[Course] = _
+  var prerequisites: collection.mutable.Set[Course] = new collection.mutable.HashSet[Course]
   /** 小项课程(板块课) */
-  var subcourses: collection.mutable.Set[Course] = _
+  var subcourses: collection.mutable.Set[Course] = new collection.mutable.HashSet[Course]
   /**课程使用状态*/
   var enabled: Boolean = _
   /**课程备注*/

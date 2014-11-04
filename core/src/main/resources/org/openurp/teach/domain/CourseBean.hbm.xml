@@ -6,7 +6,7 @@
  
     <class name="CourseBean" entity-name="org.openurp.teach.Course">
         <cache usage="read-write"/>
-        <id name="id" unsaved-value="null" type="integer"><generator class="code"/></id>
+        <id name="id" unsaved-value="null" type="long"><generator class="code"/></id>
         <property name="code" length="32" unique="true" not-null="true"/>
         <property name="name" length="222" unique="true" not-null="true"/>
         <property name="enName" length="300"/>
@@ -15,7 +15,7 @@
         <property name="credits"/>
         <property name="period"/>
         <bag name="hours" collection-type="seq">
-            <key column="courseHour_id" />
+            <key column="course_id" />
             <one-to-many  class="org.openurp.teach.CourseHour"/>
         </bag>
         <property name="weekHour"/>

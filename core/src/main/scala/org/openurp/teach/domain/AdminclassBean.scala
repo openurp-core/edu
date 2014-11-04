@@ -44,9 +44,9 @@ class AdminclassBean extends EducationBasedObject[Integer] with CodedBean with N
   /** 学籍有效人数 */
   var stdCount: Int = _
   /** 辅导员 */
-  var instructors: collection.mutable.Seq[Teacher] = _
+  var instructors: collection.mutable.Seq[Teacher] = new collection.mutable.ListBuffer[Teacher]
   /** 班导师 */
-  var tutors: collection.mutable.Seq[Teacher] = _
+  var tutors: collection.mutable.Seq[Teacher] = new collection.mutable.ListBuffer[Teacher]
   /** 学生列表 班级学生 */
   var students: collection.mutable.Set[Student] = _
 
