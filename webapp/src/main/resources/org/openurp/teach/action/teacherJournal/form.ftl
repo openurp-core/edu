@@ -1,8 +1,6 @@
 [#ftl]
 [@b.head/]
 [@b.toolbar title="修改教师日志信息"]bar.addBack();[/@]
-[@b.tabs]
-  [@b.tab label="基本信息"]
   [@b.form action="!update?id=${teacherJournal.id}" theme="list"]
     [@b.startend label="生效失效日期" 
       name="teacherJournal.beginOn,teacherJournal.endOn" required="false,false" 
@@ -23,12 +21,5 @@
     [@b.formfoot]
       [@b.reset/]&nbsp;&nbsp;[@b.submit value="action.submit"/]
     [/@]
-  [/@]
-  [/@]
-  [#if teacherJournal.id??]
-  [@b.tab label="建设过程"]
-  [@b.div href="teacherJournal-journal!search?teacherJournalJournal.teacherJournal.id=${teacherJournal.id}"/]
-    [/@]
-  [/#if]
 [/@]
 [@b.foot/]

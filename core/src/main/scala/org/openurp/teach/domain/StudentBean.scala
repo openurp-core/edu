@@ -71,7 +71,7 @@ class StudentBean extends  EducationBasedObject[java.lang.Long] with CodedBean w
   /** 学习形式 全日制/业余/函授 */
   var studyType:StudyType=_
   /** 状态变化日志 */
-  var journals: collection.mutable.Set[StudentJournal] = _
+  var journals: collection.mutable.Seq[StudentJournal] = _
   /**导师*/
   var tutor: Teacher = _
   /**基本信息*/

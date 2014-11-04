@@ -54,7 +54,7 @@ class TeacherBean extends LongIdBean with CodedBean with NamedBean with Temporal
   /** 备注 */
   var remark: String = _
   /** 状态变化日志 */
-  var journals: collection.mutable.Set[TeacherJournal]=_
+  var journals: collection.mutable.Seq[TeacherJournal]=_
   /** 是否任课 */
   var teaching: Boolean = _
   /** 从何单位聘任 */
