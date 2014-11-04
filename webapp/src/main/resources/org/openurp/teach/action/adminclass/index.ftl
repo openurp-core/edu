@@ -4,13 +4,13 @@
 <table class="indexpanel">
   <tr>
     <td class="index_view">
-    [@b.form name="degreeSearchForm" action="!search" target="degreelist" title="ui.searchForm" theme="search"]
-      [@b.textfields names="degree.code;代码"/]
-      [@b.textfields names="degree.name;名称"/]
-      <input type="hidden" name="orderBy" value="degree.name"/>
+    [@b.form name="adminclassSearchForm" action="!search" target="adminclasslist" title="ui.searchForm" theme="search"]
+      [@b.textfields names="adminclass.code;代码"/]
+      [@b.textfields names="adminclass.name;名称"/]
+      <input type="hidden" name="orderBy" value="adminclass.name"/>
     [/@]
     </td>
-    <td class="index_content">[@b.div id="degreelist" href="!search?orderBy=degree.code"/]
+    <td class="index_content">[@b.div id="adminclasslist" href="!search?orderBy=adminclass.code"/]
     </td>
   </tr>
 </table>

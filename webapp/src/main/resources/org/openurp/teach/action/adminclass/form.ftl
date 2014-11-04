@@ -2,14 +2,14 @@
 [@b.head/]
 [@b.toolbar title="修改学位"]bar.addBack();[/@]
 [@b.tabs]
-  [@b.form action="!update?id=${degree.id}" theme="list"]
-    [@b.textfield name="degree.code" label="代码" value="${degree.code!}" required="true" maxlength="20"/]
-    [@b.textfield name="degree.name" label="名称" value="${degree.name!}" required="true" maxlength="20"/]
-    [@b.textfield name="degree.enName" label="英文名" value="${degree.enName!}" maxlength="100"/]
+  [@b.form action="!update?id=${adminclass.id}" theme="list"]
+    [@b.textfield name="adminclass.code" label="代码" value="${adminclass.code!}" required="true" maxlength="20"/]
+    [@b.textfield name="adminclass.name" label="名称" value="${adminclass.name!}" required="true" maxlength="20"/]
+    [@b.textfield name="adminclass.abbreviation" label="简称" value="${adminclass.abbreviation!}" maxlength="100"/]
     [@b.startend label="生效失效时间" 
-      name="degree.beginOn,degree.endOn" required="false,false" 
-      start=degree.beginOn end=degree.endOn format="date"/]
-    [@b.textfield name="degree.remark" label="备注" value="${degree.remark!}" maxlength="3"/]
+      name="adminclass.beginOn,adminclass.endOn" required="false,false" 
+      start=adminclass.beginOn end=adminclass.endOn format="date"/]
+    [@b.textfield name="adminclass.remark" label="备注" value="${adminclass.remark!}" maxlength="30"/]
     [@b.formfoot]
       [@b.reset/]&nbsp;&nbsp;[@b.submit value="action.submit"/]
     [/@]

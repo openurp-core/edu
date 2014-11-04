@@ -22,15 +22,16 @@
         <property name="tutorAwardOn"/>
         <property name="teaching"/>
         <many-to-one name="tutorType"/>
+        <many-to-one name="state"/>
         <property name="beginOn"/>
         <property name="endOn"/>
         <property name="remark" length="500"/>
         <property name="unit"/>
         <many-to-one name="unitType"/>
-        <set name="journals" collection-type="set">
-            <key column="journal_id" />
+        <bag name="journals" collection-type="seq">
+            <key column="teacher_id" />
             <one-to-many class="org.openurp.teach.TeacherJournal"/>
-        </set>
+        </bag>
     </class>
     
        

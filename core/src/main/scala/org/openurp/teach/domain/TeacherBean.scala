@@ -4,19 +4,20 @@ import java.sql.Date
 import org.beangle.data.model.bean.CodedBean
 import org.beangle.data.model.bean.LongIdBean
 import org.beangle.data.model.bean.NamedBean
+import org.beangle.data.model.bean.TemporalOnBean
 import org.openurp.base.Department
 import org.openurp.base.Person
 import org.openurp.base.code.Education
-import org.openurp.teach.TeacherJournal
-import org.openurp.teach.code.TeacherUnitType
 import org.openurp.teach.Habilitation
+import org.openurp.teach.ProjectBasedObject
+import org.openurp.teach.Teacher
+import org.openurp.teach.TeacherJournal
+import org.openurp.teach.code.Degree
+import org.openurp.teach.code.TeacherState
+import org.openurp.teach.code.TeacherTitle
 import org.openurp.teach.code.TeacherTitleLevel
 import org.openurp.teach.code.TeacherType
-import org.openurp.teach.Teacher
-import org.openurp.teach.code.Degree
-import org.openurp.teach.code.TeacherTitle
-import org.openurp.teach.ProjectBasedObject
-import org.openurp.teach.code.TeacherState
+import org.openurp.teach.code.TeacherUnitType
 import org.openurp.teach.code.TutorType
 import org.beangle.data.model.bean.TemporalOnBean
 /**
@@ -53,7 +54,7 @@ class TeacherBean extends LongIdBean with CodedBean with NamedBean with Temporal
   /** 备注 */
   var remark: String = _
   /** 状态变化日志 */
-  var journals: Set[TeacherJournal] = _
+  var journals: collection.mutable.Set[TeacherJournal]=_
   /** 是否任课 */
   var teaching: Boolean = _
   /** 从何单位聘任 */
