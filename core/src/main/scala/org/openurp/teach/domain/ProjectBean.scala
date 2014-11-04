@@ -52,7 +52,7 @@ class ProjectBean extends IntIdBean with NamedBean with TemporalOnBean with Proj
  	/** 是否辅修 */
  var minor:Boolean=_
 
- var properties = new collection.mutable.HashMap[String,String]
+ var properties : collection.mutable.Map[String,String]=_
 
 }
 //

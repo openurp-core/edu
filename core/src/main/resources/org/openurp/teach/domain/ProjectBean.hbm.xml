@@ -38,7 +38,7 @@
         <property name="minor" />
         <property name="beginOn"/>
         <property name="endOn"/>
-         <map name="properties">
+        <map name="properties" collection-type="map">
             <key column="project_id" />
             <map-key column="name" type="string" />
             <element column="value" type="string"/>
