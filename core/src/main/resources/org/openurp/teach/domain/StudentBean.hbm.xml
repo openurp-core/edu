@@ -17,11 +17,11 @@
         <many-to-one name="direction"/>
         <many-to-one name="majorDepart"/>
         <many-to-one name="type1"/>
-        <map name="labels">
+        <map name="labels" collection-type="map">
             <key column="student_id" />
             <map-key-many-to-many column="label_type_id" class="org.openurp.teach.code.StdLabelType" />
             <many-to-many column="label_id" class="org.openurp.teach.code.StdLabel"/>
-        </map>     
+        </map>
         <many-to-one name="campus"/>
         <property name="duration" />
         <property name="registed" />

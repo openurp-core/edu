@@ -12,22 +12,22 @@
         <many-to-one name="courseTakeType"  />
         <many-to-one name="courseType"  />
         <set name="examGrades" collection-type="set">
-            <key column="examGrade_id" />
+            <key column="course_grade_id" />
             <one-to-many  class="org.openurp.teach.ExamGrade"/>
         </set>
         <property name="gp"/>
         <many-to-one name="examMode"  />
         <property name="remark" length="500"/>
-        <property name="beyondSubmit"/>
-        <property name="examGrade"/>
+        <property name="beyondSubmit" not-null="true"/>
         <property name="operator"/>
         <property name="passed"/>
-        <property name="personPercent"/>
-        <property name="published"/>
+        <property name="personPercent" not-null="true"/>
+        <property name="published" not-null="true"/>
         <property name="score"/>
         <property name="scoreText"/>
-        <property name="semester"/>
+        <many-to-one name="semester"/>
         <property name="status"/>
-        <property name="std"/>
+        <many-to-one name="std"/>
+        <many-to-one name="markStyle"/>
     </class>
 </hibernate-mapping>

@@ -143,7 +143,7 @@ class CourseGradeBean extends LongIdBean with CourseGrade {
    *
    * @return 考试成绩
    */
-  var examGrades: Set[ExamGrade] = _
+  var examGrades: collection.mutable.Set[ExamGrade] = _
   /**
    * 返回指定类型的分数
    *
@@ -159,7 +159,7 @@ class CourseGradeBean extends LongIdBean with CourseGrade {
    *            成绩类型
    * @return 考试成绩
    */
-  var examGrade: ExamGrade= _
+  //var examGrade: ExamGrade= _
   /**
    * 返回考核方式
    *

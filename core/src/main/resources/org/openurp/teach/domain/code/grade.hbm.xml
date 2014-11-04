@@ -47,8 +47,8 @@
         <property name="endOn"/>
         <property name="updatedAt"/>
         <property name="remark" length="30"/>
-        <property name="retake"/>
-        <property name="exam"/>
+        <property name="retake" not-null="true"/>
+        <property name="exam" not-null="true"/>
     </class>
     <class name="CourseTypeBean" entity-name="org.openurp.teach.code.CourseType">
         <cache usage="read-write"/>

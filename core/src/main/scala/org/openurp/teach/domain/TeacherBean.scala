@@ -18,10 +18,11 @@ import org.openurp.teach.code.TeacherTitle
 import org.openurp.teach.ProjectBasedObject
 import org.openurp.teach.code.TeacherState
 import org.openurp.teach.code.TutorType
+import org.beangle.data.model.bean.TemporalOnBean
 /**
  * 教师信息默认实现
  */
-class TeacherBean extends LongIdBean with CodedBean with NamedBean with Teacher {
+class TeacherBean extends LongIdBean with CodedBean with NamedBean with TemporalOnBean with Teacher {
   /**人员信息*/
   var person: Person = _
   /** 部门 */
@@ -55,10 +56,6 @@ class TeacherBean extends LongIdBean with CodedBean with NamedBean with Teacher 
   var journals: Set[TeacherJournal] = _
   /** 是否任课 */
   var teaching: Boolean = _
-  /** 任职开始日期 */
-  var effectiveAt: Date = _
-  /** 任职结束日期 */
-  var invalidAt: Date = _
   /** 从何单位聘任 */
   var unit: String = _
   /** 聘任单位的类别 */

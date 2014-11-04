@@ -3,6 +3,9 @@ package org.openurp.teach.domain.code
 import org.openurp.code.BaseCode
 import org.openurp.platform.model.BaseCodeBean
 import org.openurp.teach.code.GradeType
+import org.openurp.teach.code.ExamMode
+import org.openurp.teach.code.ExamStatus
+import org.openurp.teach.code.ExamType
 
 /**
  * 考核方式
@@ -10,7 +13,7 @@ import org.openurp.teach.code.GradeType
  * @author chaostone
  * @since 2005-9-7
  */
-class ExamModeBean extends BaseCodeBean
+class ExamModeBean extends BaseCodeBean with ExamMode
 
 
 /**
@@ -20,7 +23,7 @@ class ExamModeBean extends BaseCodeBean
  * @author chaostone
  * @since 2005-9-7
  */
-class ExamStatusBean extends BaseCodeBean{
+class ExamStatusBean extends BaseCodeBean with ExamStatus{
   	/**
 	 * 是否参加考试
 	 */
@@ -45,7 +48,7 @@ class ExamStatusBean extends BaseCodeBean{
  * @author chaostone
  * @since 2005-9-7
  */
-class ExamTypeBean extends BaseCodeBean{
+class ExamTypeBean extends BaseCodeBean with ExamType{
   var gradeType:GradeType=_
   var delay:Boolean=_
  }

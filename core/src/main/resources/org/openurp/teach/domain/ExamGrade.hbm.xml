@@ -17,7 +17,7 @@
         <property name="passed"/>
         <property name="operator"/>
         <property name="percent"/>
-        <property name="beyondSubmit"/>
+        <property name="beyondSubmit" not-null="true"/>
     </class>
        
 </hibernate-mapping>

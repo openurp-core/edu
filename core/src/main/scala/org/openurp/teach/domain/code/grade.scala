@@ -1,6 +1,13 @@
 package org.openurp.teach.domain.code
 
 import org.openurp.platform.model.BaseCodeBean
+import org.openurp.teach.code.CourseType
+import org.openurp.teach.code.CourseCategory
+import org.openurp.teach.code.GradeType
+import org.openurp.teach.code.ScoreMarkStyle
+import org.openurp.teach.code.CourseHourType
+import org.openurp.teach.code.CourseAbilityRate
+import org.openurp.teach.code.CourseTakeType
 
 
 
@@ -15,7 +22,7 @@ import org.openurp.platform.model.BaseCodeBean
  * @author chaostone
  * @since 2005-9-7
  */
-class CourseTypeBean extends BaseCodeBean{
+class CourseTypeBean extends BaseCodeBean with CourseType{
   var theoretical:Boolean=_
 } 
 
@@ -26,7 +33,7 @@ class CourseTypeBean extends BaseCodeBean{
  * @author chaostone
  * @since 2005-11-17
  */
-class CourseCategoryBean extends BaseCodeBean{
+class CourseCategoryBean extends BaseCodeBean with CourseCategory{
   
 }
 
@@ -41,9 +48,11 @@ class CourseCategoryBean extends BaseCodeBean{
  * @author chaostone
  * @since 2005-12-2
  */
-class CourseTakeTypeBean extends BaseCodeBean{
+class CourseTakeTypeBean extends BaseCodeBean with CourseTakeType{
   	/** 是否重修 */
-  var retake:Boolean=_
+  var retake:Boolean=
+
+_
   	/** 是否考核 */
   var exam:Boolean=_
   
@@ -56,7 +65,7 @@ class CourseTakeTypeBean extends BaseCodeBean{
  * @author chaostone
  * @since 2005-9-7
  */
-class GradeTypeBean extends BaseCodeBean{
+class GradeTypeBean extends BaseCodeBean with GradeType{
   	/**
 	 * 简名
 	 */
@@ -72,7 +81,7 @@ class GradeTypeBean extends BaseCodeBean{
  * @author chaostone
  * @since 2005-9-7
  */
-class ScoreMarkStyleBean extends BaseCodeBean{
+class ScoreMarkStyleBean extends BaseCodeBean with ScoreMarkStyle{
 
   var numStyle:Boolean=_
 }
@@ -83,7 +92,7 @@ class ScoreMarkStyleBean extends BaseCodeBean{
  * @author chaostone
  * @since 2009
  */
-class CourseHourTypeBean extends BaseCodeBean{
+class CourseHourTypeBean extends BaseCodeBean with CourseHourType{
  
 }
 
@@ -93,6 +102,6 @@ class CourseHourTypeBean extends BaseCodeBean{
  * @author chaostone
  * @since 2011-09-19
  */
-class CourseAbilityRateBean extends BaseCodeBean
+class CourseAbilityRateBean extends BaseCodeBean with CourseAbilityRate
 
 

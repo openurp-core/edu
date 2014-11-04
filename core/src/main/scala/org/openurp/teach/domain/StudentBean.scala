@@ -51,7 +51,7 @@ class StudentBean extends  EducationBasedObject[java.lang.Long] with CodedBean w
   /** 学生类别 所在项目内的学生类别 */
   var type1: StdType = _
   /** 学生分类标签 */
-  var labels: Map[StdLabelType, StdLabel] = _
+  var labels: collection.mutable.Map[StdLabelType, StdLabel] = _
   /** 校区 */
   var campus: Campus = _
   /** 学制 学习年限（允许0.5年出现） */
@@ -71,7 +71,7 @@ class StudentBean extends  EducationBasedObject[java.lang.Long] with CodedBean w
   /** 学习形式 全日制/业余/函授 */
   var studyType:StudyType=_
   /** 状态变化日志 */
-  var journals: Set[StudentJournal] = _
+  var journals: collection.mutable.Set[StudentJournal] = _
   /**导师*/
   var tutor: Teacher = _
   /**基本信息*/
