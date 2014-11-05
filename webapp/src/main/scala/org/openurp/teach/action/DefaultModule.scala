@@ -1,9 +1,18 @@
 package org.openurp.teach.action
 
 import org.beangle.commons.inject.bind.AbstractBindModule
+import org.openurp.teach.action.code.CourseAbilityRateAction
+import org.openurp.teach.action.code.CourseCategoryAction
+import org.openurp.teach.action.code.CourseTakeTypeAction
+import org.openurp.teach.action.code.CourseTypeAction
 import org.openurp.teach.action.code.DegreeAction
 import org.openurp.teach.action.code.DisciplineAction
 import org.openurp.teach.action.code.DisciplineCatalogAction
+import org.openurp.teach.action.code.ExamModeAction
+import org.openurp.teach.action.code.ExamStatusAction
+import org.openurp.teach.action.code.ExamTypeAction
+import org.openurp.teach.action.code.GradeTypeAction
+import org.openurp.teach.action.code.ScoreMarkStyleAction
 import org.openurp.teach.action.code.StdLabelAction
 import org.openurp.teach.action.code.StdLabelTypeAction
 import org.openurp.teach.action.code.StdStatusAction
@@ -15,7 +24,6 @@ import org.openurp.teach.action.code.TeacherTitleLevelAction
 import org.openurp.teach.action.code.TeacherTypeAction
 import org.openurp.teach.action.code.TeacherUnitTypeAction
 import org.openurp.teach.action.code.TutorTypeAction
-import org.openurp.teach.action.ProjectConfigAction
 
 class DefaultModule extends AbstractBindModule {
 
@@ -27,5 +35,9 @@ class DefaultModule extends AbstractBindModule {
     bind(classOf[AdminclassAction],classOf[MajorAction],classOf[DirectionAction],classOf[DirectionJournalAction],classOf[MajorJournalAction])
     bind(classOf[ProjectAction],classOf[ProjectCodeAction],classOf[ProjectClassroomAction],classOf[ProjectConfigAction],classOf[ProjectPropertyAction])
     bind(classOf[StdPersonAction],classOf[StudentAction],classOf[StudentJournalAction],classOf[TeacherAction],classOf[TeacherJournalAction])
+    bind(classOf[ExamModeAction],classOf[ExamStatusAction],classOf[ExamTypeAction])
+    bind(classOf[CourseAbilityRateAction],classOf[CourseCategoryAction],classOf[CourseHourAction],classOf[CourseTakeTypeAction],classOf[CourseTypeAction])
+    bind(classOf[GradeTypeAction],classOf[ScoreMarkStyleAction])
+    bind(classOf[CourseAction],classOf[CourseGradeAction],classOf[CourseHourAction],classOf[ExamGradeAction])
   }
 }

@@ -25,9 +25,9 @@
         <property name="endOn"/>
         <property name="updatedAt"/>
         <property name="remark" length="30"/>
-        <property name="attend"/>
-        <property name="needAttendDelay"/>
-        <property name="inputable"/>
+        <property name="attend" not-null="true"/>
+        <property name="needAttendDelay" not-null="true"/>
+        <property name="inputable" not-null="true"/>
     </class>
         <class name="ExamTypeBean" entity-name="org.openurp.teach.code.ExamType">
         <cache usage="read-write"/>

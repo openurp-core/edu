@@ -6,7 +6,7 @@
    
     <class name="CourseGradeBean" entity-name="org.openurp.teach.CourseGrade">
         <cache usage="read-write"/>
-        <id name="id" unsaved-value="null" type="integer"><generator class="code"/></id>
+        <id name="id" unsaved-value="null" type="long"><generator class="auto_increment"/></id>
         <many-to-one name="course" not-null="true" />
         <property name="lessonNo"/>
         <many-to-one name="courseTakeType"  />
@@ -20,7 +20,7 @@
         <property name="remark" length="500"/>
         <property name="beyondSubmit" not-null="true"/>
         <property name="operator"/>
-        <property name="passed"/>
+        <property name="passed" not-null="true"/>
         <property name="personPercent" not-null="true"/>
         <property name="published" not-null="true"/>
         <property name="score"/>

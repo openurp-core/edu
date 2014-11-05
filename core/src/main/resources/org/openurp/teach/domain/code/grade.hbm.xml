@@ -60,7 +60,7 @@
         <property name="endOn"/>
         <property name="updatedAt"/>
         <property name="remark" length="30"/>
-        <property name="theoretical"/>
+        <property name="theoretical" not-null="true"/>
     </class>
     <class name="GradeTypeBean" entity-name="org.openurp.teach.code.GradeType">
         <cache usage="read-write"/>
