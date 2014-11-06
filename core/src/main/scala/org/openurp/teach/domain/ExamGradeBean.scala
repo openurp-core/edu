@@ -22,12 +22,21 @@ import org.openurp.teach.code.ExamType
  * @since 2005
  */
 class ExamGradeBean extends LongIdBean with ExamGrade {
-
+  def this(id: java.lang.Long, gradeType: GradeType, score: java.lang.Float, scoreText: String,  markStyle: ScoreMarkStyle, passed: Boolean, status: Int) {
+    this()
+    this.id = id
+    this.gradeType = gradeType
+    this.score = score
+    this.scoreText = scoreText
+    this.markStyle = markStyle
+    this.passed = passed
+    this.status = status
+  }
   /** 成绩类型 */
   var gradeType: GradeType = _
   /** 成绩记录方式 */
   var markStyle: ScoreMarkStyle = _
-  var examType: ExamType = _
+
   /** 得分 */
   var score: java.lang.Float = _
   /** 得分字面值 */
@@ -35,7 +44,7 @@ class ExamGradeBean extends LongIdBean with ExamGrade {
   /** 对应的课程成绩 */
   var courseGrade: CourseGrade = _
   /** 成绩状态 */
-  var status: Integer = _
+  var status: Int = _
   /** 是否通过 */
   var passed: Boolean = _
   /** 操作者 */
@@ -47,13 +56,12 @@ class ExamGradeBean extends LongIdBean with ExamGrade {
 
   var published: Boolean = _
   var beyondSubmit: Boolean = _
-  
-    // 大的成绩放前面
-  override def compare(grade:Grade) :Int={
+
+  // 大的成绩放前面
+  override def compare(grade: Grade): Int = {
     if (null == score) return 1
     else if (null == grade.score) return -1
     return grade.score.compareTo(score)
   }
-
 
 }

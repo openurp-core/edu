@@ -21,7 +21,7 @@ class DefaultModule extends AbstractBindModule {
     bind(classOf[ProjectAction], classOf[ProjectClassroomAction], classOf[ProjectCodeAction])
     bind(classOf[StudentAction], classOf[StudentJournalAction], classOf[StdPersonAction])
     bind(classOf[TeacherAction], classOf[TeacherJournalAction], classOf[HabilitationAction])
-    bind(classOf[CourseAction], classOf[CourseGradeAction], classOf[CourseHourAction])
+    bind(classOf[CourseAction], classOf[CourseGradeAction], classOf[StdCourseGradeAction],classOf[CourseHourAction])
     bind(classOf[AdminclassAction])
 
   }

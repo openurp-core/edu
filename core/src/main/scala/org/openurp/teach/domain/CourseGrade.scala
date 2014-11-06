@@ -39,8 +39,15 @@ import org.openurp.teach.code.ScoreMarkStyle
  * @author chaostone
  * @since 2008-09-24
  */
-class CourseBean extends LongIdBean with CodedBean with NamedBean with Course {
+class CourseBean extends IntIdBean with CodedBean with NamedBean with Course {
 
+  def this(id:Integer,code:String,name:String,enName:String){
+    this()
+    this.id=id
+    this.code=code
+    this.name=name 
+    this.enName=enName
+  }
   /**课程英文名*/
   var enName: String = _
   /** 学历层次 */
@@ -153,7 +160,7 @@ class CourseGradeBean extends LongIdBean with CourseGrade {
    * @param gp
    *            绩点
    */
-  var gp: Float = _
+  var gp: java.lang.Float = _
   /**
    * 返回考试成绩
    *
@@ -204,7 +211,7 @@ class CourseGradeBean extends LongIdBean with CourseGrade {
   var scoreText: String = _
   var passed: Boolean = _
   var published: Boolean = _
-  var status: Integer = _
+  var status: Int = _
   var beyondSubmit: Boolean = _
   var markStyle: ScoreMarkStyle = _
   var operator: String = _
