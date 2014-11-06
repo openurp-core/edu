@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping xmlns="http://www.hibernate.org/xsd/hibernate-mapping"
+ xsi:schemaLocation="http://www.hibernate.org/xsd/hibernate-mapping classpath://org/hibernate/hibernate-mapping-4.0.xsd" 
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" package="org.openurp.teach.domain"
+  default-access="org.beangle.data.jpa.hibernate.PropertyAccessor">
+ 
+    <class name="TeachClassBean" entity-name="org.openurp.teach.TeachClass">
+        <cache usage="read-write"/>
+        <property name="name" length="4000" not-null="true"/>
+        <property name="fullname" length="4000" not-null="true"/>
+        <property name="lesson"/>
+        <property name="grade"/>
+        <many-to-one name="depart" />       
+        <many-to-one name="campus" />
+        <property name="stdCount" not-null="true"/>
+        <property name="limitCount" />
+        <property name="limitLocked" not-null="true"/>
+        <property name="reservedCount"/>
+        <set name="courseTakes" collection-type="set" inverse="true">
+            <key column="teach_class_id" />
+            <one-to-many class="org.openurp.teach.CourseTake"/>
+        </set>
+        <set name="examTakes" collection-type="set" inverse="true">
+            <key column="teach_class_id" />
+            <one-to-many class="org.openurp.teach.ExamTake"/>
+        </set>
+        <set name="limitGroups" collection-type="seq" inverse="true">
+            <key column="teach_class_id" />
+            <one-to-many class="org.openurp.teach.CourseLimitGroup"/>
+        </set>
+    </class>
+       
+</hibernate-mapping>

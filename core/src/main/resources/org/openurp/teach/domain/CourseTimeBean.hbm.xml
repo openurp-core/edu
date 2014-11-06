@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping xmlns="http://www.hibernate.org/xsd/hibernate-mapping"
+ xsi:schemaLocation="http://www.hibernate.org/xsd/hibernate-mapping classpath://org/hibernate/hibernate-mapping-4.0.xsd" 
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" package="org.openurp.teach.domain"
+  default-access="org.beangle.data.jpa.hibernate.PropertyAccessor">
+ 
+    <class name="CourseTimeBean" entity-name="org.openurp.teach.CourseTime">
+        <cache usage="read-write"/>
+        <id name="id" unsaved-value="null" type="long"><generator class="auto_increment"/></id>
+        <property name="weekday"  />
+        <property name="startUnit" />
+        <property name="endUnit" />
+        <property name="startTime" />
+        <property name="endTime" />
+        <property name="weekState" />
+        <property name="weekStateNum" />
+    </class>
+       
+</hibernate-mapping>
