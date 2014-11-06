@@ -12,6 +12,7 @@
         <property name="enName" length="255"/>
         <many-to-one name="gender" not-null="true"/>
         <property name="grade" unique="true" not-null="true"/>
+        <many-to-one name="project"/>
         <many-to-one name="department"/>
         <many-to-one name="major"/>
         <many-to-one name="direction"/>

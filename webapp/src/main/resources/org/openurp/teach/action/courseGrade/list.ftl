@@ -10,12 +10,13 @@
     [@b.boxcol /]
     [@b.col width="15%" property="id" title="id"]${courseGrade.id}[/@]
 
-    [@b.col width="20%" property="passed" title="是否通过"]${(courseGrade.passed?string("是","否"))!}[/@]
+    [@b.col width="20%" property="std" title="学生"]${(courseGrade.std.name)!}[/@]
 
-    [@b.col width="15%" property="gradeType" title="成绩类型"]${courseGrade.gradeType.name!}[/@]
-    [@b.col width="15%" property="markStyle" title="成绩记录方式"]${courseGrade.markStyle.name!}[/@]
-    [@b.col width="15%" property="examStatus" title="考试情况"]${(courseGrade.examStatus.name)!}[/@]
-
+    [@b.col width="15%" property="course" title="课程"]${(courseGrade.course.name)!}[/@]
+    [@b.col width="15%" property="courseType" title="课程类别"]${courseGrade.courseType.name!}[/@]
+    [#-- 
+    [@b.col width="15%" property="semester" title="学期"]${(courseGrade.semester.name)!}[/@]
+   --]
     [@b.col width="15%" property="score" title="得分"]${courseGrade.score!}[/@]
   [/@]
   [/@]

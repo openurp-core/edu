@@ -39,5 +39,6 @@ class DefaultModule extends AbstractBindModule {
     bind(classOf[CourseAbilityRateAction],classOf[CourseCategoryAction],classOf[CourseHourAction],classOf[CourseTakeTypeAction],classOf[CourseTypeAction])
     bind(classOf[GradeTypeAction],classOf[ScoreMarkStyleAction])
     bind(classOf[CourseAction],classOf[CourseGradeAction],classOf[CourseHourAction],classOf[ExamGradeAction])
+    bind(classOf[StdGradeReportAction])
   }
 }

@@ -28,8 +28,6 @@ class StdPersonAction extends RestfulAction[StdPerson]  {
     val politicalAffiliations = findItems(classOf[PoliticalAffiliation])
     put("politicalAffiliations", politicalAffiliations)
 
-  
-
     super.editSetting(entity)
   }
 
