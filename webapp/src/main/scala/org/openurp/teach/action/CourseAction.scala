@@ -69,11 +69,11 @@ class CourseAction extends RestfulAction[Course]   {
     course.xmajors ++= entityDao.find(classOf[Major], xmajorIds)
     
     course.prerequisites.clear()
-    val prerequisityIds = getAll("prerequisitesId2nd", classOf[java.lang.Long])
+    val prerequisityIds = getAll("prerequisitesId2nd", classOf[Integer])
     course.prerequisites ++= entityDao.find(classOf[Course], prerequisityIds)
     
     course.subcourses.clear()
-    val subcourseIds = getAll("subcoursesId2nd", classOf[java.lang.Long])
+    val subcourseIds = getAll("subcoursesId2nd", classOf[Integer])
     course.subcourses ++= entityDao.find(classOf[Course], subcourseIds)
     
     
