@@ -15,7 +15,6 @@
     [@b.col width="15%" property="gradeType" title="成绩类型"]${examGrade.gradeType.name!}[/@]
     [@b.col width="15%" property="markStyle" title="成绩记录方式"]${examGrade.markStyle.name!}[/@]
     [@b.col width="15%" property="examStatus" title="考试情况"]${(examGrade.examStatus.name)!}[/@]
-
     [@b.col width="15%" property="score" title="得分"]${examGrade.score!}[/@]
   [/@]
   [/@]
