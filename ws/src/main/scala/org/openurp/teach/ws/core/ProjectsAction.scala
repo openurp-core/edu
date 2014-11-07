@@ -1,8 +1,8 @@
 package org.openurp.teach.ws
 
 import org.beangle.webmvc.entity.action.RestfulService
-import org.openurp.teach.Project
-import org.openurp.teach.domain.{ProjectClassroomBean, ProjectCodeBean}
+import org.openurp.teach.core.Project
+import org.openurp.teach.core.model.{ ProjectClassroomBean, ProjectCodeBean }
 
 class ProjectAction extends RestfulService[Project]
 

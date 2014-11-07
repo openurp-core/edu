@@ -1,15 +1,12 @@
 package org.openurp.teach.ws
 
 import org.beangle.data.jpa.dao.OqlBuilder
-import org.beangle.data.serializer.io.json.JsonObject
-import org.beangle.webmvc.api.annotation.{ mapping, response }
-import org.beangle.webmvc.entity.action.{ AbstractEntityAction, RestfulService }
-import org.openurp.base.domain.SemesterBean
-import org.openurp.teach.{ Course, CourseGrade, CourseHour, ExamGrade }
-import org.openurp.teach.domain.ExamGradeBean
-import org.openurp.teach.domain.code.{ CourseTakeTypeBean, CourseTypeBean, GradeTypeBean, ScoreMarkStyleBean }
 import org.beangle.data.serializer.io.json.MyJsonObject
+import org.beangle.webmvc.api.annotation.{ mapping, response }
 import org.beangle.webmvc.api.context.ContextHolder
+import org.beangle.webmvc.entity.action.{ AbstractEntityAction, RestfulService }
+import org.openurp.teach.core.{ Course, CourseHour }
+import org.openurp.teach.grade.CourseGrade
 
 class CourseAction extends RestfulService[Course]
 
