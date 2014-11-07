@@ -5,7 +5,7 @@ import collection.mutable.Buffer
 import org.beangle.data.model.bean.{IntIdBean, LongIdBean, NamedBean, TemporalOnBean}
 import org.openurp.base.{Calendar, Campus, Department, Room, School, TimeSetting}
 import org.openurp.base.code.Education
-import org.openurp.base.domain.code.CodeMeta
+import org.openurp.base.model.code.CodeMeta
 import org.openurp.teach.code.{StdLabel, StdType}
 import org.openurp.teach.core.{Project, ProjectBasedObject, ProjectClassroom}
 /**
