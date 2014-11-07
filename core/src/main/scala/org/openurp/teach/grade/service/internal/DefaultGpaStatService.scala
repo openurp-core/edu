@@ -3,10 +3,10 @@ package org.openurp.teach.grade.service.internal
 import java.util.Date
 
 import org.openurp.base.Semester
-import org.openurp.teach.core.Student
-import org.openurp.teach.grade.{ Course, CourseGrade }
-import org.openurp.teach.grade.domain.{ CourseGradeProvider, GpaPolicy, StdGpa, StdSemesterGpa, StdYearGpa }
-import org.openurp.teach.grade.service.{ GpaStatService, MultiStdGpa }
+import org.openurp.teach.core.{Course, Student}
+import org.openurp.teach.grade.CourseGrade
+import org.openurp.teach.grade.domain.{CourseGradeProvider, GpaPolicy, StdGpa, StdSemesterGpa, StdYearGpa}
+import org.openurp.teach.grade.service.{GpaStatService, MultiStdGpa}
 
 class DefaultGpaStatService extends GpaStatService {
 

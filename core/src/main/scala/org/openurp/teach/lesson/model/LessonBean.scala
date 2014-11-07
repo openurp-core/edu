@@ -1,11 +1,11 @@
 package org.openurp.teach.lesson.model
 
 import org.beangle.data.model.bean.UpdatedBean
-import org.openurp.base.{Campus, Department, Semester}
-import org.openurp.teach.code.{CourseType, ExamForm, ExamMode, TeachLangType}
-import org.openurp.teach.core.{CommonAuditState, ProjectBasedObject, Teacher}
-import org.openurp.teach.grade.Course
-import org.openurp.teach.lesson.{CourseSchedule, ExamSchedule, Lesson, LessonGroup, TeachClass}
+import org.openurp.base.{ Campus, Department, Semester }
+import org.openurp.teach.code.{ CourseType, ExamForm, ExamMode, TeachLangType }
+import org.openurp.teach.core.{ CommonAuditState, ProjectBasedObject, Teacher }
+import org.openurp.teach.lesson.{ CourseSchedule, ExamSchedule, Lesson, LessonGroup, TeachClass }
+import org.openurp.teach.core.Course
 
 class LessonBean extends ProjectBasedObject[java.lang.Long] with UpdatedBean with Lesson {
 
@@ -14,9 +14,6 @@ class LessonBean extends ProjectBasedObject[java.lang.Long] with UpdatedBean wit
 
   /** 课程 */
   var course: Course = _
-
-  /** 小项课程 */
-  var subCourse: Course = _
 
   /** 课程类别 */
   var courseType: CourseType = _

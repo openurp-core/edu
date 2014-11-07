@@ -4,8 +4,8 @@ import org.beangle.data.model.bean.{LongIdBean, TemporalOnBean}
 import org.openurp.base.Semester
 import org.openurp.teach.code.{CourseTakeType, ElectionMode}
 import org.openurp.teach.core.Student
-import org.openurp.teach.grade.Course
 import org.openurp.teach.lesson.{CourseLimitGroup, CourseTake, Lesson}
+import org.openurp.teach.core.Course
 
 class CourseTakeBean extends LongIdBean with TemporalOnBean with CourseTake {
 

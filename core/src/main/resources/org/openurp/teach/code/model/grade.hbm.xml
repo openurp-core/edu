@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping xmlns="http://www.hibernate.org/xsd/hibernate-mapping"
+ xsi:schemaLocation="http://www.hibernate.org/xsd/hibernate-mapping classpath://org/hibernate/hibernate-mapping-4.0.xsd" 
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" package="org.openurp.teach.code.model"
+  default-access="org.beangle.data.jpa.hibernate.PropertyAccessor">
+ 
+    <class name="CourseAbilityRateBean" entity-name="org.openurp.teach.code.CourseAbilityRate">
+        <cache usage="read-write"/>
+        <id name="id" unsaved-value="null" type="integer"><generator class="code"/></id>
+        <property name="code" length="20" unique="true" not-null="true"/>
+        <property name="name" length="20" unique="true" not-null="true"/>
+        <property name="enName" length="100" />
+        <property name="beginOn"/>
+        <property name="endOn"/>
+        <property name="updatedAt"/>
+        <property name="remark" length="30"/>
+    </class>
+    <class name="CourseCategoryBean" entity-name="org.openurp.teach.code.CourseCategory">
+        <cache usage="read-write"/>
+        <id name="id" unsaved-value="null" type="integer"><generator class="code"/></id>
+        <property name="code" length="20" unique="true" not-null="true"/>
+        <property name="name" length="20" unique="true" not-null="true"/>
+        <property name="enName" length="100" />
+        <property name="beginOn"/>
+        <property name="endOn"/>
+        <property name="updatedAt"/>
+        <property name="remark" length="30"/>
+    </class>
+    <class name="CourseHourTypeBean" entity-name="org.openurp.teach.code.CourseHourType">
+        <cache usage="read-write"/>
+        <id name="id" unsaved-value="null" type="integer"><generator class="code"/></id>
+        <property name="code" length="20" unique="true" not-null="true"/>
+        <property name="name" length="20" unique="true" not-null="true"/>
+        <property name="enName" length="100" />
+        <property name="beginOn"/>
+        <property name="endOn"/>
+        <property name="updatedAt"/>
+        <property name="remark" length="30"/>
+    </class>
+    <class name="CourseTakeTypeBean" entity-name="org.openurp.teach.code.CourseTakeType">
+        <cache usage="read-write"/>
+        <id name="id" unsaved-value="null" type="integer"><generator class="code"/></id>
+        <property name="code" length="20" unique="true" not-null="true"/>
+        <property name="name" length="20" unique="true" not-null="true"/>
+        <property name="enName" length="100" />
+        <property name="beginOn"/>
+        <property name="endOn"/>
+        <property name="updatedAt"/>
+        <property name="remark" length="30"/>
+        <property name="retake" not-null="true"/>
+        <property name="exam" not-null="true"/>
+    </class>
+    <class name="CourseTypeBean" entity-name="org.openurp.teach.code.CourseType">
+        <cache usage="read-write"/>
+        <id name="id" unsaved-value="null" type="integer"><generator class="code"/></id>
+        <property name="code" length="20" unique="true" not-null="true"/>
+        <property name="name" length="20" unique="true" not-null="true"/>
+        <property name="enName" length="100" />
+        <property name="beginOn"/>
+        <property name="endOn"/>
+        <property name="updatedAt"/>
+        <property name="remark" length="30"/>
+        <property name="theoretical" not-null="true"/>
+    </class>
+    <class name="GradeTypeBean" entity-name="org.openurp.teach.code.GradeType">
+        <cache usage="read-write"/>
+        <id name="id" unsaved-value="null" type="integer"><generator class="code"/></id>
+        <property name="code" length="20" unique="true" not-null="true"/>
+        <property name="name" length="20" unique="true" not-null="true"/>
+        <property name="enName" length="100" />
+        <property name="beginOn"/>
+        <property name="endOn"/>
+        <property name="updatedAt"/>
+        <property name="remark" length="30"/>
+        <property name="shortName"/>
+    </class>
+    <class name="ScoreMarkStyleBean" entity-name="org.openurp.teach.code.ScoreMarkStyle">
+        <cache usage="read-write"/>
+        <id name="id" unsaved-value="null" type="integer"><generator class="code"/></id>
+        <property name="code" length="20" unique="true" not-null="true"/>
+        <property name="name" length="20" unique="true" not-null="true"/>
+        <property name="enName" length="100" />
+        <property name="beginOn"/>
+        <property name="endOn"/>
+        <property name="updatedAt"/>
+        <property name="remark" length="30"/>
+        <property name="numStyle"/>
+    </class>
+    
+</hibernate-mapping>

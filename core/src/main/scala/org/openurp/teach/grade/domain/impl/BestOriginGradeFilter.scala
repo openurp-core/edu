@@ -4,8 +4,8 @@ import org.openurp.teach.grade.model.CourseGradeBean
 import org.openurp.teach.grade.domain.GradeFilter
 import org.openurp.teach.program.domain.CourseSubstitutionProvider
 import org.openurp.teach.grade.CourseGrade
-import org.openurp.teach.grade.Course
 import org.openurp.teach.program.CourseSubstitution
+import org.openurp.teach.core.Course
 
 /**
  * 最好成绩过滤器(保留原始的学期和课程名称)

@@ -7,6 +7,7 @@ import org.openurp.teach.grade.domain.GpaPolicy
 import org.openurp.teach.grade.CourseGrade
 import org.openurp.teach.core.Student
 import org.openurp.teach.grade.service.GpaService
+import org.openurp.teach.exam.ExamTake
 
 /**
  * @author chaostone
