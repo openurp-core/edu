@@ -13,7 +13,7 @@ import org.openurp.teach.ExamActivity
 import org.openurp.teach.ExamBatch
 import org.openurp.teach.Lesson
 
-class ExamActivityBean extends ExamActivity with LongIdBean with TemporalAtBean{
+class ExamActivityBean extends LongIdBean with ExamActivity with TemporalAtBean{
   
   /** 教学任务 */
   var lesson: Lesson=_

@@ -22,8 +22,9 @@ import org.openurp.teach.LessonGroup
 import org.openurp.teach.ExamSchedule
 import org.openurp.teach.ProjectBasedObject
 import org.openurp.teach.Lesson
+import org.openurp.teach.CommonAuditState
 
-class LessonBean extends Lesson with ProjectBasedObject[java.lang.Long] with UpdatedBean{
+class LessonBean extends ProjectBasedObject[java.lang.Long] with UpdatedBean with Lesson {
 
   /** 课程序号 */
   var no: String = _
@@ -71,7 +72,7 @@ class LessonBean extends Lesson with ProjectBasedObject[java.lang.Long] with Upd
   var group: LessonGroup = _
 
   /** 审核状态 */
-  var auditStatus: CommonAuditSattus = _
+  var auditStatus: CommonAuditState = _
 
   /** 考试形式 开/闭卷 */
   var examForm: ExamForm = _

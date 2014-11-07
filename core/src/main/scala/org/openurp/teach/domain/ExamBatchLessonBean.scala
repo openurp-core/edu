@@ -6,7 +6,7 @@ import org.openurp.base.Department
 import org.openurp.teach.ExamBatch
 import org.openurp.teach.Lesson
 
-class ExamBatchLessonBean extends ExamBatchLesson with LongIdBean {
+class ExamBatchLessonBean extends LongIdBean with ExamBatchLesson {
 
   /** 排考批次 */
   var examBatch: ExamBatch = _

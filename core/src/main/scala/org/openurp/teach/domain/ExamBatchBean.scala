@@ -8,27 +8,30 @@ import org.openurp.teach.ExamBatch
 import org.openurp.teach.ExamActivity
 import org.openurp.teach.ProjectBasedObject
 import org.openurp.teach.code.ExamType
+import org.openurp.teach.ExamBatchLesson
+import org.openurp.teach.ExamBatchTime
+import org.openurp.teach.ExamTake
 
-class ExamBatchBean extends ExamBatch with ProjectBasedObject[Integer] with NamedBean{
+class ExamBatchBean extends ProjectBasedObject[Integer] with ExamBatch with NamedBean{
 
   /** 排考批次学期 */
-  def semester: Semester = _
+  var semester: Semester = _
 
   /** 批次时间开关 */
-  def batchTime: ExamBatchTime = _
+  var batchTime: ExamBatchTime = _
 
   /** 默认考试类型 */
-  def defaultExamType: ExamType = _
+  var defaultExamType: ExamType = _
 
   /** 批次任务范围 */
-  def lessons: collection.mutable.Set[ExamBatchLesson] = _
+  var lessons: collection.mutable.Set[ExamBatchLesson] = _
 
   /** 批次考试名单 */
-  def examTakes: collection.mutable.Set[ExamTake] = _
+  var examTakes: collection.mutable.Set[ExamTake] = _
 
-  def activities: collection.mutable.Set[ExamActivity] = _
+  var activities: collection.mutable.Set[ExamActivity] = _
 
   /** 是否归档 */
-  def archived: Boolean = _
+  var archived: Boolean = false
 
 }

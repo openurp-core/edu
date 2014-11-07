@@ -9,23 +9,23 @@ import org.openurp.teach.ExamBatch
 class ExamBatchTimeBean extends ExamBatchTime {
 
   /** 排考批次 */
-  def examBatch: ExamBatch = _
+  var examBatch: ExamBatch = _
 
   /** 安排时间开始 */
-  def timeBeginAt: Date = _
+  var timeBeginAt: Date = _
 
   /** 安排时间结束 */
-  def timeEndAt: Date = _
+  var timeEndAt: Date = _
 
   /** 安排地点开始 */
-  def roomBeginAt: Date = _
+  var roomBeginAt: Date = _
 
   /** 安排地点结束 */
-  def roomEndAt: Date = _
+  var roomEndAt: Date = _
 
   /** 安排监考开始 */
-  def monitorBeginAt: Date = _
+  var monitorBeginAt: Date = _
 
   /** 安排监考结束 */
-  def monitorEndAt: Date = _
+  var monitorEndAt: Date = _
 }
