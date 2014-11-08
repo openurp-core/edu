@@ -4,15 +4,9 @@
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" package="org.openurp.teach.core.model"
   default-access="org.beangle.data.jpa.hibernate.PropertyAccessor">
  
-    
     <class name="MajorJournalBean" entity-name="org.openurp.teach.core.MajorJournal">
         <cache usage="read-write"/>
         <id name="id" unsaved-value="null" type="integer"><generator class="auto_increment"/></id>
- <!-- 
-        <property name="code" length="30" unique="true" not-null="true"/>
-        <property name="name" length="50" unique="true" not-null="true"/>
-        <property name="enName" length="255" unique="true" not-null="true"/>
- -->
         <many-to-one name="major"/>
         <property name="disciplineCode" length="50" unique="true" not-null="true"/>
         <many-to-one name="category"/>

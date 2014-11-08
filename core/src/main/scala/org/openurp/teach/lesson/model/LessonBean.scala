@@ -1,9 +1,9 @@
 package org.openurp.teach.lesson.model
 
 import org.beangle.data.model.bean.UpdatedBean
-import org.openurp.base.{ Campus, Department, Semester }
+import org.openurp.base.{ Campus, Department, Semester, Teacher }
 import org.openurp.teach.code.{ CourseType, ExamForm, ExamMode, TeachLangType }
-import org.openurp.teach.core.{ Course, ProjectBasedObject, States, Teacher }
+import org.openurp.teach.core.{ Course, ProjectBasedObject, States }
 import org.openurp.teach.lesson.{ CourseSchedule, ExamSchedule, Lesson, LessonGroup, TeachClass }
 
 class LessonBean extends ProjectBasedObject[java.lang.Long] with UpdatedBean with Lesson {

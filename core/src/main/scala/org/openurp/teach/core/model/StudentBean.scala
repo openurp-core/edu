@@ -1,22 +1,25 @@
 package org.openurp.teach.core.model
 
 import java.sql.Date
-
 import org.beangle.data.model.Component
-import org.beangle.data.model.bean.{CodedBean, LongIdBean, NamedBean}
-import org.openurp.base.{Campus, Department}
-import org.openurp.base.code.{Country, Division, Education, Gender, IdType, Nation, PoliticalAffiliation}
-import org.openurp.teach.code.{StdLabel, StdLabelType, StdStatus, StdType, StudyType}
-import org.openurp.teach.core.{Adminclass, Direction, EducationBasedObject, Major, Project, StdPerson, Student, StudentJournal, Teacher}
+import org.beangle.data.model.bean.{ CodedBean, LongIdBean, NamedBean }
+import org.openurp.base.{ Campus, Department }
+import org.openurp.base.code.{ Country, Division, Education, Gender, IdType, Nation, PoliticalAffiliation }
+import org.openurp.teach.code.{ StdLabel, StdLabelType, StdStatus, StdType, StudyType }
+import org.openurp.teach.core.Adminclass
+import org.openurp.teach.core.Major
+import org.openurp.base.Teacher
+import org.openurp.base.Person
+import org.openurp.teach.core.EducationBasedObject
+import org.openurp.teach.core.Project
+import org.openurp.teach.core.StudentJournal
+import org.openurp.teach.core.Student
+import org.openurp.teach.core.Direction
 /**
  * 学籍信息实现
  */
-class StudentBean extends  EducationBasedObject[java.lang.Long] with CodedBean with NamedBean with Student {
+class StudentBean extends EducationBasedObject[java.lang.Long] with CodedBean with NamedBean with Student {
 
-  /** 英文名 */
-  var enName: String = _
-  /** 性别 */
-  var gender: Gender = _
   /** 年级 表示现在年级，不同于入学时间 */
   var grade: String = _
   /** 管理院系 行政管理院系 */
@@ -28,7 +31,7 @@ class StudentBean extends  EducationBasedObject[java.lang.Long] with CodedBean w
   /** 专业所在院系 */
   var majorDepart: Department = _
   /** 学生类别 所在项目内的学生类别 */
-  var type1: StdType = _
+  var stdType: StdType = _
   /** 学生分类标签 */
   var labels: collection.mutable.Map[StdLabelType, StdLabel] = _
   /** 校区 */
@@ -48,55 +51,15 @@ class StudentBean extends  EducationBasedObject[java.lang.Long] with CodedBean w
   /** 备注 */
   var remark: String = _
   /** 学习形式 全日制/业余/函授 */
-  var studyType:StudyType=_
+  var studyType: StudyType = _
   /** 状态变化日志 */
   var journals: collection.mutable.Seq[StudentJournal] = _
   /**导师*/
   var tutor: Teacher = _
   /**基本信息*/
-  var person: StdPerson = _
+  var person: Person = _
 
 }
-
-/**
- * 学生基本信息
- *
- * @author chaostone
- * @since 2011-10-12
- */
-class StdPersonBean extends LongIdBean with CodedBean with NamedBean with StdPerson {
-
-  /** 英文名 */
-  var enName: String = _
-  /** 曾用名 */
-  var oldname: String = _
-  /** 性别 */
-  var gender: Gender = _
-  /** 出生年月 */
-  var birthday: Date = _
-  /** 证件类型 身份证/护照等 */
-  var idType: IdType = _
-  /** 身份证 */
-  var idcard: String = _
-  /** 国家地区 */
-  var country: Country = _
-  /** 民族 留学生使用外国民族 */
-  var nation: Nation = _
-  /** 政治面貌 不适用留学生 */
-  var politicalAffiliation: PoliticalAffiliation = _
-  /** 入团(党)时间 */
-  var joinOn: Date = _
-  /** 婚姻状况 */
-  //  var maritalStatus:MaritalStatus=_
-  /** 籍贯 */
-  var ancestralAddr: Division = _
-  /** 银行账户 */
-  //  var bankAccount:BankAccount=_
-  /** 特长爱好以及个人说明 */
-  var charactor: String = _
-
-}
-
 /**
  * 学籍状态日志
  */

@@ -7,7 +7,7 @@
   <class name="CourseActivityBean" entity-name="org.openurp.teach.schedule.CourseActivity">
     <cache usage="read-write" />
     <id name="id" unsaved-value="null" type="long">
-      <generator class="auto_increment" />
+      <generator class="date" />
     </id>
     <property name="lesson" not-null="true" />
     <component name="time" class="org.openurp.teach.schedule.CourseTime">
@@ -18,7 +18,7 @@
     </component>
     <set name="teachers" collection-type="set" inverse="true">
       <key column="course_activity_id" />
-      <many-to-many column="teacher_id" class="org.openurp.teach.core.Teacher" />
+      <many-to-many column="teacher_id" class="org.openurp.base.Teacher" />
     </set>
     <set name="romms" collection-type="set" inverse="true">
       <key column="course_activity_id" />

@@ -4,8 +4,8 @@ import java.sql.Date
 
 import org.beangle.data.model.bean.{ IntIdBean, NamedBean, UpdatedBean }
 import org.openurp.base.Department
-import org.openurp.base.code.Education
-import org.openurp.teach.code.{ Degree, StdType, StudyType }
+import org.openurp.base.code.{ Degree, Education }
+import org.openurp.teach.code.{ StdType, StudyType }
 import org.openurp.teach.core.{ Direction, Major, States }
 import org.openurp.teach.program.Program
 

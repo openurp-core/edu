@@ -15,7 +15,7 @@ class CourseLimitItemBean extends LongIdBean with CourseLimitItem {
   var group: CourseLimitGroup = _
 
   /** 操作符 */
-  var operator: Operator = _
+  var operator: String = _
 
   /** 限制内容 */
   var content: String = _

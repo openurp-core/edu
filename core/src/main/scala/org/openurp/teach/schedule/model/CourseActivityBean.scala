@@ -2,7 +2,7 @@ package org.openurp.teach.schedule.model
 
 import org.beangle.data.model.bean.{LongIdBean, TemporalAtBean}
 import org.openurp.base.Room
-import org.openurp.teach.core.Teacher
+import org.openurp.base.Teacher
 import org.openurp.teach.lesson.Lesson
 import org.openurp.teach.schedule.{CourseActivity, CourseTime}
 

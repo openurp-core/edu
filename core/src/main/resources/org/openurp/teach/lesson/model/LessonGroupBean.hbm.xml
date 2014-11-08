@@ -6,7 +6,7 @@
  
     <class name="LessonGroupBean" entity-name="org.openurp.teach.lesson.LessonGroup">
         <cache usage="read-write"/>
-        <id name="id" unsaved-value="null" type="long"><generator class="auto_increment"/></id>
+        <id name="id" unsaved-value="null" type="long"><generator class="date"/></id>
         <property name="name" length="255"  not-null="true"/>
         <set name="lessons" collection-type="set">
             <key column="lesson_group_id" />

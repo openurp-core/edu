@@ -4,13 +4,12 @@
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" package="org.openurp.teach.exam.model"
   default-access="org.beangle.data.jpa.hibernate.PropertyAccessor">
  
-    
     <class name="ExamMonitorBean" entity-name="org.openurp.teach.exam.ExamMonitor">
         <cache usage="read-write"/>
-        <id name="id" unsaved-value="null" type="long"><generator class="code"/></id>
+        <id name="id" unsaved-value="null" type="long"><generator class="date"/></id>
         <many-to-one name="examRoom" not-null="true"/>
-        <many-to-one name="teacher" not-null="true"/>
+        <many-to-one name="person" not-null="true"/>
         <many-to-one name="department" not-null="true"/>
-        <property name="teacherName" />
     </class>
+    
 </hibernate-mapping>

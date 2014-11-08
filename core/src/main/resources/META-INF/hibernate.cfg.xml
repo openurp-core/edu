@@ -5,13 +5,11 @@
 
 <hibernate-configuration>
   <session-factory>
-    <mapping resource="org/openurp/teach/code/model/exam.hbm.xml" />
-    <mapping resource="org/openurp/teach/code/model/grade.hbm.xml" />
     <mapping resource="org/openurp/teach/code/model/industry.hbm.xml" />
-    <mapping resource="org/openurp/teach/code/model/lesson.hbm.xml" />
     <mapping resource="org/openurp/teach/code/model/ministry.hbm.xml" />
     <mapping resource="org/openurp/teach/code/model/nation.hbm.xml" />
     <mapping resource="org/openurp/teach/code/model/school.hbm.xml" />
+
     <mapping resource="org/openurp/teach/core/model/AdminclassBean.hbm.xml" />
     <mapping resource="org/openurp/teach/core/model/CourseBean.hbm.xml" />
     <mapping resource="org/openurp/teach/core/model/CourseHourBean.hbm.xml" />
@@ -23,20 +21,14 @@
     <mapping resource="org/openurp/teach/core/model/ProjectBean.hbm.xml" />
     <mapping resource="org/openurp/teach/core/model/ProjectClassroomBean.hbm.xml" />
     <mapping resource="org/openurp/teach/core/model/ProjectCodeBean.hbm.xml" />
-    <mapping resource="org/openurp/teach/core/model/ProjectConfigBean.hbm.xml" />
-    <mapping resource="org/openurp/teach/core/model/ProjectPropertyBean.hbm.xml" />
-    <mapping resource="org/openurp/teach/core/model/StdPersonBean.hbm.xml" />
     <mapping resource="org/openurp/teach/core/model/StudentBean.hbm.xml" />
     <mapping resource="org/openurp/teach/core/model/StudentJournalBean.hbm.xml" />
-    <mapping resource="org/openurp/teach/core/model/TeacherBean.hbm.xml" />
-    <mapping resource="org/openurp/teach/core/model/TeacherJournalBean.hbm.xml" />
+
     <mapping resource="org/openurp/teach/exam/model/ExamActivityBean.hbm.xml" />
-    <mapping resource="org/openurp/teach/exam/model/ExamBatchBean.hbm.xml" />
-    <mapping resource="org/openurp/teach/exam/model/ExamBatchLessonBean.hbm.xml" />
-    <mapping resource="org/openurp/teach/exam/model/ExamBatchTimeBean.hbm.xml" />
-    <!--<mapping resource="org/openurp/teach/exam/model/ExamMonitorBean.hbm.xml" /> 
-    <mapping resource="org/openurp/teach/exam/model/ExamRoomBean.hbm.xml" /> -->
+    <mapping resource="org/openurp/teach/exam/model/ExamMonitorBean.hbm.xml" /> 
+    <mapping resource="org/openurp/teach/exam/model/ExamRoomBean.hbm.xml" />
     <mapping resource="org/openurp/teach/exam/model/ExamTakeBean.hbm.xml" />
+    
     <mapping resource="org/openurp/teach/grade/model/CourseGradeBean.hbm.xml" />
     <mapping resource="org/openurp/teach/grade/model/ExamGrade.hbm.xml" />
     <mapping

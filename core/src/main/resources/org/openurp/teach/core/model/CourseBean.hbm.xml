@@ -6,7 +6,7 @@
  
     <class name="CourseBean" entity-name="org.openurp.teach.core.Course">
         <cache usage="read-write"/>
-        <id name="id" unsaved-value="null" type="long"><generator class="code"/></id>
+        <id name="id" unsaved-value="null" type="long"><generator class="auto_increment"/></id>
         <property name="code" length="32" unique="true" not-null="true"/>
         <property name="name" length="222" unique="true" not-null="true"/>
         <property name="enName" length="300"/>

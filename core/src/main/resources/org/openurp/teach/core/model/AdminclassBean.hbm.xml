@@ -19,11 +19,11 @@
         <property name="endOn"/>
         <bag name="instructors" collection-type="seq">
             <key column="adminclass_id" />
-            <many-to-many column="instructor_id" class="org.openurp.teach.core.Teacher"/>
+            <many-to-many column="instructor_id" class="org.openurp.base.Teacher"/>
         </bag>
         <bag name="tutors" collection-type="seq">
             <key column="adminclass_id" />
-            <many-to-many column="tutor_id" class="org.openurp.teach.core.Teacher"/>
+            <many-to-many column="tutor_id" class="org.openurp.base.Teacher"/>
         </bag>
         <set name="students" collection-type="set" inverse="true">
             <key column="adminclass_id" />

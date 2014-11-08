@@ -8,7 +8,7 @@ import org.beangle.data.model.bean.TemporalOnBean
 import org.openurp.teach.core.Adminclass
 import org.openurp.teach.code.StdType
 import org.openurp.teach.core.Major
-import org.openurp.teach.core.Teacher
+import org.openurp.base.Teacher
 import org.openurp.teach.core.EducationBasedObject
 import org.openurp.teach.core.Student
 import org.openurp.teach.core.Direction
