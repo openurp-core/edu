@@ -3,9 +3,8 @@ package org.openurp.teach.lesson.model
 import org.beangle.data.model.bean.UpdatedBean
 import org.openurp.base.{ Campus, Department, Semester }
 import org.openurp.teach.code.{ CourseType, ExamForm, ExamMode, TeachLangType }
-import org.openurp.teach.core.{ CommonAuditState, ProjectBasedObject, Teacher }
+import org.openurp.teach.core.{ Course, ProjectBasedObject, States, Teacher }
 import org.openurp.teach.lesson.{ CourseSchedule, ExamSchedule, Lesson, LessonGroup, TeachClass }
-import org.openurp.teach.core.Course
 
 class LessonBean extends ProjectBasedObject[java.lang.Long] with UpdatedBean with Lesson {
 
@@ -52,7 +51,7 @@ class LessonBean extends ProjectBasedObject[java.lang.Long] with UpdatedBean wit
   var group: LessonGroup = _
 
   /** 审核状态 */
-  var auditStatus: CommonAuditState = _
+  var state: States.State = _
 
   /** 考试形式 开/闭卷 */
   var examForm: ExamForm = _
