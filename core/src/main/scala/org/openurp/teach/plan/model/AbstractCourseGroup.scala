@@ -1,4 +1,4 @@
-package org.openurp.teach.program.model
+package org.openurp.teach.plan.model
 
 import collection.mutable.{ Buffer, ListBuffer }
 
@@ -6,8 +6,8 @@ import org.beangle.commons.lang.{ Numbers, Strings }
 import org.beangle.data.model.Named
 import org.beangle.data.model.bean.LongIdBean
 import org.openurp.teach.code.CourseType
-import org.openurp.teach.program.{ CourseGroup, CoursePlan, PlanCourse }
-import org.openurp.teach.program.domain.Terms
+import org.openurp.teach.plan.{ CourseGroup, CoursePlan, PlanCourse }
+import org.openurp.teach.plan.domain.Terms
 
 /**
  * 课程设置中的课程组 </p>

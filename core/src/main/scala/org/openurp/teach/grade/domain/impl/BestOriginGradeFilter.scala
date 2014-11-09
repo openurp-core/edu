@@ -2,9 +2,9 @@ package org.openurp.teach.grade.domain.impl
 
 import org.openurp.teach.grade.model.CourseGradeBean
 import org.openurp.teach.grade.domain.GradeFilter
-import org.openurp.teach.program.domain.CourseSubstitutionProvider
+import org.openurp.teach.plan.domain.CourseSubstitutionProvider
 import org.openurp.teach.grade.CourseGrade
-import org.openurp.teach.program.CourseSubstitution
+import org.openurp.teach.plan.CourseSubstitution
 import org.openurp.teach.core.Course
 
 /**

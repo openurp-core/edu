@@ -1,8 +1,8 @@
-package org.openurp.teach.program.model
+package org.openurp.teach.plan.model
 
 import org.openurp.teach.code.CourseType
-import org.openurp.teach.program.CoursePlan
-import org.openurp.teach.program.CourseGroup
+import org.openurp.teach.plan.CoursePlan
+import org.openurp.teach.plan.CourseGroup
 import org.beangle.data.model.bean.LongIdBean
 import org.beangle.commons.lang.Strings
 import collection.mutable.{ Buffer, ListBuffer }

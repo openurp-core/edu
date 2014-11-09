@@ -1,13 +1,13 @@
-package org.openurp.teach.program.model
+package org.openurp.teach.plan.model
 
-import org.openurp.teach.program.SharePlan
+import org.openurp.teach.plan.SharePlan
 import org.openurp.teach.core.Project
-import org.openurp.teach.program.CourseGroup
+import org.openurp.teach.plan.CourseGroup
 import org.openurp.base.code.Education
 import org.beangle.data.model.bean.UpdatedBean
-import org.openurp.teach.program.ShareCourseGroup
+import org.openurp.teach.plan.ShareCourseGroup
 import org.openurp.base.code.Language
-import org.openurp.teach.program.SharePlanCourse
+import org.openurp.teach.plan.SharePlanCourse
 
 /**
  * 公共共享计划

@@ -1,20 +1,13 @@
 package org.openurp.teach.core.model
 
 import java.sql.Date
+
 import org.beangle.data.model.Component
 import org.beangle.data.model.bean.{ CodedBean, LongIdBean, NamedBean }
-import org.openurp.base.{ Campus, Department }
-import org.openurp.base.code.{ Country, Division, Education, Gender, IdType, Nation, PoliticalAffiliation }
+import org.openurp.base.{ Campus, Department, Person, Teacher }
+import org.openurp.base.code.Education
 import org.openurp.teach.code.{ StdLabel, StdLabelType, StdStatus, StdType, StudyType }
-import org.openurp.teach.core.Adminclass
-import org.openurp.teach.core.Major
-import org.openurp.base.Teacher
-import org.openurp.base.Person
-import org.openurp.teach.core.EducationBasedObject
-import org.openurp.teach.core.Project
-import org.openurp.teach.core.StudentJournal
-import org.openurp.teach.core.Student
-import org.openurp.teach.core.Direction
+import org.openurp.teach.core.{ Adminclass, Direction, EducationBasedObject, Major, Program, Project, Student, StudentJournal }
 /**
  * 学籍信息实现
  */
@@ -58,6 +51,9 @@ class StudentBean extends EducationBasedObject[java.lang.Long] with CodedBean wi
   var tutor: Teacher = _
   /**基本信息*/
   var person: Person = _
+
+  /**培养方案*/
+  var program: Program = _
 
 }
 /**

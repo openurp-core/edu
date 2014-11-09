@@ -1,4 +1,4 @@
-package org.openurp.teach.program.model
+package org.openurp.teach.core.model
 
 import java.sql.Date
 
@@ -6,8 +6,7 @@ import org.beangle.data.model.bean.{ IntIdBean, NamedBean, UpdatedBean }
 import org.openurp.base.Department
 import org.openurp.base.code.{ Degree, Education }
 import org.openurp.teach.code.{ StdType, StudyType }
-import org.openurp.teach.core.{ Direction, Major, States }
-import org.openurp.teach.program.Program
+import org.openurp.teach.core.{ Direction, Major, Program, States }
 
 /**
  * 专业培养方案

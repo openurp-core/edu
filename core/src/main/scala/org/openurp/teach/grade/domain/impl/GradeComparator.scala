@@ -1,7 +1,7 @@
 package org.openurp.teach.grade.domain.impl
 
 import org.openurp.teach.grade.CourseGrade
-import org.openurp.teach.program.CourseSubstitution
+import org.openurp.teach.plan.CourseSubstitution
 import org.openurp.teach.core.Course
 
 object GradeComparator {

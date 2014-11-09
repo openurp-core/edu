@@ -1,9 +1,9 @@
-package org.openurp.teach.program.model
+package org.openurp.teach.plan.model
 
 import org.openurp.teach.core.Student
-import org.openurp.teach.program.StdPlan
-import org.openurp.teach.program.StdCourseGroup
-import org.openurp.teach.program.StdPlanCourse
+import org.openurp.teach.plan.StdPlan
+import org.openurp.teach.plan.StdCourseGroup
+import org.openurp.teach.plan.StdPlanCourse
 
 /**
  * 个人计划

@@ -1,10 +1,10 @@
-package org.openurp.teach.program.model
+package org.openurp.teach.plan.model
 
-import org.openurp.teach.program.Program
-import org.openurp.teach.program.MajorPlan
-import org.openurp.teach.program.CourseGroup
-import org.openurp.teach.program.MajorCourseGroup
+import org.openurp.teach.plan.MajorPlan
+import org.openurp.teach.plan.CourseGroup
+import org.openurp.teach.plan.MajorCourseGroup
 import org.openurp.teach.core.Direction
+import org.openurp.teach.core.Program
 
 /**
  * @author chaostone

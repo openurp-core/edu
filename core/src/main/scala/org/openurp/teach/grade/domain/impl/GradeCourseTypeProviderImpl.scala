@@ -5,8 +5,8 @@ import org.beangle.data.model.dao.EntityDao
 import org.openurp.teach.code.CourseType
 import org.openurp.teach.core.{ Course, Student }
 import org.openurp.teach.grade.domain.GradeCourseTypeProvider
-import org.openurp.teach.program.SharePlan
-import org.openurp.teach.program.domain.CoursePlanProvider
+import org.openurp.teach.plan.SharePlan
+import org.openurp.teach.plan.domain.CoursePlanProvider
 
 class GradeCourseTypeProviderImpl(entityDao: EntityDao, coursePlanProvider: CoursePlanProvider) extends GradeCourseTypeProvider {
 

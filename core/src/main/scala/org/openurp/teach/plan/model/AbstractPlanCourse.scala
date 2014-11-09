@@ -1,11 +1,11 @@
-package org.openurp.teach.program.model
+package org.openurp.teach.plan.model
 
 import org.openurp.base.Department
 import org.openurp.teach.code.ExamMode
 import org.openurp.teach.core.Course
-import org.openurp.teach.program.PlanCourse
+import org.openurp.teach.plan.PlanCourse
 import org.beangle.data.model.bean.LongIdBean
-import org.openurp.teach.program.CourseGroup
+import org.openurp.teach.plan.CourseGroup
 
 /**
  * 抽象计划内课程
