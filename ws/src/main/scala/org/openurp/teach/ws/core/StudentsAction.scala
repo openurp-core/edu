@@ -1,12 +1,9 @@
-package org.openurp.teach.ws
+package org.openurp.teach.ws.core
 
 import org.beangle.webmvc.entity.action.RestfulService
-import org.openurp.teach.core.StudentJournal
-import org.openurp.teach.core.Student
-import org.openurp.teach.core.StdPerson
+import org.openurp.teach.core.{ Student, StudentJournal }
 
 class StudentAction extends RestfulService[Student]
 
 class StudentJournalAction extends RestfulService[StudentJournal]
 
-class StdPersonAction extends RestfulService[StdPerson]

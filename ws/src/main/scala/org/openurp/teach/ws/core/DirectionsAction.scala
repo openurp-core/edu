@@ -1,4 +1,4 @@
-package org.openurp.teach.ws
+package org.openurp.teach.ws.core
 
 import org.beangle.webmvc.entity.action.RestfulService
 import org.openurp.teach.core.DirectionJournal

@@ -2,15 +2,11 @@ package org.openurp.teach.action
 
 import org.beangle.data.jpa.dao.OqlBuilder
 import org.beangle.data.model.Entity
-import org.beangle.webmvc.api.view.View
 import org.beangle.webmvc.entity.action.RestfulAction
-import org.openurp.teach.ExamGrade
-import org.openurp.teach.CourseGrade
-import org.openurp.teach.code.ScoreMarkStyle
-import org.openurp.teach.code.GradeType
-import org.openurp.teach.code.ExamStatus
+import org.openurp.teach.code.{ExamStatus, GradeType, ScoreMarkStyle}
+import org.openurp.teach.grade.{CourseGrade, ExamGrade}
 
-class ExamGradeAction extends RestfulAction[ExamGrade]  {
+class ExamGradeAction extends RestfulAction[ExamGrade] {
   override def editSetting(entity: ExamGrade) = {
     val gradeTypes = findItems(classOf[GradeType])
     put("gradeTypes", gradeTypes)
@@ -23,7 +19,6 @@ class ExamGradeAction extends RestfulAction[ExamGrade]  {
 
     val courseGrades = findItems(classOf[CourseGrade])
     put("courseGrades", courseGrades)
-
 
     super.editSetting(entity)
   }

@@ -1,4 +1,4 @@
-package org.openurp.teach.ws
+package org.openurp.teach.ws.grade
 
 import org.beangle.data.jpa.dao.OqlBuilder
 import org.beangle.data.serializer.io.json.MyJsonObject

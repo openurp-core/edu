@@ -3,14 +3,8 @@ package org.openurp.teach.action
 import org.beangle.data.jpa.dao.OqlBuilder
 import org.beangle.data.model.Entity
 import org.beangle.webmvc.entity.action.RestfulAction
-import org.openurp.base.Department
-import org.openurp.base.code.Education
-import org.openurp.teach.Student
-import org.openurp.teach.Teacher
-import org.openurp.teach.TeacherJournal
-import org.openurp.teach.code.Degree
-import org.openurp.teach.code.TeacherTitle
-import org.openurp.teach.code.TutorType
+import org.openurp.base.{ Department, Teacher, TeacherJournal }
+import org.openurp.base.code.{ Degree, Education, TeacherTitle, TutorType }
 
 class TeacherJournalAction extends RestfulAction[TeacherJournal] {
   override def editSetting(entity: TeacherJournal) = {
@@ -22,7 +16,7 @@ class TeacherJournalAction extends RestfulAction[TeacherJournal] {
 
     val titles = findItems(classOf[TeacherTitle])
     put("titles", titles)
-    
+
     val educations = findItems(classOf[Education])
     put("educations", educations)
 
@@ -31,7 +25,6 @@ class TeacherJournalAction extends RestfulAction[TeacherJournal] {
 
     val tutorTypes = findItems(classOf[TutorType])
     put("tutorTypes", tutorTypes)
-
 
     super.editSetting(entity)
   }
@@ -42,7 +35,7 @@ class TeacherJournalAction extends RestfulAction[TeacherJournal] {
     val items = entityDao.search(query)
     items
   }
-  
+
 }
 
 

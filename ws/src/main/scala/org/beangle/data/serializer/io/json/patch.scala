@@ -1,8 +1,9 @@
 package org.beangle.data.serializer.io.json
 
 import org.beangle.commons.bean.PropertyUtils
+import org.beangle.commons.collection.Properties
 
-class MyJsonObject extends JsonObject {
+class MyJsonObject extends Properties {
 
   def this(obj: Object, attrs: String*) {
     this()
@@ -18,7 +19,7 @@ class MyJsonObject extends JsonObject {
     }
   }
 
-  def add(attr: String, obj: Object, nestedAttrs: String*): Unit = {
+  override def add(attr: String, obj: Object, nestedAttrs: String*): Unit = {
     if (null != obj)
       put(attr, new MyJsonObject(obj, nestedAttrs: _*))
   }

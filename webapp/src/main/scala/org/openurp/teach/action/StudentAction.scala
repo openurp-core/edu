@@ -1,21 +1,20 @@
 package org.openurp.teach.action
 
 import org.beangle.webmvc.entity.action.RestfulAction
-import org.openurp.teach.Student
 import org.openurp.base.Department
-import org.openurp.teach.Major
-import org.beangle.data.jpa.dao.OqlBuilder
-import org.openurp.base.code.Gender
-import org.beangle.data.model.Entity
-import org.openurp.teach.Direction
+import org.openurp.teach.core.Adminclass
 import org.openurp.teach.code.StdType
 import org.openurp.base.Campus
+import org.openurp.teach.core.Major
+import org.openurp.base.Teacher
+import org.beangle.data.jpa.dao.OqlBuilder
+import org.openurp.base.code.Gender
 import org.openurp.teach.code.StudyType
-import org.openurp.teach.Adminclass
-import org.openurp.teach.StdPerson
-import org.openurp.teach.Teacher
+import org.openurp.teach.core.Student
+import org.beangle.data.model.Entity
+import org.openurp.teach.core.Direction
 
-class StudentAction extends RestfulAction[Student]  {
+class StudentAction extends RestfulAction[Student] {
   override def editSetting(entity: Student) = {
     val departments = findItems(classOf[Department])
     put("departments", departments)
@@ -25,7 +24,7 @@ class StudentAction extends RestfulAction[Student]  {
 
     val directions = findItems(classOf[Direction])
     put("directions", directions)
-    
+
     val genders = findItems(classOf[Gender])
     put("genders", genders)
 
@@ -41,15 +40,11 @@ class StudentAction extends RestfulAction[Student]  {
     val adminclasses = findItems(classOf[Adminclass])
     put("adminclasses", adminclasses)
 
-    val persons = findItems(classOf[StdPerson])
-    put("persons", persons)
-
     val studyTypes = findItems(classOf[StudyType])
     put("studyTypes", studyTypes)
 
     val tutors = findItems(classOf[Teacher])
     put("tutors", tutors)
-  
 
     super.editSetting(entity)
   }
@@ -60,6 +55,6 @@ class StudentAction extends RestfulAction[Student]  {
     val items = entityDao.search(query)
     items
   }
-  
+
 }
 
