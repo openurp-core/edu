@@ -4,30 +4,18 @@ import org.beangle.data.model.bean.LongIdBean
 import org.openurp.teach.code.ExamType
 import org.openurp.teach.exam.ExamActivity
 import org.openurp.teach.lesson.ExamSchedule
+import org.openurp.teach.code.ExamForm
+import org.openurp.teach.code.ExamMode
 
 class ExamScheduleBean extends LongIdBean with ExamSchedule {
 
   /** 具体排考结果 */
   var activities: collection.mutable.Set[ExamActivity] = _
 
-  /** 考试类型 */
-  var examTypes: collection.mutable.Set[ExamType] = _
+  /** 考试形式 开/闭卷 */
+  var examForm: ExamForm = _
 
-  //  fix me 
-  //  public List<Classroom> getExamRooms(ExamBatch examBatch) {
+  /** 考试方式 */
+  var examMode: ExamMode = _
 
-  /**
-   * 返回主考老师
-   */
-  //  fix me
-  //  public List<Teacher> getExaminers(ExamBatch examBatch) {
-
-  /**
-   * @return Returns the activities.
-   */
-  //  fix me
-  //  public ExamActivity getActivity(ExamBatch examBatch) {
-
-  //  fix me
-  //  public ExamSchedule clone() {
 }

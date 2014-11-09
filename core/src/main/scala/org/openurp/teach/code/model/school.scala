@@ -1,7 +1,7 @@
 package org.openurp.teach.code.model
 
 import org.openurp.platform.model.BaseCodeBean
-import org.openurp.teach.code.{StdLabel, StdLabelType, StdType}
+import org.openurp.teach.code.{ StdLabel, StdLabelType, StdType }
 import org.openurp.teach.code.ElectionMode
 import org.openurp.teach.code.ExamForm
 import org.openurp.teach.code.TeachLangType
@@ -15,6 +15,7 @@ import org.openurp.teach.code.CourseType
 import org.openurp.teach.code.CourseCategory
 import org.openurp.teach.code.CourseTakeType
 import org.openurp.teach.code.CourseAbilityRate
+import org.openurp.teach.code.LessonTag
 
 /**
  * 学生分类标签
@@ -24,17 +25,17 @@ import org.openurp.teach.code.CourseAbilityRate
  */
 class StdLabelBean extends BaseCodeBean with StdLabel {
 
- var labelType: StdLabelType=_
+  var labelType: StdLabelType = _
 }
 /**
  * 学生分类标签类型
- * 
+ *
  * @author chaostone
  * @since 3.0.0
  */
 
-class StdLabelTypeBean extends BaseCodeBean with StdLabelType{
-  
+class StdLabelTypeBean extends BaseCodeBean with StdLabelType {
+
 }
 
 /**
@@ -45,19 +46,16 @@ class StdLabelTypeBean extends BaseCodeBean with StdLabelType{
  */
 class StdTypeBean extends BaseCodeBean with StdType {
 
-   var labelType: StdLabelType=_
+  var labelType: StdLabelType = _
 }
 
-
-class ElectionModeBean extends BaseCodeBean with ElectionMode{
+class ElectionModeBean extends BaseCodeBean with ElectionMode {
 
 }
 
 class ExamFormBean extends BaseCodeBean with ExamForm
 
-
 class TeachLangTypeBean extends BaseCodeBean with TeachLangType
-
 
 /**
  * 考核方式
@@ -111,7 +109,6 @@ class ExamTypeBean extends BaseCodeBean with ExamType {
   var gradeType: GradeType = _
   var delay: Boolean = _
 }
-
 
 /**
  * 课程类别
@@ -175,6 +172,7 @@ class GradeTypeBean extends BaseCodeBean with GradeType {
    * 简名
    */
   var shortName: String = _
+  
   def this(id: Integer, code: String, name: String, enName: String) {
     this()
     this.id = id
@@ -186,9 +184,6 @@ class GradeTypeBean extends BaseCodeBean with GradeType {
 
 /**
  * 成绩记录方式
- *
- * @author chaostone
- * @since 2005-9-7
  */
 class ScoreMarkStyleBean extends BaseCodeBean with ScoreMarkStyle {
 
@@ -204,9 +199,6 @@ class ScoreMarkStyleBean extends BaseCodeBean with ScoreMarkStyle {
 
 /**
  * 课时类别代码
- *
- * @author chaostone
- * @since 2009
  */
 class CourseHourTypeBean extends BaseCodeBean with CourseHourType {
 
@@ -214,9 +206,10 @@ class CourseHourTypeBean extends BaseCodeBean with CourseHourType {
 
 /**
  * 课程能力等级
- *
- * @author chaostone
- * @since 2011-09-19
  */
 class CourseAbilityRateBean extends BaseCodeBean with CourseAbilityRate
 
+/**
+ * 教学任务标签
+ */
+class LessonTagBean extends BaseCodeBean with LessonTag

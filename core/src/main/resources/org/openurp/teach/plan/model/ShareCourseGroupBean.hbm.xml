@@ -6,7 +6,7 @@
  
     <class name="ShareCourseGroupBean" entity-name="org.openurp.teach.plan.ShareCourseGroup">
         <cache usage="read-write"/>
-        <id name="id" unsaved-value="null" type="integer"><generator class="date"/></id>
+        <id name="id" unsaved-value="null" type="integer"><generator class="table_sequence"/></id>
         <many-to-one name="plan" not-null="true" class="org.openurp.teach.plan.SharePlan"/>
         <many-to-one name="parent" class="org.openurp.teach.plan.ShareCourseGroup"/>
         <bag name="children" cascade="all,delete-orphan">

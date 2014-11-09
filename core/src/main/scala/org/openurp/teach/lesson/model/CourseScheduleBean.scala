@@ -21,7 +21,9 @@ class CourseScheduleBean extends LongIdBean with CourseSchedule {
 
   /** 已安排课时 */
   var period: Int = _
-
+  
+  /** 任务课时 */
+  var coursePeriod: Int = _
   /**
    * 周状态
    */
@@ -33,25 +35,7 @@ class CourseScheduleBean extends LongIdBean with CourseSchedule {
   /** 教室类型 */
   var roomType: RoomType = _
 
-  /** 状态 */
-  //var status: CourseStatusEnum = _
-
   /** 发布状态 **/
-  var coursePublished: Boolean = _
-
-  /**
-   * 克隆课程安排，不克隆activities
-   *
-   * @return 克隆结果
-   */
-  //  fix me
-  //  public CourseSchedule clone() {
-  /**
-   * 查询课程所安排的教室
-   *
-   * @return
-   */
-  //  fix me
-  //  public Set<Classroom> getCourseScheduledRooms() {
+  var published: Boolean = _
 
 }

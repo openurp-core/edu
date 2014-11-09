@@ -20,7 +20,7 @@
       <key column="course_activity_id" />
       <many-to-many column="teacher_id" class="org.openurp.base.Teacher" />
     </set>
-    <set name="romms" collection-type="set" inverse="true">
+    <set name="rooms" collection-type="set" inverse="true">
       <key column="course_activity_id" />
       <many-to-many column="room_id" class="org.openurp.base.Room" />
     </set>

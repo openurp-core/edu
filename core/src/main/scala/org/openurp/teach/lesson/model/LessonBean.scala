@@ -2,9 +2,10 @@ package org.openurp.teach.lesson.model
 
 import org.beangle.data.model.bean.UpdatedBean
 import org.openurp.base.{ Campus, Department, Semester, Teacher }
-import org.openurp.teach.code.{ CourseType, ExamForm, ExamMode, TeachLangType }
+import org.openurp.teach.code.{ CourseType, TeachLangType }
 import org.openurp.teach.core.{ Course, ProjectBasedObject, States }
-import org.openurp.teach.lesson.{ CourseSchedule, ExamSchedule, Lesson, LessonGroup, TeachClass }
+import org.openurp.teach.lesson.{ CourseSchedule, ExamSchedule, Lesson, TeachClass }
+import org.openurp.teach.schedule.LessonGroup
 
 class LessonBean extends ProjectBasedObject[java.lang.Long] with UpdatedBean with Lesson {
 
@@ -33,16 +34,13 @@ class LessonBean extends ProjectBasedObject[java.lang.Long] with UpdatedBean wit
   var semester: Semester = _
 
   /** 课程安排 */
-  var courseSchedule: CourseSchedule = _
+  var schedule: CourseSchedule = _
 
   /** 考试安排 */
-  var examSchedule: ExamSchedule = _
+  var exam: ExamSchedule = _
 
   /** 备注 */
   var remark: String = _
-
-  /** 考试方式 */
-  var examMode: ExamMode = _
 
   /** 授课语言类型 */
   var langType: TeachLangType = _
@@ -52,11 +50,5 @@ class LessonBean extends ProjectBasedObject[java.lang.Long] with UpdatedBean wit
 
   /** 审核状态 */
   var state: States.State = _
-
-  /** 考试形式 开/闭卷 */
-  var examForm: ExamForm = _
-
-  /** 任务课时 */
-  var coursePeriod: Int = _
 
 }

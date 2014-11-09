@@ -1,9 +1,10 @@
-package org.openurp.teach.lesson.model
+package org.openurp.teach.schedule.model
 
 import org.beangle.data.model.bean.NamedBean
-import org.openurp.base.{Department, Semester}
+import org.openurp.base.{ Department, Semester }
 import org.openurp.teach.core.ProjectBasedObject
-import org.openurp.teach.lesson.{Lesson, LessonGroup}
+import org.openurp.teach.schedule.LessonGroup
+import org.openurp.teach.lesson.Lesson
 
 class LessonGroupBean extends ProjectBasedObject[java.lang.Long] with LessonGroup with NamedBean {
 
