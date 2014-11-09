@@ -172,7 +172,11 @@ class GradeTypeBean extends BaseCodeBean with GradeType {
    * 简名
    */
   var shortName: String = _
-  
+
+  def this(id: Integer) {
+    this()
+    this.id = id
+  }
   def this(id: Integer, code: String, name: String, enName: String) {
     this()
     this.id = id

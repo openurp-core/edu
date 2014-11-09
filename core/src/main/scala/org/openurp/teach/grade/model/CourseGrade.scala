@@ -8,6 +8,7 @@ import org.openurp.teach.lesson.Lesson
 import org.openurp.teach.grade.ExamGrade
 import org.openurp.teach.grade.CourseGrade
 import org.openurp.teach.grade.Grade
+import org.openurp.teach.code.GradeType
 
 /**
  * 课程成绩
@@ -80,21 +81,11 @@ class CourseGradeBean extends ProjectBasedObject[java.lang.Long] with CourseGrad
    */
   var examGrades: collection.mutable.Set[ExamGrade] = _
   /**
-   * 返回指定类型的分数
-   *
-   * @param gradeType
-   *            成绩类型
-   * @return 考试成绩分数
-   */
-  //  var scoreText:GradeType
-  /**
    * 得到指定的考试成绩
-   *
-   * @param gradeType
-   *            成绩类型
-   * @return 考试成绩
    */
-  //var examGrade: ExamGrade= _
+  def getExamGrade(gradeType: GradeType): ExamGrade = {
+    examGrades.find(eg => eg.gradeType == gradeType).orNull
+  }
   /**
    * 返回考核方式
    *
@@ -113,12 +104,6 @@ class CourseGradeBean extends ProjectBasedObject[java.lang.Long] with CourseGrad
    * @return boolean
    */
   var personPercent: Boolean = _
-  /**
-   * 返回外校交流课程
-   *
-   * @return
-   */
-  //   var exchanges:Set[ExchangeCourse]
   var score: java.lang.Float = _
   var scoreText: String = _
   var passed: Boolean = _
