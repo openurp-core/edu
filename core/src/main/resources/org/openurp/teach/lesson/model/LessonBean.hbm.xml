@@ -50,9 +50,7 @@
       <property name="endWeek" not-null="true" />
       <property name="period" not-null="true" />
       <property name="coursePeriod" />
-      <component name="weekState" class="org.openurp.teach.core.WeekState">
-        <property name="value" column="week_state" not-null="true" />
-      </component>
+      <property name="weekState" type="weekstate" not-null="true" />
       <set name="activities" collection-type="set" inverse="true">
         <key column="course_schedule_id" />
         <one-to-many class="org.openurp.teach.schedule.CourseActivity" />

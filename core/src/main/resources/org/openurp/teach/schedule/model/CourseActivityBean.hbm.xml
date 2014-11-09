@@ -14,7 +14,7 @@
       <property name="weekday" />
       <property name="startTime" />
       <property name="endTime" />
-      <property name="weekState" />
+      <property name="weekState" type="weekstate" not-null="true" />
     </component>
     <set name="teachers" collection-type="set" inverse="true">
       <key column="course_activity_id" />

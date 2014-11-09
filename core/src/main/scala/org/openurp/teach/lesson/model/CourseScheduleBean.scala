@@ -1,9 +1,9 @@
 package org.openurp.teach.lesson.model
 
+import org.beangle.commons.lang.time.WeekState
 import org.beangle.data.model.bean.LongIdBean
 import org.openurp.base.code.RoomType
-import org.openurp.teach.core.WeekState
-import org.openurp.teach.lesson.{CourseSchedule, Lesson}
+import org.openurp.teach.lesson.{ CourseSchedule, Lesson }
 import org.openurp.teach.schedule.CourseActivity
 
 class CourseScheduleBean extends LongIdBean with CourseSchedule {
@@ -21,7 +21,7 @@ class CourseScheduleBean extends LongIdBean with CourseSchedule {
 
   /** 已安排课时 */
   var period: Int = _
-  
+
   /** 任务课时 */
   var coursePeriod: Int = _
   /**
