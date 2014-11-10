@@ -6,7 +6,7 @@
  
     <class name="CourseLimitGroupBean" entity-name="org.openurp.teach.lesson.CourseLimitGroup">
         <cache usage="read-write"/>
-        <id name="id" unsaved-value="null" type="long"><generator class="date"/></id>
+        <id name="id" unsaved-value="null" type="integer"><generator class="date"/></id>
         <many-to-one name="lesson"  not-null="true"/>
         <bag name="items" collection-type="seq" inverse="true">
             <key column="course_limit_group_id" />

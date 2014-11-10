@@ -17,6 +17,7 @@ import org.openurp.teach.grade.{ CourseGrade, ExamGrade, Grade }
  * @since 2005
  */
 class ExamGradeBean extends LongIdBean with ExamGrade with UpdatedBean {
+  
   def this(id: java.lang.Long, gradeType: GradeType, score: java.lang.Float, scoreText: String, markStyle: ScoreMarkStyle, passed: Boolean, status: Int) {
     this()
     this.id = id
@@ -46,12 +47,9 @@ class ExamGradeBean extends LongIdBean with ExamGrade with UpdatedBean {
   var operator: String = _
   /**考试情况 */
   var examStatus: ExamStatus = _
+  
   /**个人百分比 */
   var percent: Integer = _
-
-  var published: Boolean = _
-  var beyondSubmit: Boolean = _
-
   // 大的成绩放前面
   override def compare(grade: Grade): Int = {
     if (null == score) return 1

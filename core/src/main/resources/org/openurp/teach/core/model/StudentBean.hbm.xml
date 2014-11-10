@@ -6,7 +6,7 @@
  
     <class name="StudentBean" entity-name="org.openurp.teach.core.Student">
         <cache usage="read-write"/>
-        <id name="id" unsaved-value="null" type="integer"><generator class="code"/></id>
+        <id name="id" unsaved-value="null" type="integer"><generator class="date"/></id>
         <property name="code" length="32" unique="true" not-null="true"/>
         <property name="grade" unique="true" not-null="true"/>
         <many-to-one name="project"/>

@@ -11,7 +11,7 @@ import org.openurp.teach.core.{ Adminclass, Direction, EducationBasedObject, Maj
 /**
  * 学籍信息实现
  */
-class StudentBean extends EducationBasedObject[java.lang.Long] with CodedBean with NamedBean with Student {
+class StudentBean extends EducationBasedObject[Integer] with CodedBean with NamedBean with Student {
 
   /** 年级 表示现在年级，不同于入学时间 */
   var grade: String = _

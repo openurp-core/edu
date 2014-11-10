@@ -13,7 +13,7 @@ class BestGradeCourseGradeProviderImpl(entityDao: EntityDao, bestGradeFilter: Be
   def getPublished(std: Student, semesters: Semester*): Seq[CourseGrade] = {
     val query = OqlBuilder.from(classOf[CourseGrade], "grade")
     query.where("grade.std = :std", std)
-    query.where("grade.status =:status", Grade.Status.PUBLISHED)
+    query.where("grade.status =:status", Grade.Status.Published)
     if (null != semesters && semesters.length > 0) {
       query.where("grade.semester in(:semesters)", semesters)
     }
@@ -34,7 +34,7 @@ class BestGradeCourseGradeProviderImpl(entityDao: EntityDao, bestGradeFilter: Be
   def getPublished(stds: Iterable[Student], semesters: Semester*): collection.Map[Student, Seq[CourseGrade]] = {
     val query = OqlBuilder.from(classOf[CourseGrade], "grade")
     query.where("grade.std in (:stds)", stds)
-    query.where("grade.status =:status", Grade.Status.PUBLISHED)
+    query.where("grade.status =:status", Grade.Status.Published)
     if (null != semesters && semesters.length > 0) {
       query.where("grade.semester in(:semesters)", semesters)
     }

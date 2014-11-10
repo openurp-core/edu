@@ -6,7 +6,7 @@
 
   <class name="LessonBean" entity-name="org.openurp.teach.lesson.Lesson">
     <cache usage="read-write" />
-    <id name="id" unsaved-value="null" type="long">
+    <id name="id" unsaved-value="null" type="integer">
       <generator class="date" />
     </id>
     <property name="no" length="32" unique="true" not-null="true" />

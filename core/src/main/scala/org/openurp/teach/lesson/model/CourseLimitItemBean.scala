@@ -1,12 +1,9 @@
 package org.openurp.teach.lesson.model
 
-import org.beangle.data.model.bean.LongIdBean
-import org.openurp.teach.lesson.CourseLimitItem
-import org.openurp.teach.lesson.CourseLimitGroup
-import org.openurp.teach.lesson.CourseLimitMeta
-import org.openurp.teach.lesson.Operator
+import org.beangle.data.model.bean.IntIdBean
+import org.openurp.teach.lesson.{ CourseLimitGroup, CourseLimitItem, CourseLimitMeta }
 
-class CourseLimitItemBean extends LongIdBean with CourseLimitItem {
+class CourseLimitItemBean extends IntIdBean with CourseLimitItem {
 
   /** 限制具体项目 */
   var meta: CourseLimitMeta = _

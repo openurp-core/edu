@@ -6,7 +6,7 @@
  
     <class name="CourseLimitItemBean" entity-name="org.openurp.teach.lesson.CourseLimitItem">
         <cache usage="read-write"/>
-        <id name="id" unsaved-value="null" type="long"><generator class="date"/></id>
+        <id name="id" unsaved-value="null" type="integer"><generator class="date"/></id>
         <many-to-one name="meta"  not-null="true"/>
         <many-to-one name="group"  not-null="true"/>
         <property name="operator" not-null="true"/>

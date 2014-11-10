@@ -88,6 +88,10 @@ class ExamStatusBean extends BaseCodeBean with ExamStatus {
    */
   var inputable: Boolean = _
 
+  def this(id: Integer) {
+    this()
+    this.id = id
+  }
 }
 
 /**
@@ -192,6 +196,10 @@ class GradeTypeBean extends BaseCodeBean with GradeType {
 class ScoreMarkStyleBean extends BaseCodeBean with ScoreMarkStyle {
 
   var numStyle: Boolean = _
+  def this(id:Integer){
+    this()
+    this.id=id
+  }
   def this(id: Integer, code: String, name: String, enName: String) {
     this()
     this.id = id

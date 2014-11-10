@@ -98,22 +98,14 @@ class CourseGradeBean extends ProjectBasedObject[java.lang.Long] with CourseGrad
    * @return 备注
    */
   var remark: String = _
-  /**
-   * 返回是否设置个人百分比
-   *
-   * @return boolean
-   */
-  var personPercent: Boolean = _
   var score: java.lang.Float = _
   var scoreText: String = _
   var passed: Boolean = _
-  var published: Boolean = _
   var status: Int = _
-  var beyondSubmit: Boolean = _
   var markStyle: ScoreMarkStyle = _
   var operator: String = _
-
   var lesson: Lesson = _
+
   // 大的成绩放前面
   override def compare(grade: Grade): Int = {
     if (null == score) return 1

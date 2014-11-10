@@ -7,7 +7,7 @@ import org.openurp.teach.core.{ Course, ProjectBasedObject, States }
 import org.openurp.teach.lesson.{ CourseSchedule, ExamSchedule, Lesson, TeachClass }
 import org.openurp.teach.schedule.LessonGroup
 
-class LessonBean extends ProjectBasedObject[java.lang.Long] with UpdatedBean with Lesson {
+class LessonBean extends ProjectBasedObject[Integer] with UpdatedBean with Lesson {
 
   /** 课程序号 */
   var no: String = _

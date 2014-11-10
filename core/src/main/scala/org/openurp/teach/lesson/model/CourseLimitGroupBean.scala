@@ -1,9 +1,9 @@
 package org.openurp.teach.lesson.model
 
-import org.beangle.data.model.bean.{LongIdBean, TemporalOnBean}
+import org.beangle.data.model.bean.{IntIdBean, TemporalOnBean}
 import org.openurp.teach.lesson.{CourseLimitGroup, CourseLimitItem, Lesson}
 
-class CourseLimitGroupBean extends LongIdBean with CourseLimitGroup with TemporalOnBean {
+class CourseLimitGroupBean extends IntIdBean with CourseLimitGroup with TemporalOnBean {
 
   /** 教学任务 */
   var lesson: Lesson = _

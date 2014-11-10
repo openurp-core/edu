@@ -18,13 +18,10 @@
         <property name="gp"/>
         <many-to-one name="examMode"  />
         <property name="remark" length="500"/>
-        <property name="beyondSubmit" not-null="true"/>
         <property name="operator"/>
         <property name="passed" not-null="true"/>
-        <property name="personPercent" not-null="true"/>
-        <property name="published" not-null="true"/>
         <property name="score"/>
-        <property name="scoreText"/>
+        <property name="scoreText" length="5"/>
         <many-to-one name="semester"/>
         <property name="status"/>
         <many-to-one name="std"/>
