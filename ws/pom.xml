@@ -10,7 +10,7 @@
   <artifactId>openurp-teach-ws</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
-  <name>OpenURP Base Web Service</name>
+  <name>OpenURP Teach Web Service</name>
 
   <dependencies>
     <dependency>

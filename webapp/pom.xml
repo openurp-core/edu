@@ -10,7 +10,7 @@
   <artifactId>openurp-teach-webapp</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
-  <name>Openurp Base Webapp</name>
+  <name>Openurp Teach Webapp</name>
 
   <dependencies>
     <dependency>
