@@ -45,11 +45,11 @@ class AdminclassAction extends RestfulAction[Adminclass] {
     val adminclass = entity.asInstanceOf[AdminclassBean]
 
     adminclass.instructors.asInstanceOf[collection.mutable.Buffer[Teacher]].clear()
-    val instructorIds = getAll("instructorsId2nd", classOf[java.lang.Long])
+    val instructorIds = getAll("instructorsId2nd", classOf[Integer])
     adminclass.instructors ++= entityDao.find(classOf[Teacher], instructorIds)
 
     adminclass.tutors.asInstanceOf[collection.mutable.Buffer[Teacher]].clear()
-    val tutorIds = getAll("tutorsId2nd", classOf[java.lang.Long])
+    val tutorIds = getAll("tutorsId2nd", classOf[Integer])
     adminclass.tutors ++= entityDao.find(classOf[Teacher], tutorIds)
 
     super.saveAndRedirect(entity)
