@@ -36,10 +36,6 @@ class AdminclassBean extends EducationBasedObject[Integer] with CodedBean with N
   var stdType: StdType = _
   /** 计划人数 */
   var planCount: Int = _
-  /** 开始日期 */
-//  var effectiveAt: Date = _
-  /** 结束日期 结束日期包括在有效期内 */
-//  var invalidAt: Date = _
   /** 学籍有效人数 */
   var stdCount: Int = _
   /** 辅导员 */

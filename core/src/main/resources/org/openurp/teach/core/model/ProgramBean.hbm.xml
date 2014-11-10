@@ -16,6 +16,7 @@
         <many-to-one name="stdType" />
         <property name="duration" not-null="true"/>
         <many-to-one name="degree" />
+        <many-to-one name="studyType" />
         <property name="beginOn" not-null="true"/>
         <property name="endOn" not-null="true"/>
         <property name="updatedAt"/>
