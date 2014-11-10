@@ -1,19 +1,19 @@
 package org.openurp.teach.core.model
 
 import java.sql.Date
-
 import org.beangle.data.model.bean.{ IntIdBean, NamedBean, UpdatedBean }
 import org.openurp.base.Department
 import org.openurp.base.code.{ Degree, Education }
 import org.openurp.teach.code.{ StdType, StudyType }
 import org.openurp.teach.core.{ Direction, Major, Program, States }
+import org.beangle.data.model.bean.TemporalOnBean
 
 /**
  * 专业培养方案
  * @author chaostone
  *
  */
-class ProgramBean extends IntIdBean with UpdatedBean with NamedBean with Program {
+class ProgramBean extends IntIdBean with UpdatedBean with NamedBean with Program with TemporalOnBean{
 
   /**
    * 年级
@@ -59,16 +59,6 @@ class ProgramBean extends IntIdBean with UpdatedBean with NamedBean with Program
    * 毕业授予学位
    */
   var degree: Degree = _
-
-  /**
-   * 开始日期
-   */
-  var beginOn: Date = _
-
-  /**
-   * 结束日期 结束日期包括在有效期内
-   */
-  var endOn: Date = _
 
   /**
    * 备注

@@ -44,10 +44,7 @@ class StdLabelTypeBean extends BaseCodeBean with StdLabelType {
  * @author chaostone
  * @since 3.0.0
  */
-class StdTypeBean extends BaseCodeBean with StdType {
-
-  var labelType: StdLabelType = _
-}
+class StdTypeBean extends BaseCodeBean with StdType
 
 class ElectionModeBean extends BaseCodeBean with ElectionMode {
 

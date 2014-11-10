@@ -63,7 +63,11 @@ StdLabelTypeBean=学生分类标签类型
 StdTypeBean=学生类别
 StdTypeBean.labelType=学生分类标签类型
 
+ExamFormBean=考试形式
 
+ElectionModeBean=选课方式
 
+TeachLangTypeBean=授课语言类型
 
+LessonTagBean=教学任务标签
 
