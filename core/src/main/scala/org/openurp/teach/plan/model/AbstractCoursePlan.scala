@@ -14,7 +14,7 @@ import org.beangle.data.model.bean.UpdatedBean
  * @author chaostone
  * @since 2009
  */
-trait AbstractCoursePlan extends LongIdBean with UpdatedBean with CoursePlan {
+trait AbstractCoursePlan extends UpdatedBean with CoursePlan {
 
   /**
    * 课程组

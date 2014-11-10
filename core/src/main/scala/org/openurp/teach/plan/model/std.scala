@@ -1,14 +1,13 @@
 package org.openurp.teach.plan.model
 
+import org.beangle.data.model.bean.IntIdBean
 import org.openurp.teach.core.Student
-import org.openurp.teach.plan.StdPlan
-import org.openurp.teach.plan.StdCourseGroup
-import org.openurp.teach.plan.StdPlanCourse
+import org.openurp.teach.plan.{ StdCourseGroup, StdPlan, StdPlanCourse }
 
 /**
  * 个人计划
  */
-class StdPlanBean extends AbstractCoursePlan with StdPlan {
+class StdPlanBean extends IntIdBean with AbstractCoursePlan with StdPlan {
 
   /**
    * 学生

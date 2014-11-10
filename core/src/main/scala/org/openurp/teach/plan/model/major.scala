@@ -5,11 +5,12 @@ import org.openurp.teach.plan.CourseGroup
 import org.openurp.teach.plan.MajorCourseGroup
 import org.openurp.teach.core.Direction
 import org.openurp.teach.core.Program
+import org.beangle.data.model.bean.IntIdBean
 
 /**
  * @author chaostone
  */
-class MajorPlanBean extends AbstractCoursePlan with MajorPlan {
+class MajorPlanBean extends IntIdBean with AbstractCoursePlan with MajorPlan {
 
   /**
    * 培养方案

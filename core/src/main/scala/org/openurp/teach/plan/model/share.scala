@@ -8,13 +8,14 @@ import org.beangle.data.model.bean.UpdatedBean
 import org.openurp.teach.plan.ShareCourseGroup
 import org.openurp.base.code.Language
 import org.openurp.teach.plan.SharePlanCourse
+import org.beangle.data.model.bean.IntIdBean
 
 /**
  * 公共共享计划
  *
  * @author chaostone
  */
-class SharePlanBean extends AbstractCoursePlan with SharePlan with Cloneable {
+class SharePlanBean extends IntIdBean with AbstractCoursePlan with SharePlan with Cloneable {
 
   /**
    * 名称
