@@ -108,7 +108,6 @@ class ExamTypeBean extends BaseCodeBean with ExamType {
     this.enName = enName
   }
   var gradeType: GradeType = _
-  var delay: Boolean = _
 }
 
 /**
@@ -169,15 +168,12 @@ class CourseTakeTypeBean extends BaseCodeBean with CourseTakeType {
  * @since 2005-9-7
  */
 class GradeTypeBean extends BaseCodeBean with GradeType {
-  /**
-   * 简名
-   */
-  var shortName: String = _
 
   def this(id: Integer) {
     this()
     this.id = id
   }
+
   def this(id: Integer, code: String, name: String, enName: String) {
     this()
     this.id = id
@@ -193,9 +189,9 @@ class GradeTypeBean extends BaseCodeBean with GradeType {
 class ScoreMarkStyleBean extends BaseCodeBean with ScoreMarkStyle {
 
   var numStyle: Boolean = _
-  def this(id:Integer){
+  def this(id: Integer) {
     this()
-    this.id=id
+    this.id = id
   }
   def this(id: Integer, code: String, name: String, enName: String) {
     this()

@@ -6,6 +6,7 @@ import org.openurp.teach.code.{ CourseType, TeachLangType }
 import org.openurp.teach.core.{ Course, ProjectBasedObject, States }
 import org.openurp.teach.lesson.{ CourseSchedule, ExamSchedule, Lesson, TeachClass }
 import org.openurp.teach.schedule.LessonGroup
+import org.openurp.teach.code.LessonTag
 
 class LessonBean extends ProjectBasedObject[Integer] with UpdatedBean with Lesson {
 
@@ -50,5 +51,7 @@ class LessonBean extends ProjectBasedObject[Integer] with UpdatedBean with Lesso
 
   /** 审核状态 */
   var state: States.State = _
+
+  var tags = new collection.mutable.HashSet[LessonTag]
 
 }

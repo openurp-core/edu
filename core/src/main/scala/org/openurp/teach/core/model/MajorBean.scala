@@ -1,20 +1,19 @@
 package org.openurp.teach.core.model
 
 import java.sql.Date
-
 import collection.mutable.Buffer
-
 import org.beangle.data.model.bean.{ CodedBean, IntIdBean, NamedBean, TemporalOnBean }
 import org.openurp.base.Department
 import org.openurp.base.code.{ DisciplineCategory, Education }
 import org.openurp.teach.core.{ Direction, Major, MajorJournal, Project }
+import org.beangle.data.model.bean.UpdatedBean
 
 /**
  * 专业
  *
  * @author hs
  */
-class MajorBean extends IntIdBean with CodedBean with NamedBean with TemporalOnBean with Major {
+class MajorBean extends IntIdBean with CodedBean with NamedBean with TemporalOnBean with Major with UpdatedBean {
 
   /** 专业英文名 */
   var enName: String = _
@@ -37,7 +36,7 @@ class MajorBean extends IntIdBean with CodedBean with NamedBean with TemporalOnB
   var abbreviation: String = _
 
   def allDepartments: Set[Department] = {
-    journals.map(j => j.depart).toSet
+    journals.map(_.depart).toSet
   }
 
   def departments: Set[Department] = {
@@ -46,7 +45,7 @@ class MajorBean extends IntIdBean with CodedBean with NamedBean with TemporalOnB
 
   def departments(date: Date): Set[Department] = {
     journals.filter(j => date.after(j.beginOn) && (null == j.endOn || date.before(j.endOn)))
-      .map(j => j.depart).toSet
+      .map(_.depart).toSet
   }
 }
 
