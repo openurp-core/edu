@@ -11,6 +11,7 @@ class CourseScheduleBean extends LongIdBean with CourseSchedule {
   /**
    * 所属教学任务
    */
+  @scala.beans.BeanProperty
   var lesson: Lesson = _
 
   /** 起始周 */

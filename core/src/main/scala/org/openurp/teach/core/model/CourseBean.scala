@@ -2,11 +2,11 @@ package org.openurp.teach.core.model
 
 import java.sql.Date
 
-import org.beangle.data.model.bean.{ CodedBean, IntIdBean, NamedBean }
+import org.beangle.data.model.bean.{ CodedBean, IntIdBean, NamedBean, UpdatedBean }
 import org.openurp.base.Department
 import org.openurp.base.code.Education
 import org.openurp.teach.code.{ CourseAbilityRate, CourseCategory, CourseHourType, CourseType, ExamMode, ScoreMarkStyle }
-import org.openurp.teach.core.{ Course, CourseHour, Major }
+import org.openurp.teach.core.{ ProjectBasedObject, Course, CourseHour, Major }
 
 /**
  * 课程基本信息 </p>
@@ -23,7 +23,7 @@ import org.openurp.teach.core.{ Course, CourseHour, Major }
  * @author chaostone
  * @since 2008-09-24
  */
-class CourseBean extends IntIdBean with CodedBean with NamedBean with Course {
+class CourseBean extends ProjectBasedObject[Integer] with CodedBean with NamedBean with UpdatedBean with Course {
 
   def this(id: Integer, code: String, name: String, enName: String) {
     this()

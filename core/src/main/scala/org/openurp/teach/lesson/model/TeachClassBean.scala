@@ -10,6 +10,7 @@ class TeachClassBean extends TeachClass with NamedBean {
   /** 教学班全名 */
   var fullname: String = _
 
+  @scala.beans.BeanProperty
   /** 教学任务 */
   var lesson: Lesson = _
 
