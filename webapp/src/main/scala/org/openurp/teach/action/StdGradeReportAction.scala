@@ -7,13 +7,14 @@ import javax.swing.AbstractAction
 import org.beangle.webmvc.entity.action.AbstractEntityAction
 import org.openurp.teach.core.Student
 import org.openurp.teach.grade.CourseGrade
+import org.beangle.webmvc.api.context.ContextHolder
 
 class StdGradeReportAction extends AbstractEntityAction {
   def index(): String = {
-    val stdCode = "2012134135"
+    val stdCode = "2007137130"
     val stds = entityDao.findBy(classOf[Student], "code", List(stdCode))
     put("stdGradeReports", List(Report(stds.head, List.empty)))
-    forward()
+    forward("index_"+ContextHolder.context.locale.getLanguage)
   }
 }
 

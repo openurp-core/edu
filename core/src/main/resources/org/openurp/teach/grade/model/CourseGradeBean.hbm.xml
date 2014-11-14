@@ -11,7 +11,7 @@
         <property name="lessonNo"/>
         <many-to-one name="courseTakeType"  />
         <many-to-one name="courseType"  />
-        <set name="examGrades" collection-type="set">
+        <set name="examGrades" collection-type="seq">
             <key column="course_grade_id" />
             <one-to-many  class="org.openurp.teach.grade.ExamGrade"/>
         </set>

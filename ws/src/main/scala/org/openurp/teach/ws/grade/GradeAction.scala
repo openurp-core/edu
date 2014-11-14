@@ -27,7 +27,7 @@ class StdCourseGradeAction extends AbstractEntityAction[CourseGrade] {
   def index(): Any = {
     val nameAttr = if (ContextHolder.context.locale.getLanguage() == "en") "enName->name" else "name"
     val builder = OqlBuilder.from(classOf[CourseGrade], "cg")
-    builder.where("cg.std.code=:code", "2012134135")
+    builder.where("cg.std.code=:code", "2007137130")
     val courseGrades = entityDao.search(builder)
     val thinGrades = new collection.mutable.ListBuffer[MyJsonObject]
     for (grade <- courseGrades) {

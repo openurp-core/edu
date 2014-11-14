@@ -1,4 +1,8 @@
 [@b.head /]
+[#include "print.ftl"/]
+ [#macro i18nName(object)]
+  [#if object.enName??]${object.enName}[#else]${object.name}[/#if]
+ [/#macro]
     <style>
         .semester{
             text-align:center;
@@ -18,6 +22,7 @@
         }
         .tds{
             text-align:center;
+            width:40px;
         }
         .tableclass{
             border-collapse:collapse;
@@ -37,32 +42,39 @@
             text-align:center;
             font-size:14px;
             font-family:楷体;
-            width:50px;
+            width:40px;
+        }
+       .container{
+            width:100%;
+            padding-right: 25px;
+            padding-left: 25px;
         }
     </style>
     [#--最大成绩行数--]
-    [#assign maxRows = 35/]
+    [#assign maxRows = 28/]
     [#assign maxCols = 16/]
     [#--每列最大学期数--]
 [#list stdGradeReports as report]
-   [#assign schoolName]${report.std.project.school.name}[/#assign]
 [#assign std=report.std/]
-    [#assign stdTypeName = (report.std.type1.name)!"" /]
-    <div  style="padding-left:50px;[#if report_index>0]PAGE-BREAK-BEFORE: always[/#if]">
+    <div  style="[#if report_index>0]PAGE-BREAK-BEFORE: always[/#if]">
     <table  width='100%'  valign='top' >
-        <tr><td colspan="5" align="center"><h1>${schoolName}${(report.std.grade + "级")?replace("-3级","(春季)级")?replace("-9级","(秋季)级")}${stdTypeName}学生成绩单表</h1></td></tr>
+        <tr><td colspan="5" align="center"><h1>
+          [@i18nName std.project.school.institution/]
+          ${(report.std.grade + "级")?replace("-3级","(Spring)")?replace("-9级","(Autumn)")}
+          Transcript
+        </h1></td></tr>
         <tr style="font-size:14px">
-         <td >专&nbsp;&nbsp;&nbsp;&nbsp;业：${(std.major.name)?default("")}</td>
-         <td >学&nbsp;&nbsp;&nbsp;&nbsp;制：${std.duration?default("0")}年</td>
-         <td >姓&nbsp;&nbsp;&nbsp;&nbsp;名：${std.name}</td>
-         <td >学&nbsp;&nbsp;&nbsp;&nbsp;号：${((std.code)?default(""))?trim}</td>
-         <td >性别：${((std.gender.name)?default(""))?trim}</td>
+         <td >&nbsp;&nbsp;Major：[@i18nName (std.major)?if_exists/]${std.major.enName}</td>
+         <td >Study years：${std.duration?default("0")} years</td>
+         <td >&nbsp;Name：[@i18nName (std.person)/]</td>
+         <td >&nbsp;Student No：${((std.code)?default(""))?trim}</td>
+         <td >&nbsp;Gender：[@i18nName (std.person.gender)!/]</td>
         </tr>
         </table>
         <table width='100%' border="1" id="transcript${std.id}" class="tableclass">
             [#list 1..maxRows as row]
                 <tr height='20px' >
-                [#list 0..15 as col]<td  id="transcript${std.id}_${(col/4)?int*4*maxRows+(col%4)+(row-1)*4}" [#if col==3 || col==7 || col=11] style="border-right:2px #000 solid;" [/#if] [#if col==0 || col==4 || col==8 || col==12] width="250px"  [/#if]  [#if col!=0 && col !=4 && col != 8 && col != 12 ] width="50px"  [/#if]>&nbsp;</td>[/#list]
+                [#list 0..15 as col]<td  id="transcript${std.id}_${(col/4)?int*4*maxRows+(col%4)+(row-1)*4}" [#if col==3 || col==7 || col=11] style="border-right:2px #000 solid;" [/#if] [#if col==0 || col==4 || col==8 || col==12] width="250px"  [/#if]  [#if col!=0 && col !=4 && col != 8 && col != 12 ] width="40px"[/#if]>&nbsp;</td>[/#list]
                 </tr>
             [/#list]
         </table>
@@ -139,13 +151,13 @@
         alert(table+"_"+(index))
         }
         document.getElementById(table+"_"+(index)).className="titlecss";
-        document.getElementById(table+"_"+(index)).innerHTML="课程名称";
+        document.getElementById(table+"_"+(index)).innerHTML="Course Name";
         document.getElementById(table+"_"+(index+1)).className="title";
-        document.getElementById(table+"_"+(index+1)).innerHTML="课程类型";
+        document.getElementById(table+"_"+(index+1)).innerHTML="Type";
         document.getElementById(table+"_"+(index+2)).className="title";
-        document.getElementById(table+"_"+(index+2)).innerHTML="学分";
+        document.getElementById(table+"_"+(index+2)).innerHTML="Credits";
         document.getElementById(table+"_"+(index+3)).className="title";
-        document.getElementById(table+"_"+(index+3)).innerHTML="成绩";
+        document.getElementById(table+"_"+(index+3)).innerHTML="Score";
         index+=4;
     }
     //添加学年学期
@@ -180,7 +192,7 @@
         if(row>${maxRows}|| col >= ${maxCols}) {return;}
         //空白行不放在第一行
         if(row==1)return;
-        setTitle(table,index,"以下空白");
+        setTitle(table,index,"Blank Below");
     }
     
     function addScore(table,name,courseTypeName,credit,score){
@@ -205,11 +217,11 @@
         else semesterCourses['c'+semesterId]= semesterCourses['c'+semesterId]+1;
     }
    function term(name){
-      if (name=='1') return "一"
-      else if(name=='2') return "二"
+      if (name=='1') return "I"
+      else if(name=='2') return "II"
       else return name
     }
-   jQuery.getJSON("http://192.168.103.24:8080/teach-ws/teach/std-course-grades?request_locale=en_US",function(grades){
+   jQuery.getJSON("http://192.168.103.24:8080/teach-ws/teach/grade/std-course-grades?request_locale=en_US",function(grades){
        var semester_id="0"
        grades.sort(function(a, b){
          if(a.semester.code<b.semester.code) return -1
@@ -224,7 +236,7 @@
             if(grade.semester.id !=semester_id){
                semester_id=grade.semester.id
                addSemester("transcript${std.id}",grade.semester.id, grade.semester.schoolYear
-                                       + "学年第" + term(grade.semester.name)  + "学期");
+                                       + " " + term(grade.semester.name));
                addTitle("transcript${std.id}");
                  }
              addScore("transcript${std.id}" , grade.course.name, grade.courseType.code.charAt(0), grade.course.credits, grade.scoreText);
@@ -247,11 +259,11 @@
     <table width='100%' border=0  height='40px' valign='bottom' style="font-family:宋体;font-size:18px;">
         <tr><td>&nbsp;</td></tr>
         <tr>
-            <td  style="padding-left:550px;" align='right' valign='bottom'>上海金融学院教务处</td>
-            <td   align='right' valign='bottom'>经办人:______________</td>
+            <td  style="padding-left:550px;" align='right' valign='bottom'>[@i18nName std.project.school.institution/]XXX</td>
+            <td   align='right' valign='bottom'>Manager:______________</td>
         </tr>
         <tr>
-        <td  align='right' colspan="2" valign='bottom'>${b.now?string('yyyy年MM月dd日')}</td>
+        <td  align='right' colspan="2" valign='bottom'>${b.now?string('MM/dd/yyyy')}</td>
         </tr>
     </table>
         </div>
