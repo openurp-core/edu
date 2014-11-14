@@ -12,6 +12,7 @@ import org.openurp.teach.code.GradeType
 import org.openurp.teach.grade.GaGrade
 import scala.collection.mutable.ListBuffer
 import scala.collection.mutable.Buffer
+import org.openurp.teach.code.model.GradeTypeBean
 
 /**
  * 课程成绩
@@ -62,7 +63,7 @@ class CourseGradeBean extends ProjectBasedObject[java.lang.Long] with CourseGrad
   var gp: java.lang.Float = _
 
   var bonus: java.lang.Float = _
-  
+
   /**
    * 总评成绩
    */
@@ -77,6 +78,10 @@ class CourseGradeBean extends ProjectBasedObject[java.lang.Long] with CourseGrad
   def getGrade(gradeType: GradeType): Grade = {
     if (gradeType.isGa) gaGrades.find(eg => eg.gradeType == gradeType).orNull
     else examGrades.find(eg => eg.gradeType == gradeType).orNull
+  }
+
+  def getGrade(gradeTypeId: Integer): Grade = {
+    getGrade(new GradeTypeBean(gradeTypeId))
   }
   /**
    * 考核方式
@@ -94,6 +99,9 @@ class CourseGradeBean extends ProjectBasedObject[java.lang.Long] with CourseGrad
   var operator: String = _
   var lesson: Lesson = _
 
+  def gradeType:GradeType={
+    new GradeTypeBean(GradeType.Final)
+  }
   // 大的成绩放前面
   override def compare(grade: Grade): Int = {
     if (null == score) return 1

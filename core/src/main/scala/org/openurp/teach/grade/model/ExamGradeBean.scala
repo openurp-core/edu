@@ -3,7 +3,7 @@ package org.openurp.teach.grade.model
 import org.beangle.data.model.bean.{ LongIdBean, UpdatedBean }
 import org.openurp.teach.code.{ ExamStatus, GradeType, ScoreMarkStyle }
 import org.openurp.teach.grade.{ CourseGrade, ExamGrade, Grade }
-
+import java.lang.{Short => JShort}
 /**
  * 考试成绩
  * </p>
@@ -47,9 +47,10 @@ class ExamGradeBean extends LongIdBean with ExamGrade with UpdatedBean {
   var operator: String = _
   /**考试情况 */
   var examStatus: ExamStatus = _
+  /**百分比 */
+  var percent: JShort = _
   
-  /**个人百分比 */
-  var percent: Integer = _
+  def std = courseGrade.std
   // 大的成绩放前面
   override def compare(grade: Grade): Int = {
     if (null == score) return 1

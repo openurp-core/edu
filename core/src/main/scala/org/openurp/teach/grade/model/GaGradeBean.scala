@@ -47,6 +47,10 @@ class GaGradeBean extends LongIdBean with GaGrade with UpdatedBean {
   var operator: String = _
   /**绩点*/
   var gp: java.lang.Float = _
+  /***/
+  var ratio: Short = 100
+
+  def std = courseGrade.std
   // 大的成绩放前面
   override def compare(grade: Grade): Int = {
     if (null == score) return 1
