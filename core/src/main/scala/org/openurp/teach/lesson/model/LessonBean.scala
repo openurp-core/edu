@@ -52,6 +52,6 @@ class LessonBean extends ProjectBasedObject[Integer] with UpdatedBean with Lesso
   /** 审核状态 */
   var state: States.State = _
 
-  var tags = new collection.mutable.HashSet[LessonTag]
+  var tags: collection.mutable.Set[LessonTag] = new collection.mutable.HashSet[LessonTag]
 
 }

@@ -3,10 +3,11 @@
  [#macro i18nName(object)]
   [#if object.enName??]${object.enName}[#else]${object.name}[/#if]
  [/#macro]
+[#assign fontsize=10/]
     <style>
         .semester{
             text-align:center;
-            font-size:16px;
+            font-size:${fontsize+2}px;
             font-family:楷体;
             border-top:2px #000 solid;
             border-right:2px #000 solid;
@@ -15,18 +16,17 @@
         }
         .blank{
             text-align:center;
-            font-size:16px;
+            font-size:${fontsize}px;
             font-family:楷体;
             border-right:2px #000 solid;
             border-left:2px #000 solid;
         }
         .tds{
             text-align:center;
-            width:40px;
         }
         .tableclass{
             border-collapse:collapse;
-            font-size:14px;
+            font-size:${fontsize}px;
             border-top:2px #000 solid;
             border-right:2px #000 solid;
             border-left:2px #000 solid;
@@ -34,15 +34,21 @@
         }
         .titlecss{
             text-align:center;
-            font-size:14px;
-            width:250px;
+            font-size:${fontsize}px;
+            width:295px;
             font-family:楷体;
         }
         .title{
             text-align:center;
-            font-size:14px;
+            font-size:${fontsize}px;
             font-family:楷体;
-            width:40px;
+            width:35px;
+        }
+        .credits{
+            text-align:center;
+            font-size:${fontsize-2}px;
+            font-family:楷体;
+            width:35px;
         }
        .container{
             width:100%;
@@ -51,19 +57,19 @@
         }
     </style>
     [#--最大成绩行数--]
-    [#assign maxRows = 28/]
+    [#assign maxRows = 30/]
     [#assign maxCols = 16/]
     [#--每列最大学期数--]
 [#list stdGradeReports as report]
 [#assign std=report.std/]
     <div  style="[#if report_index>0]PAGE-BREAK-BEFORE: always[/#if]">
     <table  width='100%'  valign='top' >
-        <tr><td colspan="5" align="center"><h1>
+        <tr><td colspan="5" align="center"><h2 style="font-size:${fontsize+10}px">
           [@i18nName std.project.school.institution/]
           ${(report.std.grade + "级")?replace("-3级","(Spring)")?replace("-9级","(Autumn)")}
           Transcript
-        </h1></td></tr>
-        <tr style="font-size:14px">
+        </h2></td></tr>
+        <tr style="font-size:${fontsize}px">
          <td >&nbsp;&nbsp;Major：[@i18nName (std.major)?if_exists/]${std.major.enName}</td>
          <td >Study years：${std.duration?default("0")} years</td>
          <td >&nbsp;Name：[@i18nName (std.person)/]</td>
@@ -74,7 +80,7 @@
         <table width='100%' border="1" id="transcript${std.id}" class="tableclass">
             [#list 1..maxRows as row]
                 <tr height='20px' >
-                [#list 0..15 as col]<td  id="transcript${std.id}_${(col/4)?int*4*maxRows+(col%4)+(row-1)*4}" [#if col==3 || col==7 || col=11] style="border-right:2px #000 solid;" [/#if] [#if col==0 || col==4 || col==8 || col==12] width="250px"  [/#if]  [#if col!=0 && col !=4 && col != 8 && col != 12 ] width="40px"[/#if]>&nbsp;</td>[/#list]
+                [#list 0..15 as col]<td  id="transcript${std.id}_${(col/4)?int*4*maxRows+(col%4)+(row-1)*4}" [#if col==3 || col==7 || col=11] style="border-right:2px #000 solid;" [/#if] [#if col==0 || col==4 || col==8 || col==12] width="295px"  [/#if]  [#if col!=0 && col !=4 && col != 8 && col != 12 ] width="35px"[/#if]>&nbsp;</td>[/#list]
                 </tr>
             [/#list]
         </table>
@@ -147,14 +153,11 @@
         if(row>${maxRows} || col >= ${maxCols}) {
             return;
         }
-        if(null==document.getElementById(table+"_"+(index))){
-        alert(table+"_"+(index))
-        }
         document.getElementById(table+"_"+(index)).className="titlecss";
         document.getElementById(table+"_"+(index)).innerHTML="Course Name";
         document.getElementById(table+"_"+(index+1)).className="title";
         document.getElementById(table+"_"+(index+1)).innerHTML="Type";
-        document.getElementById(table+"_"+(index+2)).className="title";
+        document.getElementById(table+"_"+(index+2)).className="credits";
         document.getElementById(table+"_"+(index+2)).innerHTML="Credits";
         document.getElementById(table+"_"+(index+3)).className="title";
         document.getElementById(table+"_"+(index+3)).innerHTML="Score";
@@ -200,6 +203,9 @@
         var row = calcCol(index);
         if(row>${maxRows} || col >= ${maxCols}) {return;}
         document.getElementById(table+"_"+(index)).innerHTML=name;
+        if(name.length>40){
+           document.getElementById(table+"_"+(index)).style.fontSize="${fontsize-2}px"
+        }
         document.getElementById(table+"_"+(index+1)).className="tds";
         document.getElementById(table+"_"+(index+2)).className="tds";
         document.getElementById(table+"_"+(index+3)).className="tds";
@@ -246,7 +252,6 @@
 
     addBlank("transcript${std.id}");
         function removeTr(){
-            blankRow=blankRow+1;
             if(${maxRows}-blankRow>0){
                 var t1=document.getElementById("transcript${std.id}");
                 var maxr =${maxRows};
@@ -256,14 +261,11 @@
             }
         }
     </script>
-    <table width='100%' border=0  height='40px' valign='bottom' style="font-family:宋体;font-size:18px;">
-        <tr><td>&nbsp;</td></tr>
+    <table width='100%' border=0   style="font-family:宋体;font-size:${fontsize+2}px;">
         <tr>
-            <td  style="padding-left:550px;" align='right' valign='bottom'>[@i18nName std.project.school.institution/]XXX</td>
-            <td   align='right' valign='bottom'>Manager:______________</td>
-        </tr>
-        <tr>
-        <td  align='right' colspan="2" valign='bottom'>${b.now?string('MM/dd/yyyy')}</td>
+            <td  align='right' >[@i18nName std.project.school.institution/]XXX</td>
+            <td  align='right' width="200px">Manager:______________</td>
+            <td  align='right' width="100px">${b.now?string('MM/dd/yyyy')}</td>
         </tr>
     </table>
         </div>

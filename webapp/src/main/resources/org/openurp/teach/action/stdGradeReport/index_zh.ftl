@@ -1,9 +1,10 @@
 [@b.head /]
 [#include "print.ftl"/]
+[#assign fontsize=10/]
     <style>
         .semester{
             text-align:center;
-            font-size:16px;
+            font-size:${fontsize+2}px;
             font-family:楷体;
             border-top:2px #000 solid;
             border-right:2px #000 solid;
@@ -12,7 +13,7 @@
         }
         .blank{
             text-align:center;
-            font-size:16px;
+            font-size:${fontsize}px;
             font-family:楷体;
             border-right:2px #000 solid;
             border-left:2px #000 solid;
@@ -22,7 +23,7 @@
         }
         .tableclass{
             border-collapse:collapse;
-            font-size:14px;
+            font-size:${fontsize}px;
             border-top:2px #000 solid;
             border-right:2px #000 solid;
             border-left:2px #000 solid;
@@ -30,13 +31,13 @@
         }
         .titlecss{
             text-align:center;
-            font-size:14px;
+            font-size:${fontsize}px;
             width:250px;
             font-family:楷体;
         }
         .title{
             text-align:center;
-            font-size:14px;
+            font-size:${fontsize}px;
             font-family:楷体;
             width:50px;
         }
@@ -56,8 +57,8 @@
     [#assign stdTypeName = (report.std.type1.name)!"" /]
     <div  style="[#if report_index>0]PAGE-BREAK-BEFORE: always[/#if]">
     <table  width='100%'  valign='top' >
-        <tr><td colspan="5" align="center"><h1>${schoolName}${(report.std.grade + "级")?replace("-3级","(春季)级")?replace("-9级","(秋季)级")}${stdTypeName}学生成绩单表</h1></td></tr>
-        <tr style="font-size:14px">
+        <tr><td colspan="5" align="center"><h2 style="font-size:${fontsize+10}px">${schoolName}${(report.std.grade + "级")?replace("-3级","级(春季)")?replace("-9级","级(秋季)")}${stdTypeName}学生成绩单表</h2></td></tr>
+        <tr style="font-size:${fontsize}px">
          <td >专&nbsp;&nbsp;&nbsp;&nbsp;业：${(std.major.name)?default("")}</td>
          <td >学&nbsp;&nbsp;&nbsp;&nbsp;制：${std.duration?default("0")}年</td>
          <td >姓&nbsp;&nbsp;&nbsp;&nbsp;名：${std.person.name}</td>
@@ -140,9 +141,6 @@
         var row = calcCol(index);
         if(row>${maxRows} || col >= ${maxCols}) {
             return;
-        }
-        if(null==document.getElementById(table+"_"+(index))){
-        alert(table+"_"+(index))
         }
         document.getElementById(table+"_"+(index)).className="titlecss";
         document.getElementById(table+"_"+(index)).innerHTML="课程名称";
@@ -240,7 +238,6 @@
 
     addBlank("transcript${std.id}");
         function removeTr(){
-            blankRow=blankRow+1;
             if(${maxRows}-blankRow>0){
                 var t1=document.getElementById("transcript${std.id}");
                 var maxr =${maxRows};
@@ -250,14 +247,11 @@
             }
         }
     </script>
-    <table width='100%' border=0  height='40px' valign='bottom' style="font-family:宋体;font-size:18px;">
-        <tr><td>&nbsp;</td></tr>
+    <table width='100%' border=0  valign='bottom' style="font-family:宋体;font-size:${fontsize+2}px;">
         <tr>
-            <td  style="padding-left:550px;" align='right' valign='bottom'>上海金融学院教务处</td>
-            <td   align='right' valign='bottom'>经办人:______________</td>
-        </tr>
-        <tr>
-        <td  align='right' colspan="2" valign='bottom'>${b.now?string('yyyy年MM月dd日')}</td>
+            <td  align='right' >上海金融学院教务处</td>
+            <td  align='right' width="200px">经办人:______________</td>
+            <td  align='right' width="100px" >${b.now?string('yyyy年MM月dd日')}</td>
         </tr>
     </table>
         </div>

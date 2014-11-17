@@ -59,7 +59,7 @@ body {
 }
 </style> 
 [#elseif useragent?contains('MSIE')]
-<object id="factory" style="display:none" viewastext classid="clsid:1663ed61-23eb-11d2-b92f-008048fdd814" codebase="${base}/static/themes/default/css/smsx.cab#Version=7.1.0.60"></object>
+<object id="factory" style="display:none" viewastext classid="clsid:1663ed61-23eb-11d2-b92f-008048fdd814" codebase="${request.getContextPath()}/static/themes/default/css/smsx.cab#Version=7.1.0.60"></object>
 <script type="text/javascript">
   SetPrintSettings =function () { 
      try{

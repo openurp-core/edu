@@ -9,6 +9,7 @@
         <id name="id" unsaved-value="null" type="long"><generator class="date"/></id>
         <many-to-one name="course" not-null="true" />
         <property name="lessonNo"/>
+        <many-to-one name="lesson"/>
         <many-to-one name="courseTakeType"  />
         <many-to-one name="courseType"  />
         <set name="examGrades" collection-type="seq">
