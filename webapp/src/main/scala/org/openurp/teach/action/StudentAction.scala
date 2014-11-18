@@ -1,20 +1,51 @@
 package org.openurp.teach.action
 
-import org.beangle.webmvc.entity.action.RestfulAction
-import org.openurp.base.Department
-import org.openurp.teach.core.Adminclass
-import org.openurp.teach.code.StdType
-import org.openurp.base.Campus
-import org.openurp.teach.core.Major
-import org.openurp.base.Teacher
 import org.beangle.data.jpa.dao.OqlBuilder
-import org.openurp.base.code.Gender
-import org.openurp.teach.code.StudyType
-import org.openurp.teach.core.Student
 import org.beangle.data.model.Entity
-import org.openurp.teach.core.Direction
+import org.beangle.webmvc.api.view.View
+import org.beangle.webmvc.entity.action.RestfulAction
+import org.openurp.base.{ Campus, Department, Teacher }
+import org.openurp.base.code.{ Education, Gender }
+import org.openurp.teach.code.{ StdLabel, StdType, StudyType }
+import org.openurp.teach.core.{ Adminclass, Direction, Major, Student }
+import org.openurp.teach.core.model.StudentBean
+import org.openurp.base.Person
+import org.beangle.webmvc.api.annotation.mapping
+import scala.collection.mutable.Buffer
+import org.beangle.commons.collection.Order
+import org.beangle.commons.lang.Strings
+import org.openurp.base.code.Nation
 
 class StudentAction extends RestfulAction[Student] {
+
+  override protected def indexSetting(): Unit = {
+    
+    val nations = findItems(classOf[Nation])
+    put("nations", nations)
+
+    val genders = findItems(classOf[Gender])
+    put("genders", genders)
+
+    val labels = findItems(classOf[StdLabel])
+    put("labels", labels)
+    super.indexSetting()
+  }
+
+  protected override def getQueryBuilder(): OqlBuilder[Student] = {
+    val builder: OqlBuilder[Student] = OqlBuilder.from(classOf[Student], shortName)
+    populateConditions(builder)
+    get("stdLabelId") match {
+      case Some(labelId) =>
+        if (Strings.isNotEmpty(labelId)) {
+          builder.join("student.labels", "label")
+          builder.where("label.id=:labelId", Integer.valueOf(labelId))
+        }
+      case None =>
+    }
+
+    builder.orderBy(get(Order.OrderStr).orNull).limit(getPageLimit())
+  }
+
   override def editSetting(entity: Student) = {
     val departments = findItems(classOf[Department])
     put("departments", departments)
@@ -46,6 +77,14 @@ class StudentAction extends RestfulAction[Student] {
     val tutors = findItems(classOf[Teacher])
     put("tutors", tutors)
 
+    val labels = findItems(classOf[StdLabel])
+    labels.asInstanceOf[Buffer[StdLabel]] --= entity.asInstanceOf[StudentBean].labels.values
+    entity.asInstanceOf[StudentBean].labels.keys
+    put("labels", labels)
+
+    //    val people= findItems(classOf[Person])
+    //    put("people",people)
+
     super.editSetting(entity)
   }
 
@@ -54,6 +93,56 @@ class StudentAction extends RestfulAction[Student] {
     query.orderBy("name")
     val items = entityDao.search(query)
     items
+  }
+
+  protected override def saveAndRedirect(entity: Student): View = {
+    val student = entity.asInstanceOf[StudentBean]
+
+    student.labels.clear()
+    val labelsIds = getAll("labelsId2nd", classOf[Integer])
+    entityDao.find(classOf[StdLabel], labelsIds) foreach { label =>
+      student.labels.put(label.labelType, label)
+    }
+    super.saveAndRedirect(entity)
+  }
+
+  @mapping(value = "batchUpdateLabel", method = "put")
+  def batchUpdateLabel(): String = {
+    val idclass = entityMetaData.getType(entityName).get.idType
+    val entityId = getId(shortName, idclass)
+    val students: Seq[Student] =
+      if (null == entityId) getModels(entityName, getIds(shortName, idclass))
+      else List(getModel(entityName, entityId))
+    put("students", students)
+    val labels = findItems(classOf[StdLabel])
+    put("labels", labels)
+    forward()
+  }
+
+  @mapping(value = "saveBatchUpdateLabel", method = "put")
+  def saveBatchUpdateLabel(): View = {
+    val idclass = entityMetaData.getType(entityName).get.idType
+    val entityId = getId(shortName, idclass)
+    val students: Seq[Student] =
+      if (null == entityId) getModels(entityName, getIds(shortName, idclass))
+      else List(getModel(entityName, entityId))
+
+    val addLabelsId2nd = getAll("addLabelsId2nd", classOf[Integer])
+    val addLabels = entityDao.find(classOf[StdLabel], addLabelsId2nd)
+    students.foreach(student => {
+      addLabels foreach { label =>
+        student.asInstanceOf[StudentBean].labels.put(label.labelType, label)
+      }
+    })
+    val removeLabelsId2nd = getAll("removeLabelsId2nd", classOf[Integer])
+    val removeLabels = entityDao.find(classOf[StdLabel], removeLabelsId2nd)
+    students foreach (student => {
+      removeLabels foreach { label =>
+        student.asInstanceOf[StudentBean].labels.remove(label.labelType)
+      }
+    })
+    entityDao.saveOrUpdate(students)
+    redirect("search", "info.save.success")
   }
 
 }

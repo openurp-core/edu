@@ -36,6 +36,8 @@ class ProjectAction extends RestfulAction[Project] {
     val timeSettings = findItems(classOf[TimeSetting])
     put("timeSettings", timeSettings)
 
+ 
+    
     super.editSetting(entity)
   }
 

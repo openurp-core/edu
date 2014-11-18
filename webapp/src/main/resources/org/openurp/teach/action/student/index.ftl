@@ -5,10 +5,13 @@
   <tr>
     <td class="index_view">
     [@b.form name="studentSearchForm" action="!search" target="studentlist" title="ui.searchForm" theme="search"]
-      [@b.textfields names="student.code;代码"/]
-      [@b.textfields names="student.name;名称"/]
+      [@b.textfields names="student.code;学号"/]
+      [@b.textfields names="student.person.name;姓名"/]
       [@b.textfields names="student.major.name;专业"/]
-      <input type="hidden" name="orderBy" value="student.name"/>
+      [@b.select name="student.person.nation.id" label="民族" items=nations option="id,name"  empty="..." style="width:100px"/]
+      [@b.select name="student.person.gender.id" label="性别" items=genders option="id,name"  empty="..." style="width:100px"/]
+      [@b.select name="stdLabelId" label="标签" items=labels option="id,name"  empty="..." style="width:100px"/]
+      <input type="hidden" name="orderBy" value="student.code"/>
     [/@]
     </td>
     <td class="index_content">[@b.div id="studentlist" href="!search?orderBy=student.code"/]

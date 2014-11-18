@@ -1,6 +1,6 @@
 package org.openurp.teach.core.model
 
-import collection.mutable.{ Buffer, ListBuffer }
+import scala.collection.mutable.{ Buffer, ListBuffer }
 
 import org.beangle.data.model.bean.{ IntIdBean, LongIdBean, NamedBean, TemporalOnBean }
 import org.openurp.base.{ Calendar, Campus, Department, Room, School, TimeSetting }
@@ -39,7 +39,7 @@ class ProjectBean extends IntIdBean with NamedBean with TemporalOnBean with Proj
   /** 是否辅修 */
   var minor: Boolean = _
 
-  var properties: collection.mutable.Map[String, String] = _
+  var properties: collection.mutable.Map[String, String] = new collection.mutable.HashMap[String, String]
 
 }
 /**

@@ -26,7 +26,7 @@ class StudentBean extends EducationBasedObject[java.lang.Long] with CodedBean wi
   /** 学生类别 所在项目内的学生类别 */
   var stdType: StdType = _
   /** 学生分类标签 */
-  var labels: collection.mutable.Map[StdLabelType, StdLabel] = _
+  var labels: collection.mutable.Map[StdLabelType, StdLabel] = new collection.mutable.HashMap[StdLabelType, StdLabel]
   /** 校区 */
   var campus: Campus = _
   /** 学制 学习年限（允许0.5年出现） */
