@@ -3,10 +3,10 @@ package org.openurp.teach.grade.service.internal
 import java.util.Date
 
 import org.openurp.base.Semester
-import org.openurp.teach.core.{Course, Student}
+import org.openurp.teach.core.{ Course, Student }
 import org.openurp.teach.grade.CourseGrade
-import org.openurp.teach.grade.domain.{CourseGradeProvider, GpaPolicy, StdGpa, StdSemesterGpa, StdYearGpa}
-import org.openurp.teach.grade.service.{GpaStatService, MultiStdGpa}
+import org.openurp.teach.grade.domain.{ CourseGradeProvider, GpaPolicy, StdGpa, StdSemesterGpa, StdYearGpa }
+import org.openurp.teach.grade.service.{ GpaStatService, MultiStdGpa }
 
 class DefaultGpaStatService extends GpaStatService {
 
@@ -19,9 +19,9 @@ class DefaultGpaStatService extends GpaStatService {
     val courseMap = new collection.mutable.HashMap[Course, CourseGrade]
     for (grade <- grades) {
       val semesterGrades = gradesMap.getOrElseUpdate(grade.semester, new collection.mutable.ListBuffer[CourseGrade])
-      courseMap.get(grade.course) foreach { exist =>
-        if (!exist.passed)
-          courseMap.put(grade.course, grade)
+      courseMap.get(grade.course) match {
+        case Some(exist) => if (!exist.passed) courseMap.put(grade.course, grade)
+        case None => courseMap.put(grade.course, grade)
       }
       semesterGrades += grade
     }

@@ -70,10 +70,10 @@
           Transcript
         </h2></td></tr>
         <tr style="font-size:${fontsize}px">
+         <td >Education：[@i18nName (std.education)!/]</td>
          <td >&nbsp;&nbsp;Major：[@i18nName (std.major)?if_exists/]${std.major.enName}</td>
-         <td >Study years：${std.duration?default("0")} years</td>
-         <td >&nbsp;Name：[@i18nName (std.person)/]</td>
          <td >&nbsp;Student No：${((std.code)?default(""))?trim}</td>
+         <td >&nbsp;Name：[@i18nName (std.person)/]</td>
          <td >&nbsp;Gender：[@i18nName (std.person.gender)!/]</td>
         </tr>
         </table>
@@ -226,7 +226,32 @@
       if (name=='1') return "I"
       else if(name=='2') return "II"
       else return name
+    }   
+    /**添加备注*/
+   function addRemark(table,content){
+        var col = calcRow(index);
+        var row = calcCol(index);
+        if(row>${maxRows} || col >= ${maxCols}) {return;}
+        document.getElementById(table+"_"+(index)).innerHTML=content;
+        document.getElementById(table+"_"+(index)).style.fontSize="${fontsize-2}px"
+        document.getElementById(table+"_"+(index)).colSpan=4
+        var parentNode = document.getElementById(table+"_"+(index)).parentNode
+        parentNode.removeChild(document.getElementById(table+"_"+(index+1)));
+        parentNode.removeChild(document.getElementById(table+"_"+(index+2)));
+        parentNode.removeChild(document.getElementById(table+"_"+(index+3)));
+        index+=4;
+        if (blankRow<row)  blankRow=row;
     }
+    function removeTr(){
+      if(${maxRows}-blankRow>0){
+          var t1=document.getElementById("transcript${std.id}");
+          var maxr =${maxRows};
+          for(var i=0;i<=maxr;i++){
+              if(i>blankRow) t1.deleteRow(blankRow);
+          }
+      }
+   }
+    
    jQuery.getJSON("http://192.168.103.24:8080/teach-ws/teach/grade/std-course-grades?request_locale=en_US",function(grades){
        var semester_id="0"
        grades.sort(function(a, b){
@@ -247,24 +272,24 @@
                  }
              addScore("transcript${std.id}" , grade.course.name, grade.courseType.code.charAt(0), grade.course.credits, grade.scoreText);
           }
-      removeTr();
+       addBlank("transcript${std.id}");
+       removeTr();
+       index= ((${maxRows}*3-1)*4)+((blankRow-7)*4)
+       var title = document.getElementById("transcript${std.id}_"+(index)); 
+       title.className="semester"
+       addRemark("transcript${std.id}",'Type Remark');
+       addRemark("transcript${std.id}",'1 Stands for Basic Common Learnings');
+       addRemark("transcript${std.id}",'2 Stands for Compulsory Courses for Academic Subject');
+       addRemark("transcript${std.id}",'3 Stands for Compulsory Courses for Major Field');
+       addRemark("transcript${std.id}",'4 Stands for Optional Courses for Academic Subject');
+       addRemark("transcript${std.id}",'5 Stands for Optional Courses for Major Field');
+       addRemark("transcript${std.id}",'6 Stands for Practice Courses');
+       addRemark("transcript${std.id}",'7 Stands for Basic Public Optional Courses');
      });
-
-    addBlank("transcript${std.id}");
-        function removeTr(){
-            if(${maxRows}-blankRow>0){
-                var t1=document.getElementById("transcript${std.id}");
-                var maxr =${maxRows};
-                for(var i=0;i<=maxr;i++){
-                    if(i>blankRow) t1.deleteRow(blankRow);
-                }
-            }
-        }
     </script>
     <table width='100%' border=0   style="font-family:宋体;font-size:${fontsize+2}px;">
         <tr>
             <td  align='right' >[@i18nName std.project.school.institution/]XXX</td>
-            <td  align='right' width="200px">Manager:______________</td>
             <td  align='right' width="100px">${b.now?string('MM/dd/yyyy')}</td>
         </tr>
     </table>

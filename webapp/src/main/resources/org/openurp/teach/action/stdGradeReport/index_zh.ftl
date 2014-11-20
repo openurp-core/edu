@@ -59,11 +59,11 @@
     <table  width='100%'  valign='top' >
         <tr><td colspan="5" align="center"><h2 style="font-size:${fontsize+10}px">${schoolName}${(report.std.grade + "级")?replace("-3级","级(春季)")?replace("-9级","级(秋季)")}${stdTypeName}学生成绩单表</h2></td></tr>
         <tr style="font-size:${fontsize}px">
+         <td >层&nbsp;&nbsp;&nbsp;&nbsp;次：${(std.education.name)!}</td>
          <td >专&nbsp;&nbsp;&nbsp;&nbsp;业：${(std.major.name)?default("")}</td>
-         <td >学&nbsp;&nbsp;&nbsp;&nbsp;制：${std.duration?default("0")}年</td>
-         <td >姓&nbsp;&nbsp;&nbsp;&nbsp;名：${std.person.name}</td>
          <td >学&nbsp;&nbsp;&nbsp;&nbsp;号：${((std.code)?default(""))?trim}</td>
-         <td >性别：${((std.person.gender.name)?default(""))?trim}</td>
+         <td >姓&nbsp;&nbsp;&nbsp;&nbsp;名：${std.person.name}</td>
+         <td >性&nbsp;&nbsp;&nbsp;&nbsp;别：${((std.person.gender.name)?default(""))?trim}</td>
         </tr>
         </table>
         <table width='100%' border="1" id="transcript${std.id}" class="tableclass">
@@ -145,7 +145,7 @@
         document.getElementById(table+"_"+(index)).className="titlecss";
         document.getElementById(table+"_"+(index)).innerHTML="课程名称";
         document.getElementById(table+"_"+(index+1)).className="title";
-        document.getElementById(table+"_"+(index+1)).innerHTML="课程类型";
+        document.getElementById(table+"_"+(index+1)).innerHTML="类型";
         document.getElementById(table+"_"+(index+2)).className="title";
         document.getElementById(table+"_"+(index+2)).innerHTML="学分";
         document.getElementById(table+"_"+(index+3)).className="title";
@@ -186,7 +186,6 @@
         if(row==1)return;
         setTitle(table,index,"以下空白");
     }
-    
     function addScore(table,name,courseTypeName,credit,score){
         var col = calcRow(index);
         var row = calcCol(index);
@@ -212,7 +211,31 @@
       if (name=='1') return "一"
       else if(name=='2') return "二"
       else return name
+   }
+   
+    /**添加备注*/
+   function addRemark(table,content){
+        var col = calcRow(index);
+        var row = calcCol(index);
+        if(row>${maxRows} || col >= ${maxCols}) {return;}
+        document.getElementById(table+"_"+(index)).innerHTML=content;
+        document.getElementById(table+"_"+(index)).colSpan=4
+        var parentNode = document.getElementById(table+"_"+(index)).parentNode
+        parentNode.removeChild(document.getElementById(table+"_"+(index+1)));
+        parentNode.removeChild(document.getElementById(table+"_"+(index+2)));
+        parentNode.removeChild(document.getElementById(table+"_"+(index+3)));
+        index+=4;
+        if (blankRow<row)  blankRow=row;
     }
+    function removeTr(){
+      if(${maxRows}-blankRow>0){
+          var t1=document.getElementById("transcript${std.id}");
+          var maxr =${maxRows};
+          for(var i=0;i<=maxr;i++){
+              if(i>blankRow) t1.deleteRow(blankRow);
+          }
+      }
+   }
    jQuery.getJSON("http://192.168.103.24:8080/teach-ws/teach/grade/std-course-grades?request_locale=zh_CN",function(grades){
        var semester_id="0"
        grades.sort(function(a, b){
@@ -233,24 +256,26 @@
                  }
              addScore("transcript${std.id}" , grade.course.name, grade.courseType.code.charAt(0), grade.course.credits, grade.scoreText);
           }
-      removeTr();
+       addBlank("transcript${std.id}");
+       removeTr();
+       index= ((${maxRows}*3-1)*4)+((blankRow-7)*4)
+       var title = document.getElementById("transcript${std.id}_"+(index)); 
+       title.className="semester"
+       addRemark("transcript${std.id}",'类别备注');
+       addRemark("transcript${std.id}",'1 代表公共基础必修课');
+       addRemark("transcript${std.id}",'2 代表学科基础必修课');
+       addRemark("transcript${std.id}",'3 代表专业方向必修课');
+       addRemark("transcript${std.id}",'4 代表学科基础选修课');
+       addRemark("transcript${std.id}",'5 代表专业方向选修课');
+       addRemark("transcript${std.id}",'6 代表实践教学课');
+       addRemark("transcript${std.id}",'7 代表公共基础选修课');
      });
 
-    addBlank("transcript${std.id}");
-        function removeTr(){
-            if(${maxRows}-blankRow>0){
-                var t1=document.getElementById("transcript${std.id}");
-                var maxr =${maxRows};
-                for(var i=0;i<=maxr;i++){
-                    if(i>blankRow) t1.deleteRow(blankRow);
-                }
-            }
-        }
+    
     </script>
     <table width='100%' border=0  valign='bottom' style="font-family:宋体;font-size:${fontsize+2}px;">
         <tr>
             <td  align='right' >上海金融学院教务处</td>
-            <td  align='right' width="200px">经办人:______________</td>
             <td  align='right' width="100px" >${b.now?string('yyyy年MM月dd日')}</td>
         </tr>
     </table>

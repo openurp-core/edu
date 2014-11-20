@@ -7,6 +7,7 @@ import org.beangle.webmvc.api.context.ContextHolder
 import org.beangle.webmvc.entity.action.{ AbstractEntityAction, RestfulService }
 import org.openurp.teach.core.{ Course, CourseHour }
 import org.openurp.teach.grade.CourseGrade
+import org.beangle.webmvc.api.annotation.param
 
 class CourseAction extends RestfulService[Course]
 
@@ -48,6 +49,16 @@ class StdCourseGradeAction extends AbstractEntityAction[CourseGrade] {
       thinGrades += newGrade
     }
     thinGrades
+  }
+}
+
+class LsCourseGradeAction extends AbstractEntityAction[CourseGrade] {
+
+  @response
+  @mapping(value = "{id}")
+  def index(@param("id") id: String): Any = {
+    val builder = OqlBuilder.from(classOf[CourseGrade], "cg")
+    builder.where("cg.lesson.id=:id", id)
   }
 }
 

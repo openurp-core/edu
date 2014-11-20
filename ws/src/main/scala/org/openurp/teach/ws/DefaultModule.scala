@@ -4,6 +4,7 @@ import org.beangle.commons.inject.bind.AbstractBindModule
 import org.openurp.teach.ws.code.{ CourseCategoryAction, CourseTypeAction, DisciplineAction, DisciplineCatalogAction, ExamModeAction, ExamStatusAction, ExamTypeAction, StdLabelAction, StdLabelTypeAction, StdStatusAction, StdTypeAction, StudyTypeAction }
 import org.openurp.teach.ws.core.{ AdminclassAction, DirectionAction, DirectionJournalAction, HabilitationAction, MajorAction, MajorJournalAction, ProjectAction, ProjectClassroomAction, ProjectCodeAction, StudentAction, StudentJournalAction }
 import org.openurp.teach.ws.grade.{ CourseAction, CourseGradeAction, CourseHourAction, ExamGradeAction, StdCourseGradeAction }
+import org.openurp.teach.ws.grade.GpaStatAction
 
 class DefaultModule extends AbstractBindModule {
 
@@ -23,6 +24,7 @@ class DefaultModule extends AbstractBindModule {
     bind(classOf[HabilitationAction])
     bind(classOf[CourseAction], classOf[CourseGradeAction], classOf[StdCourseGradeAction], classOf[CourseHourAction])
     bind(classOf[AdminclassAction])
+    bind(classOf[GpaStatAction])
 
   }
 

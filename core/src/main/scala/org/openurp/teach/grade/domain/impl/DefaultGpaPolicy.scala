@@ -15,7 +15,7 @@ class DefaultGpaPolicy extends GpaPolicy {
     var creditGas = 0d
     for (grade <- grades) {
       var score = grade.score
-      var add = false
+      var add = true
       if (null == score) {
         score = 0f
         add = !(grade.passed)

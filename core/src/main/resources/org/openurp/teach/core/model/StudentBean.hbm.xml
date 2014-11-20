@@ -12,6 +12,7 @@
         <many-to-one name="project"/>
         <many-to-one name="department"/>
         <many-to-one name="major"/>
+        <many-to-one name="education"/>
         <many-to-one name="direction"/>
         <many-to-one name="majorDepart"/>
         <many-to-one name="stdType"/>
