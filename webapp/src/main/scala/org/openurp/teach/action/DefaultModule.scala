@@ -12,7 +12,7 @@ class DefaultModule extends AbstractBindModule {
     bind(classOf[StdLabelAction], classOf[StdLabelTypeAction], classOf[StdTypeAction])
     bind(classOf[AdminclassAction], classOf[MajorAction], classOf[DirectionAction], classOf[DirectionJournalAction], classOf[MajorJournalAction])
     bind(classOf[ProjectAction], classOf[ProjectCodeAction], classOf[ProjectClassroomAction])
-    bind(classOf[StudentAction], classOf[StudentJournalAction], classOf[TeacherAction], classOf[TeacherJournalAction])
+    bind(classOf[StudentAction], classOf[StudentJournalAction])
     bind(classOf[ExamModeAction], classOf[ExamStatusAction], classOf[ExamTypeAction])
     bind(classOf[CourseAbilityRateAction], classOf[CourseCategoryAction], classOf[CourseHourAction], classOf[CourseTakeTypeAction], classOf[CourseTypeAction])
     bind(classOf[GradeTypeAction], classOf[ScoreMarkStyleAction])

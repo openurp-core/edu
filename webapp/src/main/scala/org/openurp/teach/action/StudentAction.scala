@@ -15,6 +15,9 @@ import scala.collection.mutable.Buffer
 import org.beangle.commons.collection.Order
 import org.beangle.commons.lang.Strings
 import org.openurp.base.code.Nation
+import org.beangle.webmvc.api.context.Params
+import org.beangle.data.model.meta.EntityType
+import java.{ util => ju, io => jo }
 
 class StudentAction extends RestfulAction[Student] {
 
@@ -28,6 +31,12 @@ class StudentAction extends RestfulAction[Student] {
 
     val labels = findItems(classOf[StdLabel])
     put("labels", labels)
+    
+    val majors = findItems(classOf[Major])
+    put("majors", majors)
+    
+    val majorDeparts = findItems(classOf[Department])
+    put("majorDeparts", majorDeparts)
     super.indexSetting()
   }
 
@@ -100,6 +109,7 @@ class StudentAction extends RestfulAction[Student] {
 
     student.labels.clear()
     val labelsIds = getAll("labelsId2nd", classOf[Integer])
+import java.{ util => ju, io => jo }
     entityDao.find(classOf[StdLabel], labelsIds) foreach { label =>
       student.labels.put(label.labelType, label)
     }
@@ -110,9 +120,11 @@ class StudentAction extends RestfulAction[Student] {
   def batchUpdateLabel(): String = {
     val idclass = entityMetaData.getType(entityName).get.idType
     val entityId = getId(shortName, idclass)
+    val entityType: EntityType = entityMetaData.getType(entityName).get
+    val id = entityId
     val students: Seq[Student] =
       if (null == entityId) getModels(entityName, getIds(shortName, idclass))
-      else List(getModel(entityName, entityId))
+      else List(getModel[Student](entityName, entityId))
     put("students", students)
     val labels = findItems(classOf[StdLabel])
     put("labels", labels)
@@ -125,7 +137,7 @@ class StudentAction extends RestfulAction[Student] {
     val entityId = getId(shortName, idclass)
     val students: Seq[Student] =
       if (null == entityId) getModels(entityName, getIds(shortName, idclass))
-      else List(getModel(entityName, entityId))
+      else List(getModel[Student](entityName, entityId))
 
     val addLabelsId2nd = getAll("addLabelsId2nd", classOf[Integer])
     val addLabels = entityDao.find(classOf[StdLabel], addLabelsId2nd)

@@ -4,7 +4,7 @@
   [@b.gridbar]
     bar.addItem("${b.text("action.new")}",action.add());
     bar.addItem("${b.text("action.modify")}",action.edit());
-    bar.addItem("${b.text("action.delete")}",action.remove("确认删除?"));
+   [#-- bar.addItem("${b.text("action.delete")}",action.remove("确认删除?"));--]
     bar.addItem("批量修改标签",action.multi("batchUpdateLabel?_method=put"));
   [/@]
   [@b.row]
