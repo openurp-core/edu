@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.openurp</groupId>
     <artifactId>openurp-parent</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.4</version>
   </parent>
   <groupId>org.openurp.teach</groupId>
   <artifactId>openurp-teach-core</artifactId>
@@ -24,7 +24,7 @@
     </dependency>
     <dependency>
       <groupId>org.openurp.platform</groupId>
-      <artifactId>openurp-platform-kernel</artifactId>
+      <artifactId>openurp-platform-api</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
@@ -36,7 +36,6 @@
       <groupId>org.openurp.base</groupId>
       <artifactId>openurp-base-core</artifactId>
       <version>${project.version}</version>
-      <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.beangle.data</groupId>

@@ -12,8 +12,8 @@ import org.openurp.teach.lesson.Lesson
 
 class LessonGradeReportAction extends AbstractEntityAction {
   def index(): String = {
-    val lessonId = "2007137130"
-    val lesson = entityDao.findBy(classOf[Lesson], "id", List(lessonId))
+    val lessonNo = "1958"
+    val lesson = entityDao.findBy(classOf[Lesson], "no", List(lessonNo))
     put("lessonGradeReports", List(LessonReport(lesson.head, List.empty)))
     forward("index_"+ContextHolder.context.locale.getLanguage)
   }

@@ -1,6 +1,6 @@
 package org.openurp.teach.code.model
 
-import org.openurp.platform.model.BaseCodeBean
+import org.openurp.platform.code.BaseCodeBean
 import org.openurp.teach.code.StdStatus
 
 /**

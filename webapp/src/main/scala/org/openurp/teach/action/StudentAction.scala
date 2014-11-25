@@ -22,7 +22,7 @@ import java.{ util => ju, io => jo }
 class StudentAction extends RestfulAction[Student] {
 
   override protected def indexSetting(): Unit = {
-    
+
     val nations = findItems(classOf[Nation])
     put("nations", nations)
 
@@ -31,10 +31,10 @@ class StudentAction extends RestfulAction[Student] {
 
     val labels = findItems(classOf[StdLabel])
     put("labels", labels)
-    
+
     val majors = findItems(classOf[Major])
     put("majors", majors)
-    
+
     val majorDeparts = findItems(classOf[Department])
     put("majorDeparts", majorDeparts)
     super.indexSetting()
@@ -109,7 +109,7 @@ class StudentAction extends RestfulAction[Student] {
 
     student.labels.clear()
     val labelsIds = getAll("labelsId2nd", classOf[Integer])
-import java.{ util => ju, io => jo }
+    import java.{ util => ju, io => jo }
     entityDao.find(classOf[StdLabel], labelsIds) foreach { label =>
       student.labels.put(label.labelType, label)
     }
@@ -118,16 +118,12 @@ import java.{ util => ju, io => jo }
 
   @mapping(value = "batchUpdateLabel", method = "put")
   def batchUpdateLabel(): String = {
-    val idclass = entityMetaData.getType(entityName).get.idType
-    val entityId = getId(shortName, idclass)
-    val entityType: EntityType = entityMetaData.getType(entityName).get
-    val id = entityId
-    val students: Seq[Student] =
-      if (null == entityId) getModels(entityName, getIds(shortName, idclass))
-      else List(getModel[Student](entityName, entityId))
-    put("students", students)
-    val labels = findItems(classOf[StdLabel])
-    put("labels", labels)
+//    val entityId = getLongId(shortName)
+//    val students: Seq[Student] =
+//      if (null == entityId) getModels(entityName, getLongIds(shortName))
+//      else List(getModel[Student](entityName, entityId))
+    put("students", getModels[Student](entityName, getLongIds(shortName)))
+    put("labels", findItems(classOf[StdLabel]))
     forward()
   }
 
@@ -157,5 +153,19 @@ import java.{ util => ju, io => jo }
     redirect("search", "info.save.success")
   }
 
+  def batchInputLabel(): String = {
+    forward()
+  }
+  
+  def searchStd(): String = {
+    val stds =
+      get("codes") match{
+       case Some(codes)=> entityDao.findBy(classOf[Student],"code",Strings.split(codes))
+       case None=> List.empty
+     }
+    put("students", stds)
+    put("labels", findItems(classOf[StdLabel]))
+    return "batchUpdateLabel"
+  }
 }
 
