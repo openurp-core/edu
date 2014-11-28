@@ -10,6 +10,7 @@
       <generator class="date" />
     </id>
     <property name="no" length="32" not-null="true" />
+    <many-to-one name="project" not-null="true" />
     <many-to-one name="course" not-null="true" />
     <many-to-one name="courseType" not-null="true" />
     <many-to-one name="teachDepart" not-null="true" />
@@ -29,9 +30,9 @@
       <property name="grade" />
       <many-to-one name="depart" />
       <property name="stdCount" not-null="true" />
-      <property name="limitCount" />
+      <property name="limitCount" not-null="true" />
       <property name="limitLocked" not-null="true" />
-      <property name="reservedCount" />
+      <property name="reservedCount" not-null="true" />
       <set name="courseTakes" collection-type="set" inverse="true">
         <key column="teach_class_id" />
         <one-to-many class="org.openurp.teach.lesson.CourseTake" />
@@ -51,7 +52,7 @@
       <property name="startWeek" not-null="true" />
       <property name="endWeek" not-null="true" />
       <property name="period" not-null="true" />
-      <property name="coursePeriod" />
+      <property name="coursePeriod" not-null="true"  />
       <property name="weekState" type="weekstate" />
       <set name="activities" collection-type="set" inverse="true">
         <key column="course_schedule_id" />
