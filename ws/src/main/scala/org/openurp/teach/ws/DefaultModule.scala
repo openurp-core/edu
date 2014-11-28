@@ -5,6 +5,7 @@ import org.openurp.teach.ws.code.{ CourseCategoryAction, CourseTypeAction, Disci
 import org.openurp.teach.ws.core.{ AdminclassAction, DirectionAction, DirectionJournalAction, HabilitationAction, MajorAction, MajorJournalAction, ProjectAction, ProjectClassroomAction, ProjectCodeAction, StudentAction, StudentJournalAction }
 import org.openurp.teach.ws.grade.{ CourseAction, CourseGradeAction, CourseHourAction, ExamGradeAction, StdCourseGradeAction }
 import org.openurp.teach.ws.grade.GpaStatAction
+import org.openurp.teach.ws.grade.LsCourseGradeAction
 
 class DefaultModule extends AbstractBindModule {
 
@@ -25,6 +26,7 @@ class DefaultModule extends AbstractBindModule {
     bind(classOf[CourseAction], classOf[CourseGradeAction], classOf[StdCourseGradeAction], classOf[CourseHourAction])
     bind(classOf[AdminclassAction])
     bind(classOf[GpaStatAction])
+    bind(classOf[LsCourseGradeAction])
 
   }
 

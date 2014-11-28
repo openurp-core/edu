@@ -58,7 +58,28 @@ class LsCourseGradeAction extends AbstractEntityAction[CourseGrade] {
   @mapping(value = "{id}")
   def index(@param("id") id: String): Any = {
     val builder = OqlBuilder.from(classOf[CourseGrade], "cg")
-    builder.where("cg.lesson.id=:id", id)
+    builder.where("cg.lessonNo=:id", id)
+    val courseGrades = entityDao.search(builder)
+    val thinGrades = new collection.mutable.ListBuffer[MyJsonObject]
+    for (grade <- courseGrades) {
+      val newGrade = new MyJsonObject(grade, "gp", "lessonNo", "passed", "score", "scoreText", "status")
+      newGrade.add("course", grade.course, "id", "code", "name", "credits")
+      newGrade.add("semester", grade.semester, "id", "code", "schoolYear", "name")
+      newGrade.add("courseType", grade.courseType, "id", "code", "name")
+      newGrade.add("courseTakeType", grade.courseTakeType, "id", "code", "name")
+      newGrade.add("student", grade.std, "id","code","name")
+
+      val examGrades = new collection.mutable.HashSet[Any]
+      newGrade.put("examGrades", examGrades)
+      for (eg <- grade.examGrades) {
+        val newExamGrade = new MyJsonObject(eg, "id", "passed", "status", "score", "scoreText")
+        newExamGrade.add("gradeType", eg.gradeType, "id", "code", "name")
+        newExamGrade.add("markStyle", eg.markStyle, "id", "code", "name")
+        examGrades += newExamGrade
+      }
+      thinGrades += newGrade
+    }
+    thinGrades
   }
 }
 
