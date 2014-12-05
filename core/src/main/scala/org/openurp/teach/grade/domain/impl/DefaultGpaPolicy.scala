@@ -55,7 +55,7 @@ class DefaultGpaPolicy extends GpaPolicy {
     if (score % 1 >= 0.5) {
       result += 1
     }
-    result -= score % 1
+    result -= result % 1
     (new java.lang.Float(result / mutilply))
   }
 }

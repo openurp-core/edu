@@ -134,7 +134,7 @@
     function calcCol(tdindex){
         return parseInt((tdindex-parseInt(tdindex/${maxRows*4})*4*${maxRows})/4) +1;
     }
-    
+    semesterTds={}
     //添加表头
     function addTitle(table){
         var col = calcRow(index);
@@ -172,8 +172,9 @@
             addBlank(table);
             index=${maxRows}*(col+4);
             if(calcRow(index)>${maxRows}|| calcCol(index) >= ${maxCols}) {return;}
-        }
+      }
       setTitle(table,index,value);
+      semesterTds["semester"+semesterId]=index
       index+=4;
     }
     
@@ -236,6 +237,19 @@
           }
       }
    }
+   function getGpa(){
+      jQuery.getJSON("http://192.168.103.24:8080/teach-ws/teach/grade/gpa-stats/2007137130",function(gpa){
+          var semesterGa=null;
+          var td=null
+          for(i=0;i < gpa.semesterGpas.length;i++){
+            semesterGa =gpa.semesterGpas[i];
+            td =document.getElementById("transcript${std.id}_"+semesterTds["semester"+semesterGa.semester.id])
+            td.innerHTML = td.innerHTML + "(平均绩点:"+semesterGa.gpa+")"
+          }
+          document.getElementById("TD_GPA").innerHTML=  document.getElementById("TD_GPA").innerHTML+gpa.gpa
+          document.getElementById("TD_TC").innerHTML=  document.getElementById("TD_TC").innerHTML+gpa.credits
+       });
+    }
    jQuery.getJSON("http://192.168.103.24:8080/teach-ws/teach/grade/std-course-grades?request_locale=zh_CN",function(grades){
        var semester_id="0"
        grades.sort(function(a, b){
@@ -253,8 +267,8 @@
                addSemester("transcript${std.id}",grade.semester.id, grade.semester.schoolYear
                                        + "学年第" + term(grade.semester.name)  + "学期");
                addTitle("transcript${std.id}");
-                 }
-             addScore("transcript${std.id}" , grade.course.name, grade.courseType.code.charAt(0), grade.course.credits, grade.scoreText);
+            }
+            addScore("transcript${std.id}" , grade.course.name, grade.courseType.code.charAt(0), grade.course.credits, grade.scoreText);
           }
        addBlank("transcript${std.id}");
        removeTr();
@@ -269,12 +283,14 @@
        addRemark("transcript${std.id}",'5 代表专业方向选修课');
        addRemark("transcript${std.id}",'6 代表实践教学课');
        addRemark("transcript${std.id}",'7 代表公共基础选修课');
+       getGpa();
      });
 
-    
     </script>
     <table width='100%' border=0  valign='bottom' style="font-family:宋体;font-size:${fontsize+2}px;">
         <tr>
+            <td  align='left' id="TD_TC">总学分:</td>
+            <td  align='left' id="TD_GPA">平均绩点:</td>
             <td  align='right' >上海金融学院教务处</td>
             <td  align='right' width="100px" >${b.now?string('yyyy年MM月dd日')}</td>
         </tr>

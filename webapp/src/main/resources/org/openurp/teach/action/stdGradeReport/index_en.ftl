@@ -145,6 +145,7 @@
     function calcCol(tdindex){
         return parseInt((tdindex-parseInt(tdindex/${maxRows*4})*4*${maxRows})/4) +1;
     }
+    semesterTds={}
     
     //添加表头
     function addTitle(table){
@@ -185,6 +186,7 @@
             if(calcRow(index)>${maxRows}|| calcCol(index) >= ${maxCols}) {return;}
         }
       setTitle(table,index,value);
+      semesterTds["semester"+semesterId]=index
       index+=4;
     }
     
@@ -223,8 +225,8 @@
         else semesterCourses['c'+semesterId]= semesterCourses['c'+semesterId]+1;
     }
    function term(name){
-      if (name=='1') return "I"
-      else if(name=='2') return "II"
+      if (name=='1') return " - 1"
+      else if(name=='2') return " - 2"
       else return name
     }   
     /**添加备注*/
@@ -251,7 +253,21 @@
           }
       }
    }
-    
+   
+   function getGpa(){
+      jQuery.getJSON("http://192.168.103.24:8080/teach-ws/teach/grade/gpa-stats/2007137130",function(gpa){
+          var semesterGa=null;
+          var td=null
+          for(i=0;i < gpa.semesterGpas.length;i++){
+            semesterGa =gpa.semesterGpas[i];
+            td =document.getElementById("transcript${std.id}_"+semesterTds["semester"+semesterGa.semester.id])
+            td.innerHTML = td.innerHTML + "(GPA:"+semesterGa.gpa+")"
+          }
+          document.getElementById("TD_GPA").innerHTML=  document.getElementById("TD_GPA").innerHTML+gpa.gpa
+          document.getElementById("TD_TC").innerHTML=  document.getElementById("TD_TC").innerHTML+gpa.credits
+       });
+    }
+        
    jQuery.getJSON("http://192.168.103.24:8080/teach-ws/teach/grade/std-course-grades?request_locale=en_US",function(grades){
        var semester_id="0"
        grades.sort(function(a, b){
@@ -285,10 +301,13 @@
        addRemark("transcript${std.id}",'5 Stands for Optional Courses for Major Field');
        addRemark("transcript${std.id}",'6 Stands for Practice Courses');
        addRemark("transcript${std.id}",'7 Stands for Basic Public Optional Courses');
+       getGpa();
      });
     </script>
     <table width='100%' border=0   style="font-family:宋体;font-size:${fontsize+2}px;">
         <tr>
+            <td  align='left' id="TD_TC">Credits:</td>
+            <td  align='left' id="TD_GPA">GPA:</td>
             <td  align='right' >[@i18nName std.project.school.institution/]XXX</td>
             <td  align='right' width="100px">${b.now?string('MM/dd/yyyy')}</td>
         </tr>
