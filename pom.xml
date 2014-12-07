@@ -4,34 +4,24 @@
   <parent>
     <groupId>org.openurp</groupId>
     <artifactId>openurp-parent</artifactId>
-    <version>0.0.6</version>
+    <version>0.0.8</version>
   </parent>
   <groupId>org.openurp.teach</groupId>
-  <artifactId>openurp-teach-aggregate</artifactId>
+  <artifactId>openurp-teach-service-parent</artifactId>
   <packaging>pom</packaging>
-  <name>OpenURP Teach Aggregate</name>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>OpenURP Teach Service Parent</name>
   
   <properties>
-    <bundle.symbolicName>org.openurp.teach.parent</bundle.symbolicName>
+    <bundle.symbolicName>org.openurp.teach.service.parent</bundle.symbolicName>
     <bundle.namespace>org.openurp.teach</bundle.namespace>
+    <openurp.platform.version>0.0.2-SNAPSHOT</openurp.platform.version>
+    <openurp.base.version>0.0.1-SNAPSHOT</openurp.base.version>
   </properties>
 
   <modules>
+    <module>domain</module>
     <module>core</module>
     <module>ws</module>
-    <module>webapp</module>
   </modules>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-deploy-plugin</artifactId>
-        <configuration>
-          <skip>true</skip>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
-
 </project>

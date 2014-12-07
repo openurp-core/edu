@@ -1,13 +1,12 @@
 package org.openurp.teach.ws.grade
 
+import org.beangle.commons.collection.Properties
 import org.beangle.data.jpa.dao.OqlBuilder
-import org.beangle.data.serializer.io.json.MyJsonObject
-import org.beangle.webmvc.api.annotation.{ mapping, response }
+import org.beangle.webmvc.api.annotation.{mapping, param, response}
 import org.beangle.webmvc.api.context.ContextHolder
-import org.beangle.webmvc.entity.action.{ AbstractEntityAction, RestfulService }
-import org.openurp.teach.core.{ Course, CourseHour }
+import org.beangle.webmvc.entity.action.{AbstractEntityAction, RestfulService}
+import org.openurp.teach.core.Course
 import org.openurp.teach.grade.CourseGrade
-import org.beangle.webmvc.api.annotation.param
 
 class CourseAction extends RestfulService[Course]
 
@@ -30,9 +29,9 @@ class StdCourseGradeAction extends AbstractEntityAction[CourseGrade] {
     val builder = OqlBuilder.from(classOf[CourseGrade], "cg")
     builder.where("cg.std.code=:code", "2007137130")
     val courseGrades = entityDao.search(builder)
-    val thinGrades = new collection.mutable.ListBuffer[MyJsonObject]
+    val thinGrades = new collection.mutable.ListBuffer[Properties]
     for (grade <- courseGrades) {
-      val newGrade = new MyJsonObject(grade, "gp", "lessonNo", "passed", "score", "scoreText", "status")
+      val newGrade = new Properties(grade, "gp", "lessonNo", "passed", "score", "scoreText", "status")
       newGrade.add("course", grade.course, "id", "code", nameAttr, "credits")
       newGrade.add("semester", grade.semester, "id", "code", "schoolYear", "name")
       newGrade.add("courseType", grade.courseType, "id", "code", nameAttr)
@@ -41,7 +40,7 @@ class StdCourseGradeAction extends AbstractEntityAction[CourseGrade] {
       val examGrades = new collection.mutable.HashSet[Any]
       newGrade.put("examGrades", examGrades)
       for (eg <- grade.examGrades) {
-        val newExamGrade = new MyJsonObject(eg, "id", "passed", "status", "score", "scoreText")
+        val newExamGrade = new Properties(eg, "id", "passed", "status", "score", "scoreText")
         newExamGrade.add("gradeType", eg.gradeType, "id", "code", nameAttr)
         newExamGrade.add("markStyle", eg.markStyle, "id", "code", nameAttr)
         examGrades += newExamGrade
@@ -60,9 +59,9 @@ class LsCourseGradeAction extends AbstractEntityAction[CourseGrade] {
     val builder = OqlBuilder.from(classOf[CourseGrade], "cg")
     builder.where("cg.lessonNo=:id", id)
     val courseGrades = entityDao.search(builder)
-    val thinGrades = new collection.mutable.ListBuffer[MyJsonObject]
+    val thinGrades = new collection.mutable.ListBuffer[Properties]
     for (grade <- courseGrades) {
-      val newGrade = new MyJsonObject(grade, "gp", "lessonNo", "passed", "score", "scoreText", "status")
+      val newGrade = new Properties(grade, "gp", "lessonNo", "passed", "score", "scoreText", "status")
       newGrade.add("course", grade.course, "id", "code", "name", "credits")
       newGrade.add("semester", grade.semester, "id", "code", "schoolYear", "name")
       newGrade.add("courseType", grade.courseType, "id", "code", "name")
@@ -72,7 +71,7 @@ class LsCourseGradeAction extends AbstractEntityAction[CourseGrade] {
       val examGrades = new collection.mutable.HashSet[Any]
       newGrade.put("examGrades", examGrades)
       for (eg <- grade.examGrades) {
-        val newExamGrade = new MyJsonObject(eg, "id", "passed", "status", "score", "scoreText")
+        val newExamGrade = new Properties(eg, "id", "passed", "status", "score", "scoreText")
         newExamGrade.add("gradeType", eg.gradeType, "id", "code", "name")
         newExamGrade.add("markStyle", eg.markStyle, "id", "code", "name")
         examGrades += newExamGrade
@@ -82,5 +81,3 @@ class LsCourseGradeAction extends AbstractEntityAction[CourseGrade] {
     thinGrades
   }
 }
-
-class CourseHourAction extends RestfulService[CourseHour]
