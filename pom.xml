@@ -17,6 +17,7 @@
     <bundle.namespace>org.openurp.teach</bundle.namespace>
     <openurp.platform.version>0.0.2-SNAPSHOT</openurp.platform.version>
     <openurp.base.version>0.0.1-SNAPSHOT</openurp.base.version>
+    <beangle.data.version>4.1.6</beangle.data.version>
   </properties>
 
   <modules>
