@@ -5,10 +5,10 @@
 
 <hibernate-configuration>
   <session-factory>
-    <mapping resource="org/openurp/eams/grade/model/GradeRateConfig.hbm.xml"/>
-    <mapping resource="org/openurp/eams/grade/model/GradeRateItem.hbm.xml"/>
-    <mapping resource="org/openurp/eams/grade/model/CourseGradeStateBean.hbm.xml"/>
-    <mapping resource="org/openurp/eams/grade/model/ExamGradeStateBean.hbm.xml"/>
-    <mapping resource="org/openurp/eams/grade/model/GaGradeStateBean.hbm.xml"/>
+    <mapping resource="org/openurp/teach/grade/model/GradeRateConfig.hbm.xml"/>
+    <mapping resource="org/openurp/teach/grade/model/GradeRateItem.hbm.xml"/>
+    <mapping resource="org/openurp/teach/grade/model/CourseGradeState.hbm.xml"/>
+    <mapping resource="org/openurp/teach/grade/model/ExamGradeState.hbm.xml"/>
+    <mapping resource="org/openurp/teach/grade/model/GaGradeState.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
