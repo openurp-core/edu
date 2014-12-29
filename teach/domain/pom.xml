@@ -1,0 +1,57 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.openurp.edu.teach</groupId>
+    <artifactId>openurp-edu-teach-service-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <groupId>org.openurp.edu.teach</groupId>
+  <artifactId>openurp-edu-teach-domain</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>OpenURP Edu Teach Domain</name>
+  
+  <properties>
+    <bundle.symbolicName>org.openurp.edu.teach.domain</bundle.symbolicName>
+    <bundle.namespace>org.openurp.edu.teach</bundle.namespace>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.beangle.data</groupId>
+      <artifactId>beangle-data-jpa</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.openurp.platform</groupId>
+      <artifactId>openurp-platform-api</artifactId>
+      <version>${openurp.platform.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openurp.edu.teach</groupId>
+      <artifactId>openurp-edu-teach-api</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openurp.base</groupId>
+      <artifactId>openurp-base-api</artifactId>
+      <version>${openurp.base.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.beangle.data</groupId>
+      <artifactId>beangle-data-jdbc</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-validator</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-ehcache</artifactId>
+    </dependency>
+  </dependencies>
+</project>

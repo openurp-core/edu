@@ -6,23 +6,32 @@
     <artifactId>openurp-parent</artifactId>
     <version>0.0.8</version>
   </parent>
-  <groupId>org.openurp.teach</groupId>
-  <artifactId>openurp-teach-service-parent</artifactId>
-  <packaging>pom</packaging>
+  <groupId>org.openurp.edu</groupId>
+  <artifactId>openurp-edu-service-parent</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>OpenURP Teach Service Parent</name>
+  <packaging>pom</packaging>
+  <name>OpenURP Edu Service Parent</name>
   
   <properties>
-    <bundle.symbolicName>org.openurp.teach.service.parent</bundle.symbolicName>
-    <bundle.namespace>org.openurp.teach</bundle.namespace>
+    <bundle.symbolicName>org.openurp.edu.service.parent</bundle.symbolicName>
+    <bundle.namespace>org.openurp.edu</bundle.namespace>
     <openurp.platform.version>0.0.2-SNAPSHOT</openurp.platform.version>
-    <openurp.base.version>0.0.1-SNAPSHOT</openurp.base.version>
-    <beangle.data.version>4.1.6</beangle.data.version>
   </properties>
-
+  
   <modules>
-    <module>domain</module>
-    <module>core</module>
-    <module>ws</module>
+    <module>base</module>
+    <module>teach</module>
   </modules>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.openurp.edu.base</groupId>
+      <artifactId>openurp-edu-base-model</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.beangle.data</groupId>
+      <artifactId>beangle-data-model</artifactId>
+    </dependency>
+  </dependencies>
 </project>
