@@ -9,7 +9,7 @@ import org.beangle.data.jpa.dao.OqlBuilder
 import org.beangle.data.model.dao.EntityDao
 import org.openurp.base.Semester
 import org.beangle.commons.collection.Properties
-import org.openurp.teach.grade.domain.StdSemesterGpa
+import org.openurp.edu.teach.grade.domain.StdSemesterGpa
 import org.openurp.edu.base.Student
 
 class GpaStatAction extends ActionSupport {
