@@ -1,0 +1,21 @@
+AdminclassWS = 学生行政班级信息 Web Service
+
+DirectionWS = 方向信息 专业领域 Web Service
+
+DirectionJournalWS = 专业方向建设过程 Web Service
+
+MajorWS = 专业 Web Service
+
+MajorJournalWS = 专业建设过程 Web Service
+
+ProjectWS = 项目 Web Service
+
+ProjectClassroomWS = 项目教室配置 Web Service
+
+ProjectCodeWS = 项目基础代码配置 Web Service
+
+StudentWS = 学籍信息实现 Web Service
+
+StudentJournalWS = 学籍状态日志 Web Service
+
+HabilitationWS = 授课资格 Web Service

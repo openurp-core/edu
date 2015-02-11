@@ -16,6 +16,7 @@
     <bundle.symbolicName>org.openurp.edu.service.parent</bundle.symbolicName>
     <bundle.namespace>org.openurp.edu</bundle.namespace>
     <openurp.platform.version>0.0.2-SNAPSHOT</openurp.platform.version>
+    <openurp.base.version>0.0.1-SNAPSHOT</openurp.base.version>
   </properties>
   
   <modules>
@@ -27,7 +28,7 @@
     <dependency>
       <groupId>org.openurp.edu.base</groupId>
       <artifactId>openurp-edu-base-model</artifactId>
-      <version>${project.version}</version>
+      <version>${openurp.base.version}</version>
     </dependency>
     <dependency>
       <groupId>org.beangle.data</groupId>

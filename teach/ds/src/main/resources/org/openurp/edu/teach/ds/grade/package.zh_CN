@@ -1,0 +1,8 @@
+ExamGradeWS=考试成绩WebService
+
+CourseWS=课程基本信息WebService
+
+CourseGradeWS=课程成绩WebService
+CourseGradeWS.std=学生课程成绩
+
+CourseHourWS=课程分类课时信息WebService

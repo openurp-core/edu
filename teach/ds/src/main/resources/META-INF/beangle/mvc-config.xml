@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<profiles>
+  <profile name="openurp-edu-teach-ds" pattern="org.openurp.edu.teach.ds">
+   <action suffix="WS" defaultMethod="index"/>
+   <url path="/teach/{project}" suffix=""  style="plur-seo" />
+   <interceptors>
+      <interceptor name="web.Interceptor.hibernate"/>
+      <interceptor name="web.Interceptor.cors"/>
+      <interceptor name="web.Interceptor.security"/>
+    </interceptors>
+  </profile>
+</profiles>

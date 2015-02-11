@@ -20,8 +20,8 @@
   </properties>
 
   <modules>
-    <module>domain</module>
     <module>core</module>
+    <module>ds</module>
     <module>ws</module>
   </modules>
 </project>

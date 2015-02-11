@@ -1,0 +1,21 @@
+DisciplineCatalogWS = 学科目录 Web Service
+
+DisciplineWS = 学科 Web Service
+
+StudyTypeWS = 学习形式 Web Service
+
+StdLabelWS = 学生分类标签 Web Service
+
+StdLabelTypeWS = 学生分类标签类型 Web Service
+
+StdTypeWS = 学生类别 Web Service
+
+TeacherStateWS = 教师在职状态 Web Service
+
+TeacherTypeWS = 教职工类别 Web Service
+
+TeacherUnitTypeWS = 外聘教师单位类别 Web Service
+
+TutorTypeWS = 导师类型 Web Service
+
+StdStatusWS = 学生学籍状态 Web Service

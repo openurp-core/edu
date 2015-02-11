@@ -1,16 +1,15 @@
 package org.openurp.edu.teach.grade.service.internal
 
 import java.text.NumberFormat
-import java.{util => ju}
-import java.lang.{ Float => JFloat }
-import org.beangle.commons.lang.{Numbers, Strings}
+import java.{ util => ju }
+
+import org.beangle.commons.lang.{ Numbers, Strings }
 import org.beangle.commons.script.ExpressionEvaluator
 import org.beangle.data.jpa.dao.OqlBuilder
-import org.beangle.data.model.annotation.config
 import org.beangle.data.model.dao.EntityDao
 import org.openurp.edu.base.Project
-import org.openurp.edu.base.code.service.BaseCodeService
-import org.openurp.edu.teach.code.{GradeType, ScoreMarkStyle}
+import org.openurp.edu.base.code.service.ProjectCodeService
+import org.openurp.edu.teach.code.{ GradeType, ScoreMarkStyle }
 import org.openurp.edu.teach.grade.Grade
 import org.openurp.edu.teach.grade.model.GradeRateConfig
 import org.openurp.edu.teach.grade.service.GradeRateService
@@ -21,7 +20,7 @@ class GradeRateServiceImpl extends GradeRateService {
 
   var expressionEvaluator: ExpressionEvaluator = _
 
-  var baseCodeService: BaseCodeService = _
+  var projectCodeService: ProjectCodeService = _
   /**
    * 依照绩点规则计算平均绩点
    *
@@ -95,7 +94,7 @@ class GradeRateServiceImpl extends GradeRateService {
     if (null == config || null == score) {
       false
     } else {
-      JFloat.compare(score, config.passScore) >= 0
+      java.lang.Float.compare(score, config.passScore) >= 0
     }
   }
 
@@ -143,7 +142,7 @@ class GradeRateServiceImpl extends GradeRateService {
       .cacheable()
     val rs = entityDao.search(builder)
     if (rs.isEmpty) {
-      baseCodeService.getCodes(project, classOf[ScoreMarkStyle])
+      projectCodeService.getCodes(project, classOf[ScoreMarkStyle])
     } else {
       rs.map(_.scoreMarkStyle)
     }

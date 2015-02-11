@@ -1,0 +1,11 @@
+ CourseTypeWebService=课程类别WebService
+ 
+
+ CourseCategoryWebService=课程种类WebService 
+
+ ExamModeWebService=考核方式WebService
+
+ ExamStatusWebService=考试情况WebService
+
+ ExamTypeWebService=考试类型WebService
+
