@@ -2,6 +2,7 @@ package org.openurp.edu.teach.ws
 
 import org.beangle.commons.inject.bind.AbstractBindModule
 import org.openurp.edu.teach.ws.grade.{ CourseAction, CourseGradeAction, GpaStatAction, LsCourseGradeAction, StdCourseGradeAction }
+import org.beangle.commons.lang.ClassLoaders
 
 class DefaultModule extends AbstractBindModule {
 
