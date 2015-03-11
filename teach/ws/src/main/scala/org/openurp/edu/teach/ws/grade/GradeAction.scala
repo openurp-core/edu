@@ -7,6 +7,7 @@ import org.beangle.webmvc.api.context.ContextHolder
 import org.beangle.webmvc.entity.action.{AbstractEntityAction, RestfulService}
 import org.openurp.edu.teach.grade.CourseGrade
 import org.openurp.edu.teach.Course
+import org.beangle.webmvc.api.context.Params
 
 class CourseAction extends RestfulService[Course]
 
@@ -14,9 +15,10 @@ class CourseGradeAction extends AbstractEntityAction[CourseGrade] {
 
   @response
   @mapping(value = "{code}")
-  def index(code: String): Seq[CourseGrade] = {
+  def index(@param("code") code: String): Seq[CourseGrade] = {
     val builder = OqlBuilder.from(classOf[CourseGrade], "cg")
     builder.where("cg.std.code=:code", code)
+    builder.where("cg.project.code = :project", Params.get("project").get)
     entityDao.search(builder)
   }
 }
@@ -28,6 +30,7 @@ class StdCourseGradeAction extends AbstractEntityAction[CourseGrade] {
     val nameAttr = if (ContextHolder.context.locale.getLanguage() == "en") "enName->name" else "name"
     val builder = OqlBuilder.from(classOf[CourseGrade], "cg")
     builder.where("cg.std.code=:code", "2007137130")
+    builder.where("cg.project.code = :project", Params.get("project").get)
     val courseGrades = entityDao.search(builder)
     val thinGrades = new collection.mutable.ListBuffer[Properties]
     for (grade <- courseGrades) {
@@ -58,6 +61,7 @@ class LsCourseGradeAction extends AbstractEntityAction[CourseGrade] {
   def index(@param("id") id: String): Any = {
     val builder = OqlBuilder.from(classOf[CourseGrade], "cg")
     builder.where("cg.lessonNo=:id", id)
+    builder.where("cg.project.code = :project", Params.get("project").get)
     val courseGrades = entityDao.search(builder)
     val thinGrades = new collection.mutable.ListBuffer[Properties]
     for (grade <- courseGrades) {

@@ -22,6 +22,14 @@
       <artifactId>openurp-platform-ws</artifactId>
       <version>${openurp.platform.version}</version>
     </dependency>
+        <dependency>
+      <groupId>org.beangle.webmvc</groupId>
+      <artifactId>beangle-webmvc-bootstrap-ui</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.beangle.webmvc</groupId>
+      <artifactId>beangle-webmvc-config-plugin</artifactId>
+    </dependency>
     <dependency>
       <groupId>org.openurp.edu.teach</groupId>
       <artifactId>openurp-edu-teach-core</artifactId>
