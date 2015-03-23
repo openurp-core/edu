@@ -20,5 +20,6 @@
   <modules>
     <module>core</module>
     <module>ds</module>
+    <module>ws</module>
   </modules>
 </project>
