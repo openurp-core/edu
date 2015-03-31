@@ -24,8 +24,38 @@ import org.beangle.webmvc.entity.helper.PopulateHelper
 import org.beangle.data.model.meta.Type
 import com.sun.org.apache.bcel.internal.util.ClassLoader
 import org.beangle.commons.lang.ClassLoaders
+import org.beangle.webmvc.api.context.Params
+import org.beangle.data.jpa.dao.OqlBuilder
 
 class AbstractWS[T <: Entity[_ <: java.io.Serializable]] extends AbstractEntityAction[T] {
+  
+
+  @response
+  @mapping(value = "{id}")
+  def info(@param("id") id: String): T = {
+    Params.converter.convert(id, entityMetaData.getType(entityName).get.idType) match {
+      case None => null.asInstanceOf[T]
+      case Some(entityId) => getModel[T](entityName, entityId)
+    }
+  }
+  
+  @response
+  def index(): Any = {
+    getInt("pageIndex") match {
+      case Some(p) => entityDao.search(getQueryBuilder())
+      case None => entityDao.search(getQueryBuilder().limit(null))
+    }
+  }
+  
+  override def getQueryBuilder(): OqlBuilder[T] = {
+    put("elementType", this.entityType)
+    val query = super.getQueryBuilder().where(this.shortName + ".project.code = :project", Params.get("project").get)
+    val select = get("select")
+    if (select.isDefined){
+      query.select(select.get)
+    }
+    query
+  }
   
   @mapping(method = "post")
   @response
@@ -69,13 +99,16 @@ class AbstractWS[T <: Entity[_ <: java.io.Serializable]] extends AbstractEntityA
   }
 
   def getBean(clazz:Class[Entity[java.io.Serializable]], jsonStr:String):Entity[java.io.Serializable] = {
+    val classType = PopulateHelper.getType(clazz)
+    val idType = classType.idType
     val conversion = DefaultConversion.Instance
     val data = JSON.parseObject(jsonStr)
     val bean = if(data.get("id") == null) clazz.newInstance() else {
-      val id = data.get("id").asInstanceOf[java.io.Serializable]
+      val id = conversion.convert(data.get("id"), idType).asInstanceOf[java.io.Serializable]
+//      val id = data.get("id").asInstanceOf[java.io.Serializable]
       entityDao.get(clazz, id)
     }
-    populate(bean, PopulateHelper.getType(bean.getClass()), data, conversion)
+    populate(bean, classType, data, conversion)
     bean
   }
 
@@ -91,7 +124,8 @@ class AbstractWS[T <: Entity[_ <: java.io.Serializable]] extends AbstractEntityA
               val p = PropertyUtils.getProperty[Object](obj, key)
               if (p == null) {
                 if (json.containsKey("id")) {
-                  entityDao.get(ptype.returnedClass.asInstanceOf[Class[Entity[java.io.Serializable]]], json.get("id").asInstanceOf[java.io.Serializable])
+                  val id = conversion.convert(data.get("id"), ptype.returnedClass).asInstanceOf[java.io.Serializable]
+                  entityDao.get(ptype.returnedClass.asInstanceOf[Class[Entity[java.io.Serializable]]], id)
                 } else ptype.newInstance
               } else p
             }

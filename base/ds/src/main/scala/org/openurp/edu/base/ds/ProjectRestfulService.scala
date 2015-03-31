@@ -1,13 +1,10 @@
 package org.openurp.edu.base.ds
 
-import org.beangle.webmvc.entity.action.RestfulService
-import org.beangle.data.model.Entity
 import org.beangle.data.jpa.dao.OqlBuilder
-import org.beangle.webmvc.api.context.Params
+import org.beangle.data.model.Entity
 import org.beangle.webmvc.api.annotation.response
-import org.openurp.base.Person
-import org.openurp.base.Department
-import org.beangle.data.model.Named
+import org.beangle.webmvc.api.context.Params
+import org.beangle.webmvc.entity.action.RestfulService
 
 class ProjectRestfulService[T <: Entity[_ <: java.io.Serializable]] extends RestfulService[T] {
   
