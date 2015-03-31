@@ -16,13 +16,13 @@ class DefaultGpaService extends GpaService {
 
   var courseGradeProvider: CourseGradeProvider = _
 
-  def getGpa(std: Student): java.lang.Float = {
+  def calcGpa(std: Student): java.lang.Float = {
     gpaPolicy.calcGpa(courseGradeProvider.getPublished(std))
   }
 
-  def getGpa(std: Student, grades: Iterable[CourseGrade]): java.lang.Float = gpaPolicy.calcGpa(grades)
+  def calcGpa(std: Student, grades: Iterable[CourseGrade]): java.lang.Float = gpaPolicy.calcGpa(grades)
 
-  def getGpa(std: Student, semester: Semester): java.lang.Float = {
+  def calcGpa(std: Student, semester: Semester): java.lang.Float = {
     gpaPolicy.calcGpa(courseGradeProvider.getPublished(std, semester))
   }
 

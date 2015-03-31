@@ -1,6 +1,6 @@
 package org.openurp.edu.teach.grade.domain.impl
 
-import org.openurp.edu.teach.Course
+import org.openurp.edu.base.Course
 import org.openurp.edu.teach.grade.CourseGrade
 import org.openurp.edu.teach.plan.CourseSubstitution
 

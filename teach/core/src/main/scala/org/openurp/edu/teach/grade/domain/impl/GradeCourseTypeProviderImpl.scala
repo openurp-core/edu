@@ -2,9 +2,8 @@ package org.openurp.edu.teach.grade.domain.impl
 
 import org.beangle.data.jpa.dao.OqlBuilder
 import org.beangle.data.model.dao.EntityDao
-import org.openurp.edu.base.Student
-import org.openurp.edu.teach.Course
-import org.openurp.edu.teach.code.CourseType
+import org.openurp.edu.base.{ Course, Student }
+import org.openurp.edu.base.code.CourseType
 import org.openurp.edu.teach.grade.domain.GradeCourseTypeProvider
 import org.openurp.edu.teach.plan.SharePlan
 import org.openurp.edu.teach.plan.domain.CoursePlanProvider

@@ -4,7 +4,7 @@ import java.util.Date
 
 import org.openurp.base.Semester
 import org.openurp.edu.base.Student
-import org.openurp.edu.teach.Course
+import org.openurp.edu.base.Course
 import org.openurp.edu.teach.grade.CourseGrade
 import org.openurp.edu.teach.grade.domain.{CourseGradeProvider, GpaPolicy, StdGpa, StdSemesterGpa, StdYearGpa}
 import org.openurp.edu.teach.grade.service.{GpaStatService, MultiStdGpa}

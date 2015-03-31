@@ -2,18 +2,16 @@ package org.openurp.edu.teach.grade.domain.impl
 
 import java.util.Date
 import java.lang.{ Double => JDouble }
+import org.beangle.data.model.annotation.code
 import org.beangle.data.model.dao.EntityDao
-import org.openurp.edu.teach.grade.domain.CourseGradeCalculator
-import org.openurp.edu.teach.code.{ CourseTakeType, ExamStatus, GradeType }
-import org.openurp.edu.teach.code.GradeType.{ EndGa, DelayGa, MakeupGa, End, Makeup }
-import org.openurp.edu.teach.code.model.{ ExamStatusBean, GradeTypeBean }
-import org.openurp.edu.teach.grade.{ CourseGrade, ExamGrade, Grade }
-import org.openurp.edu.teach.grade.domain.NumPrecisionReserveMethod
-import org.openurp.edu.teach.grade.model.{ CourseGradeBean, ExamGradeBean }
-import org.openurp.edu.teach.grade.model.GaGradeBean
-import org.openurp.edu.teach.grade.GaGrade
-import org.openurp.edu.teach.grade.service.GradeRateService
-import org.openurp.edu.teach.grade.service.CourseGradeSettings
+import org.openurp.edu.base.code.ExamStatus
+import org.openurp.edu.teach.code.{ CourseTakeType, GradeType }
+import org.openurp.edu.teach.code.GradeType.{ DelayGa, EndGa, Makeup, MakeupGa }
+import org.openurp.edu.teach.code.model.GradeTypeBean
+import org.openurp.edu.teach.grade.{ CourseGrade, ExamGrade, GaGrade, Grade }
+import org.openurp.edu.teach.grade.domain.{ CourseGradeCalculator, NumPrecisionReserveMethod }
+import org.openurp.edu.teach.grade.model.{ CourseGradeBean, ExamGradeBean, GaGradeBean }
+import org.openurp.edu.teach.grade.service.{ CourseGradeSettings, GradeRateService }
 /**
  * 缺省的成绩计算器
  *

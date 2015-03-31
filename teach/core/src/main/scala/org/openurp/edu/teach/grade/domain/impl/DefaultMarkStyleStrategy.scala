@@ -1,12 +1,13 @@
 package org.openurp.edu.teach.grade.domain.impl
 
+import org.beangle.data.model.annotation.code
 import org.beangle.data.model.dao.EntityDao
-import org.openurp.edu.teach.code.{GradeType, ScoreMarkStyle}
+import org.openurp.edu.base.code.ScoreMarkStyle
+import org.openurp.edu.teach.code.GradeType
 import org.openurp.edu.teach.code.model.GradeTypeBean
-import org.openurp.edu.teach.grade.domain.CourseGradeSetting
-import org.openurp.edu.teach.grade.model.{CourseGradeState, ExamGradeState, GaGradeState, GradeState}
+import org.openurp.edu.teach.grade.domain.{ CourseGradeSetting, MarkStyleStrategy }
+import org.openurp.edu.teach.grade.model.{ CourseGradeState, ExamGradeState, GaGradeState, GradeState }
 import org.openurp.edu.teach.grade.service.CourseGradeSettings
-import org.openurp.edu.teach.grade.domain.MarkStyleStrategy
 
 /**
  * 默认成绩记录方式配置方法
@@ -61,7 +62,7 @@ class DefaultMarkStyleStrategy extends MarkStyleStrategy {
     if (state.gradeType.isGa) {
       state.asInstanceOf[GaGradeState].gradeState.scoreMarkStyle
     } else {
-      val typeState=state.asInstanceOf[ExamGradeState]
+      val typeState = state.asInstanceOf[ExamGradeState]
       if (typeState.gradeType.id == GradeType.Delay) {
         val endGradeState = typeState.gradeState.getState(new GradeTypeBean(GradeType.End))
         if (null == endGradeState) typeState.gradeState.scoreMarkStyle else endGradeState.scoreMarkStyle
@@ -85,7 +86,7 @@ class DefaultMarkStyleStrategy extends MarkStyleStrategy {
         examState.gradeType = gradeType
         examState.gradeState = gradeState
         gradeState.examStates += examState
-       gradeTypeState = examState
+        gradeTypeState = examState
       }
     }
     gradeTypeState

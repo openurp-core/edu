@@ -1,28 +1,17 @@
 package org.openurp.edu.teach.grade.service.internal
 
-import org.openurp.edu.teach.grade.domain.CourseGradeCalculator
-import org.openurp.edu.teach.grade.service.CourseGradeService
-import org.beangle.data.model.dao.EntityDao
-import org.beangle.data.jpa.dao.OqlBuilder
-import org.openurp.edu.teach.lesson.Lesson
-import org.openurp.edu.teach.grade.domain.GradeCourseTypeProvider
-import org.openurp.edu.teach.grade.CourseGrade
-import org.openurp.edu.teach.grade.Grade
-import org.openurp.edu.teach.grade.Grade.Status._
-import org.openurp.edu.teach.code.GradeType
-import org.beangle.commons.lang.Strings
-import org.beangle.data.model.dao.Operation
-import org.openurp.edu.teach.grade.model.CourseGradeBean
-import org.openurp.edu.teach.grade.model.ExamGradeBean
-import org.openurp.edu.teach.grade.model.CourseGradeState
 import scala.collection.mutable.Buffer
-import org.openurp.edu.teach.grade.ExamGrade
-import org.openurp.edu.teach.grade.domain.CourseGradePublishStack
-import org.openurp.edu.teach.grade.model.GaGradeState
-import org.openurp.edu.teach.grade.service.CourseGradeSettings
-import org.openurp.edu.teach.grade.model.ExamGradeState
-import org.openurp.edu.teach.grade.GaGrade
-import org.openurp.edu.teach.grade.model.GradeState
+
+import org.beangle.data.jpa.dao.OqlBuilder
+import org.beangle.data.model.annotation.code
+import org.beangle.data.model.dao.{ EntityDao, Operation }
+import org.openurp.edu.teach.code.GradeType
+import org.openurp.edu.teach.grade.{ CourseGrade, ExamGrade, GaGrade, Grade }
+import org.openurp.edu.teach.grade.Grade.Status.{ New, Published }
+import org.openurp.edu.teach.grade.domain.{ CourseGradeCalculator, CourseGradePublishStack, GradeCourseTypeProvider }
+import org.openurp.edu.teach.grade.model.{ CourseGradeBean, CourseGradeState, ExamGradeBean, ExamGradeState, GaGradeState, GradeState }
+import org.openurp.edu.teach.grade.service.{ CourseGradeService, CourseGradeSettings }
+import org.openurp.edu.teach.lesson.Lesson
 
 class CourseGradeServiceImpl extends CourseGradeService {
 
@@ -51,7 +40,7 @@ class CourseGradeServiceImpl extends CourseGradeService {
   /**
    * 发布学生成绩
    */
-  def publish(lessonIds: Array[Integer], gradeTypes: Array[GradeType], isPublished: Boolean) {
+  def publish(lessonIds: Array[java.lang.Long], gradeTypes: Array[GradeType], isPublished: Boolean) {
     val lessons = entityDao.find(classOf[Lesson], lessonIds)
     if (!lessons.isEmpty) {
       val setting = settings.getSetting(lessons(0).project)

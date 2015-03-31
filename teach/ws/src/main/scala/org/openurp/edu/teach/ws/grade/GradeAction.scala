@@ -6,7 +6,7 @@ import org.beangle.webmvc.api.annotation.{mapping, param, response}
 import org.beangle.webmvc.api.context.ContextHolder
 import org.beangle.webmvc.entity.action.{AbstractEntityAction, RestfulService}
 import org.openurp.edu.teach.grade.CourseGrade
-import org.openurp.edu.teach.Course
+import org.openurp.edu.base.Course
 import org.beangle.webmvc.api.context.Params
 
 class CourseAction extends RestfulService[Course]

@@ -11,5 +11,5 @@ trait GradeFilterRegistry {
 
   def getFilter(name: String): GradeFilter
 
-  def getFilters(names: String): List[GradeFilter]
+  def getFilters(names: String): Seq[GradeFilter]
 }

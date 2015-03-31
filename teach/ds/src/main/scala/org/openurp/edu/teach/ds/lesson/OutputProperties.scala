@@ -4,7 +4,7 @@ import org.beangle.data.model.Entity
 import org.openurp.base.Semester
 import org.openurp.code.BaseCode
 import org.openurp.edu.base.Student
-import org.openurp.edu.teach.Course
+import org.openurp.edu.base.Course
 import org.openurp.edu.teach.lesson.{ CourseLimitGroup, CourseSchedule, CourseTake, ExamSchedule, Lesson, TeachClass }
 import org.openurp.edu.teach.schedule.CourseActivity
 
