@@ -7,13 +7,13 @@
     <version>0.0.11-SNAPSHOT</version>
   </parent>
   <groupId>org.openurp.edu</groupId>
-  <artifactId>openurp-edu-service-parent</artifactId>
+  <artifactId>openurp-edu-core-parent</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>pom</packaging>
-  <name>OpenURP Edu Service Parent</name>
+  <name>OpenURP Edu Core Parent</name>
   
   <properties>
-    <bundle.symbolicName>org.openurp.edu.service.parent</bundle.symbolicName>
+    <bundle.symbolicName>org.openurp.edu.core.parent</bundle.symbolicName>
     <bundle.namespace>org.openurp.edu</bundle.namespace>
     <openurp.platform.version>0.0.2-SNAPSHOT</openurp.platform.version>
     <openurp.base.version>0.0.1-SNAPSHOT</openurp.base.version>
@@ -22,14 +22,10 @@
   <modules>
     <module>base</module>
     <module>teach</module>
+    <module>attendance</module>
   </modules>
 
   <dependencies>
-    <dependency>
-      <groupId>org.openurp.edu.base</groupId>
-      <artifactId>openurp-edu-base-model</artifactId>
-      <version>${openurp.base.version}</version>
-    </dependency>
     <dependency>
       <groupId>org.beangle.data</groupId>
       <artifactId>beangle-data-model</artifactId>

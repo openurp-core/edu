@@ -2,7 +2,7 @@
 <project>
   <parent>
     <groupId>org.openurp.edu.base</groupId>
-    <artifactId>openurp-edu-base-service-parent</artifactId>
+    <artifactId>openurp-edu-base-core-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>

@@ -1,0 +1,67 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.openurp.edu.attendance</groupId>
+    <artifactId>openurp-edu-attendance-core-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>openurp-edu-attendance-ws</artifactId>
+  <packaging>jar</packaging>
+  <name>OpenURP Edu Attendance Service</name>
+  
+  <properties>
+    <bundle.symbolicName>org.openurp.edu.attendance.ws</bundle.symbolicName>
+    <bundle.namespace>org.openurp.edu.attendance.ws</bundle.namespace>
+    <jta.version>1.1</jta.version>
+  </properties>
+  
+  <dependencies>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-core</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>net.sf.ehcache</groupId>
+      <artifactId>ehcache-core</artifactId>
+      <version>2.6.8</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.transaction</groupId>
+      <artifactId>jta</artifactId>
+      <version>${jta.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.beangle.data</groupId>
+      <artifactId>beangle-data-jdbc</artifactId>
+      <version>${beangle.data.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.beangle.commons</groupId>
+      <artifactId>beangle-commons-web</artifactId>
+      <version>${beangle.commons.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.beangle.spring</groupId>
+      <artifactId>beangle-spring-context</artifactId>
+      <version>${beangle.spring.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>com.google.code.gson</groupId>
+      <artifactId>gson</artifactId>
+      <version>2.2.4</version>
+    </dependency>
+  </dependencies>
+</project>

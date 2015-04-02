@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.openurp.edu</groupId>
-    <artifactId>openurp-edu-service-parent</artifactId>
+    <artifactId>openurp-edu-core-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <groupId>org.openurp.edu.teach</groupId>
@@ -24,4 +24,13 @@
     <module>ds</module>
     <module>ws</module>
   </modules>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.openurp.edu.base</groupId>
+      <artifactId>openurp-edu-base-model</artifactId>
+      <version>${openurp.base.version}</version>
+    </dependency>
+  </dependencies>
+
 </project>
