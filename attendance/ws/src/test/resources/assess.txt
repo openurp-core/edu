@@ -1,0 +1,12 @@
+http://localhost:8080/attend/teach/attendance/app/sync?devid=411
+
+http://localhost:8080/attend/teach/attendance/app/device
+
+http://localhost:8080/attend/teach/attendance/app/activity?devid=411
+
+http://localhost:8080/attend/teach/attendance/app/coursetable?devid=411
+
+http://localhost:8080/attend/teach/attendance/app/signin?devid=287&cardphyid=4a50c2f562817113b6ee779fb2748ed9&signindate=31ec0ce2b0bcbc2e03e945ee75a9ae8a&signintime=526404cda8f7c204
+
+http://localhost:8080/attend/teach/attendance/app/detail?devid=411
+

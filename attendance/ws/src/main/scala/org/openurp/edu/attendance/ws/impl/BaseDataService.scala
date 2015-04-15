@@ -48,7 +48,7 @@ class BaseDataService extends Initializing {
     val dateStr = toDateStr(date)
     var rs = semesterCache.get(dateStr)
     if (rs.isEmpty) {
-      val ids = executor.query("select rl.id from JXRL_T rl where ? between rl.qssj and rl.jzsj", date)
+      val ids = executor.query("select rl.id from jxrl_t rl where ? between rl.qssj and rl.jzsj", date)
       for (ida <- ids; ido <- ida) {
         val id = ido.asInstanceOf[Number].intValue()
         semesterCache.put(dateStr, id)
@@ -62,7 +62,7 @@ class BaseDataService extends Initializing {
     var rs = teacherCache.get(id)
     var teacherName = ""
     if (rs.isEmpty) {
-      val names = executor.query("select a.xm from JCXX_JZG_T a where a.id=?", id)
+      val names = executor.query("select a.xm from jcxx_jzg_t a where a.id=?", id)
       for (name <- names) {
         teacherName = name.head.toString
         teacherCache.put(id, teacherName)
@@ -89,7 +89,7 @@ class BaseDataService extends Initializing {
   def getCourse(id: Number): Option[CourseBean] = {
     var rs = courseCache.get(id)
     if (rs.isEmpty) {
-      val names = executor.query("select a.id,a.kcdm,a.kcmc from JCXX_kc_T a where a.id=?", id.longValue())
+      val names = executor.query("select a.id,a.kcdm,a.kcmc from jcxx_kc_t a where a.id=?", id.longValue())
       for (name <- names) {
         val course = new CourseBean(name(0).asInstanceOf[Number].longValue, name(1).toString, name(2).toString)
         courseCache.put(id, course)

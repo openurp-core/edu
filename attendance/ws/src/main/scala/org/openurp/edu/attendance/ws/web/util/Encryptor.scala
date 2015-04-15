@@ -20,9 +20,9 @@ package org.openurp.edu.attendance.ws.web.util
 
 import org.beangle.commons.bean.Factory
 import org.beangle.commons.lang.{ Strings, SystemInfo }
-
 import javax.crypto.{ Cipher, SecretKeyFactory }
 import javax.crypto.spec.{ DESKeySpec, IvParameterSpec }
+import org.openurp.edu.attendance.ws.impl.AppConfig
 
 /**
  * Decryptor based on DES
@@ -94,10 +94,7 @@ final class DesEncryptor(val key: String) {
 class DesDecryptorFactory extends Factory[DesDecryptor] {
 
   override def result: DesDecryptor = {
-    SystemInfo.properties.get("desc_secret_key") match {
-      case Some(key) => new DesDecryptor(key)
-      case None => throw new RuntimeException("Cannot find system properties desc_secrity_key")
-    }
+    new DesDecryptor(AppConfig.descSecretKey)
   }
 
   override def objectType: Class[DesDecryptor] = classOf[DesDecryptor]
@@ -108,10 +105,7 @@ class DesDecryptorFactory extends Factory[DesDecryptor] {
 class DesEncryptorFactory extends Factory[DesEncryptor] {
 
   override def result: DesEncryptor = {
-    SystemInfo.properties.get("desc_secret_key") match {
-      case Some(key) => new DesEncryptor(key)
-      case None => throw new RuntimeException("Cannot find system properties desc_secrity_key")
-    }
+    new DesEncryptor(AppConfig.descSecretKey)
   }
 
   override def objectType: Class[DesEncryptor] = classOf[DesEncryptor]

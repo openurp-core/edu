@@ -17,22 +17,19 @@
  * along with Beangle.  If not, see <http://www.gnu.org/licenses/>.
  */
 package org.openurp.edu.attendance.ws.domain
-import org.beangle.commons.lang.Strings.leftPad
-import org.beangle.commons.lang.Numbers.toInt
-import org.openurp.edu.attendance.ws.model.AttendType._
-import org.openurp.edu.attendance.ws.impl.AppConfig
+
 import org.beangle.commons.bean.Initializing
+import org.beangle.commons.lang.Numbers.toInt
+import org.beangle.commons.lang.Strings.leftPad
+import org.openurp.edu.attendance.ws.impl.AppConfig
+import org.openurp.edu.attendance.ws.model.AttendType.{ Absenteeism, Late, Presence, Unknown }
 /**
  * 出勤类型策略
  * @author chaostone
  * @version 1.0, 2014/03/22
  * @since 0.0.1
  */
-class AttendTypePolicy extends Initializing {
-
-  var appConfig: AppConfig = _
-  
-  var lateMax: Int = _
+class AttendTypePolicy {
 
   def calcAttendType(signin: Int, info: SigninInfo): Int = calcAttendType(signin, info.attendBegin, info.begin, info.end)
 
@@ -45,7 +42,7 @@ class AttendTypePolicy extends Initializing {
     else if (signin > end) Unknown
     else {
       // 迟到时间（分钟）
-      if (toMinutes(signin) - toMinutes(begin) <= lateMax) Late
+      if (toMinutes(signin) - toMinutes(begin) <= AppConfig.lateMax) Late
       // 上课15分之后(15<a)缺勤
       else Absenteeism
     }
@@ -55,8 +52,5 @@ class AttendTypePolicy extends Initializing {
     val time4 = leftPad(timeStr, 4, '0')
     toInt(time4.substring(0, 2)) * 60 + toInt(time4.substring(2, 4))
   }
-  
-  def init() {
-    lateMax = appConfig.lateMax
-  }
+
 }

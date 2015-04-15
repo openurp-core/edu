@@ -19,13 +19,13 @@
 package org.openurp.edu.attendance.ws.impl
 
 import java.sql.Date
+
 import org.beangle.commons.logging.Logging
 import org.beangle.data.jdbc.query.JdbcExecutor
-import org.openurp.edu.attendance.ws.domain.ShardPolicy._
+import org.openurp.edu.attendance.ws.domain.DateFormats.toDateStr
+import org.openurp.edu.attendance.ws.domain.ShardPolicy.{activityTable, detailTable}
 import org.openurp.edu.attendance.ws.domain.WeekStates
 import org.openurp.edu.attendance.ws.model.AttendType
-import org.openurp.edu.attendance.ws.domain.DateFormats.toDateStr
-import org.openurp.edu.attendance.ws.domain.WeekStates
 /**
  * 考勤数据导入服务
  *
@@ -36,25 +36,26 @@ import org.openurp.edu.attendance.ws.domain.WeekStates
 class DataImporter extends Logging {
 
   var executor: JdbcExecutor = _
-  var appConfig: AppConfig = _
   var baseDataService: BaseDataService = _
+  var dialect: Dialect = _
   private val lockName = "tmp_attend_importer_lock"
 
   def importData(date: Date): (Int, Int) = {
     var activityCountSum, detailCount = 0
     if (!baseDataService.isHoliday(date)) {
       var rs = WeekStates.build(date)
-      val count = executor.queryForInt("select count(*) from user_tables where table_name='" + lockName.toUpperCase + "'")
-      if (0 == count) {
-        logger.info(s"Attend Importer ${toDateStr(date)}  executing...")
-        executor.update("create table " + lockName + "(id number(10))")
-        try {
+      val dateStr = toDateStr(date)
+      try {
+        val count = executor.queryForInt("select count(*) from t_attend_inits where day='" + dateStr + "'")
+        if (0 == count) {
+          executor.update("insert into t_attend_inits(day,activity_count,detail_count,updated_at) values('" + dateStr + "',0,0," + dialect.sqlNow + ")")
+          logger.info(s"Attend Importer ${dateStr}  executing...")
           //具体考勤活动数据
           val activityCntList = executor.query("select count(*) from " + activityTable(date) + " where course_date=?", date)
           if (activityCntList.isEmpty || activityCntList.head.head.asInstanceOf[Number].intValue == 0) {
             val sql = "insert into " + activityTable(date) + "(id,semester_id,lesson_id,course_id,course_date,begin_time,end_time,room_id,course_hours,attend_begin_time)" +
-              " select seq_t_attend_activities.nextval,rw.jxrlid,rw.id,rw.kcid,to_date(" + toDateStr(date) + ",'yyyyMMdd')," +
-              " hd.qssj,hd.jssj,hd.jsid,(hd.jsxj-hd.ksxj+1) ks,to_coursetime(to_minutes(hd.qssj)-" + appConfig.lateMax + ") begin_attend_time from jxrw_t rw ,jxhd_t hd" +
+              " select " + dialect.sqlNextVal("seq_t_attend_activities") + ",rw.jxrlid,rw.id,rw.kcid,to_date('" + toDateStr(date) + "','yyyyMMdd')," +
+              " hd.qssj,hd.jssj,hd.jsid,(hd.jsxj-hd.ksxj+1) ks,to_coursetime(to_minutes(hd.qssj)-" + AppConfig.lateMax + ") begin_attend_time from jxrw_t rw ,jxhd_t hd" +
               " where rw.id=hd.jxrwid and hd.zj=? and hd.nf=? and bitand(hd.yxzsz,?)>0 and hd.jsid is not null and hd.zyyy=1"
             rs._2.foreach { data =>
               val activityCount = executor.update(sql, rs._1, data._1, data._2)
@@ -67,14 +68,17 @@ class DataImporter extends Logging {
             " and aa.course_date =?", date)
           if (detailCntList.isEmpty || detailCntList.head.head.asInstanceOf[Number].intValue == 0) {
             val detailSql = "insert into " + detailTable(date) + "(id,std_id,activity_id,attend_type_id)" +
-              " select seq_t_attend_details.nextval,jxb.xsid,aa.id," + AttendType.Absenteeism + " from " + activityTable(date) + " aa,jxbxs_t jxb" +
+              " select " + dialect.sqlNextVal("seq_t_attend_details") + ",jxb.xsid,aa.id," + AttendType.Absenteeism + " from " + activityTable(date) + " aa,jxbxs_t jxb" +
               " where aa.course_date = ? and aa.lesson_id=jxb.jxrwid"
             detailCount = executor.update(detailSql, date)
-            logger.info(s"Importe $detailCount attend details.")
           }
-        } finally {
-          executor.update("drop table " + lockName)
+          logger.info(s"Importe $detailCount attend details.")
+          executor.update(s"update t_attend_inits set activity_count=$activityCountSum ,detail_count=$detailCount where day='$dateStr'")
         }
+      } catch {
+        case e: Throwable =>
+          executor.update(s"delete from t_attend_inits where day='$dateStr'")
+          throw e;
       }
     }
     (activityCountSum, detailCount)

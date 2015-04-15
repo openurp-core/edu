@@ -22,6 +22,9 @@ import scala.collection.JavaConversions.propertiesAsScalaMap
 import org.beangle.commons.bean.Initializing
 import org.beangle.commons.lang.ClassLoaders
 import org.beangle.commons.lang.Numbers
+import java.io.File
+import java.io.FileInputStream
+import java.io.InputStream
 /**
  * 应用配置
  *
@@ -29,21 +32,34 @@ import org.beangle.commons.lang.Numbers
  * @version 1.0, 2014/03/22
  * @since 0.0.1
  */
-class AppConfig extends Initializing {
+object AppConfig {
 
   val properties = new collection.mutable.HashMap[String, String]
 
   def init() {
     val url = ClassLoaders.getResource("config.properties", getClass)
-    val props = new java.util.Properties
-    val is = url.openStream()
-    props.load(is)
-    is.close()
-    properties ++= props
+    properties ++= loadProperties(url.openStream())
+
+    val configFile = new File("/etc/openurp/edu/attendance/conf.properties")
+    if (configFile.exists()) {
+      properties ++= loadProperties(new FileInputStream(configFile))
+    }
   }
+
+  init()
 
   //默认迟到最大15分钟
   def lateMax: Int = Numbers.toInt(properties.get("lateMax").getOrElse("15"))
 
   def courseURL: String = properties("courseURL")
+
+  def descSecretKey: String = properties("desc_secret_key")
+
+  private def loadProperties(in: InputStream): java.util.Properties = {
+    val props = new java.util.Properties
+    props.load(in)
+    in.close()
+    props
+  }
+
 }

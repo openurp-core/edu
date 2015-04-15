@@ -24,6 +24,7 @@ import org.beangle.commons.logging.Logging
 import org.openurp.edu.attendance.ws.impl.{AppConfig, BaseDataService, DeviceRegistry}
 import org.openurp.edu.attendance.ws.web.util.Consts.{DeviceId, Rule}
 import org.openurp.edu.attendance.ws.web.util.Params
+
 import javax.servlet.{ServletRequest, ServletResponse}
 import javax.servlet.http.HttpServlet
 
@@ -41,8 +42,6 @@ class CourseTableServlet extends HttpServlet with Logging {
 
   var deviceRegistry: DeviceRegistry = _
 
-  var appConfig: AppConfig = _
-
   override def service(req: ServletRequest, res: ServletResponse) {
     val params = Params.require(DeviceId).get(req, Rule)
     var rs = ""
@@ -52,7 +51,7 @@ class CourseTableServlet extends HttpServlet with Logging {
     } else {
       val devid: Int = params(DeviceId)
       deviceRegistry.get(devid) foreach { d =>
-        var url = appConfig.courseURL
+        var url = AppConfig.courseURL
         baseDataService.getSemesterId(Dates.today) foreach { semesterId =>
           url = replace(url, "${semesterId}", String.valueOf(semesterId))
           rs = replace(url, "${roomId}", String.valueOf(d.room.id))

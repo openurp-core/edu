@@ -19,14 +19,11 @@
 package org.openurp.edu.attendance.ws
 
 import org.beangle.commons.inject.bind.AbstractBindModule
-import org.beangle.commons.jndi.JndiObjectFactory
-import org.beangle.commons.lang.Strings.{ replace, lowerCase, substringBefore }
+import org.beangle.commons.jndi.JndiDataSourceFactory
 import org.beangle.data.jdbc.query.JdbcExecutor
 import org.openurp.edu.attendance.ws.domain.AttendTypePolicy
-import org.openurp.edu.attendance.ws.impl.{ ActivityService, AppConfig, BaseDataService, DataImporter, DaySigninCache, DeviceRegistry, EhcacheManager, ShardDaemon, SigninService }
-import org.openurp.edu.attendance.ws.web.app.{ ActivityServlet, CourseTableServlet, DetailServlet, DeviceServlet, ImporterServlet, NoticeServlet, RateServlet, SigninServlet, SyncServlet, UploadServlet }
-import javax.sql.DataSource
-import org.beangle.commons.jndi.JndiDataSourceFactory
+import org.openurp.edu.attendance.ws.impl.{ActivityService, BaseDataService, DataImporter, DaySigninCache, DeviceRegistry, DialectFactory, EhcacheManager, ShardDaemon, SigninService}
+import org.openurp.edu.attendance.ws.web.app.{ActivityServlet, CourseTableServlet, DetailServlet, DeviceServlet, ImporterServlet, NoticeServlet, RateServlet, SigninServlet, SyncServlet, UploadServlet}
 
 /**
  * 缺省绑定
@@ -42,23 +39,24 @@ class DefaultModule extends AbstractBindModule {
     bindServlet(classOf[ActivityServlet], classOf[UploadServlet], classOf[RateServlet], classOf[DetailServlet])
     bindServlet(classOf[NoticeServlet], classOf[ImporterServlet])
 
-    bind("dataSource", classOf[JndiDataSourceFactory]).property("jndiName", "jdbc/ws-services-teach-attendance").property("resourceRef", "true")
+    bind("dataSource", classOf[JndiDataSourceFactory]).constructor("jdbc/edu-attendance-ws").property("resourceRef", "true")
     bind(classOf[JdbcExecutor]).constructor(ref("dataSource")) //.property("showSql", "true")
     bind(classOf[DeviceRegistry])
     bind(classOf[EhcacheManager])
     bind(classOf[ShardDaemon], classOf[DaySigninCache]).lazyInit(false)
     bind(classOf[AttendTypePolicy])
     bind(classOf[ActivityService], classOf[SigninService])
-    bind(classOf[AppConfig], classOf[BaseDataService])
+    bind(classOf[BaseDataService])
     bind(classOf[DataImporter])
+    bind(classOf[DialectFactory]).constructor(ref("dataSource"))
   }
 
   private def bindServlet(classes: Class[_]*) {
     classes foreach { clazz =>
-      val packageName = clazz.getPackage().getName()
-      var name = replace(packageName, "org.openurp.ws.services.", "")
-      name = replace(name, ".web", "") + "." + lowerCase(substringBefore(clazz.getSimpleName(), "Servlet"))
-      bind(name, clazz)
+      //      val packageName = clazz.getPackage().getName()
+      //      var name = replace(packageName, "org.openurp.edu.attendance.ws", "")
+      //      name = replace(name, ".web", "") + "." + lowerCase(substringBefore(clazz.getSimpleName(), "Servlet"))
+      bind(clazz)
     }
   }
 }

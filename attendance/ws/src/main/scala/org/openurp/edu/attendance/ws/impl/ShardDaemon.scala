@@ -42,6 +42,8 @@ import org.openurp.edu.attendance.ws.domain.ShardPolicy._
 class ShardDaemon extends TimerTask with Logging with Initializing {
   var executor: JdbcExecutor = _
   var importer: DataImporter = _
+
+  var dialect: Dialect = _
   /**每次同步时间,默认不加设置,程序启动时就执行第一次*/
   var firstTime = ""
 
@@ -59,10 +61,10 @@ class ShardDaemon extends TimerTask with Logging with Initializing {
     val postfix = policy._2
     val tableName = table + postfix
     // 1.check
-    val count = executor.queryForInt("select count(*) from user_tables where table_name='" + tableName.toUpperCase() + "'")
+    val count = executor.queryForInt(dialect.sqlFindTable(tableName))
     // 2.createf
     if (count == 0) {
-      val url = ClassLoaders.getResource("ddl/create/" + table + ".sql", this.getClass)
+      val url = ClassLoaders.getResource("ddl/" + dialect.name + "/create/" + table + ".sql", this.getClass)
       val sqls = split(IOs.readString(url.openStream()), ";")
       sqls foreach { sql =>
         if (isNotBlank(sql)) {

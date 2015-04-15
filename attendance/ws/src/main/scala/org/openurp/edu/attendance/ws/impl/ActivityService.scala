@@ -57,7 +57,7 @@ class ActivityService extends Logging with Initializing {
           datas foreach { data =>
             val activityId = data(0).asInstanceOf[Number].longValue()
             val course = baseDataService.getCourse(data(2).asInstanceOf[Number])
-            val teacherIds = executor.query("select t.LSID from JXRW_LS_T t where t.jxrwid=?", data(1).asInstanceOf[Number])
+            val teacherIds = executor.query("select t.lsid from jxrw_ls_t t where t.jxrwid=?", data(1).asInstanceOf[Number])
             val teacherNames = new collection.mutable.ListBuffer[String]
             teacherIds foreach { teacherId =>
               teacherNames += baseDataService.getTeacherName(teacherId.head.asInstanceOf[Number])
