@@ -6,29 +6,21 @@
     <artifactId>openurp-edu-core-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <groupId>org.openurp.edu.base</groupId>
-  <artifactId>openurp-edu-base-core-parent</artifactId>
+  <groupId>org.openurp.edu.attendance</groupId>
+  <artifactId>openurp-edu-attendance-core-parent</artifactId>
   <packaging>pom</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>OpenURP Edu Base Core Parent</name>
+  <name>OpenURP Edu Attendance Service Parent</name>
   
   <properties>
-    <bundle.symbolicName>org.openurp.edu.base.core.parent</bundle.symbolicName>
-    <bundle.namespace>org.openurp.edu.base</bundle.namespace>
+    <bundle.symbolicName>org.openurp.edu.attendance.core.parent</bundle.symbolicName>
+    <bundle.namespace>org.openurp..edu.attendance</bundle.namespace>
   </properties>
 
   <modules>
-    <module>core</module>
-    <module>ds</module>
     <module>ws</module>
   </modules>
 
   <dependencies>
-    <dependency>
-      <groupId>org.openurp.edu.base</groupId>
-      <artifactId>openurp-edu-base-model</artifactId>
-      <version>${openurp.base.version}</version>
-    </dependency>
   </dependencies>
-
 </project>
