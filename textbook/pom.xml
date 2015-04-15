@@ -9,14 +9,13 @@
   <groupId>org.openurp.edu.textbook</groupId>
   <artifactId>openurp-edu-textbook-service-parent</artifactId>
   <packaging>pom</packaging>
-  <version>0.0.1-SNAPSHOT</version>
   <name>OpenURP Edu Textbook Service Parent</name>
   
   <properties>
     <bundle.symbolicName>org.openurp.edu.textbook.service.parent</bundle.symbolicName>
     <bundle.namespace>org.openurp.edu.textbook</bundle.namespace>
     <openurp.platform.version>0.0.2-SNAPSHOT</openurp.platform.version>
-    <openurp.base.version>0.0.1-SNAPSHOT</openurp.base.version>
+    <openurp.base.version>0.0.1</openurp.base.version>
   </properties>
 
   <modules>

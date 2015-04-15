@@ -8,7 +8,6 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.openurp.edu.teach</groupId>
   <artifactId>openurp-edu-teach-ws</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
   <name>OpenURP Edu Teach Web Service</name>
 
