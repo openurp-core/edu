@@ -25,6 +25,7 @@ import org.beangle.commons.lang.Numbers
 import java.io.File
 import java.io.FileInputStream
 import java.io.InputStream
+import org.beangle.commons.lang.SystemInfo
 /**
  * 应用配置
  *
@@ -37,12 +38,15 @@ object AppConfig {
   val properties = new collection.mutable.HashMap[String, String]
 
   def init() {
-    val url = ClassLoaders.getResource("config.properties", getClass)
-    properties ++= loadProperties(url.openStream())
-
     val configFile = new File("/etc/openurp/edu/attendance/conf.properties")
     if (configFile.exists()) {
       properties ++= loadProperties(new FileInputStream(configFile))
+    }
+
+    val openurpHome = SystemInfo.properties.get("OPENURP_HOME").getOrElse(SystemInfo.user.home + "/.openurp");
+    val myConfigFile = new File(openurpHome + "/edu/attendance/conf.properties")
+    if (myConfigFile.exists()) {
+      properties ++= loadProperties(new FileInputStream(myConfigFile))
     }
   }
 
