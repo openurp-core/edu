@@ -35,9 +35,9 @@ import org.openurp.edu.attendance.ws.web.app.{ActivityServlet, CourseTableServle
 class DefaultModule extends AbstractBindModule {
 
   protected override def binding() {
-    bindServlet(classOf[SyncServlet], classOf[DeviceServlet], classOf[SigninServlet], classOf[CourseTableServlet])
-    bindServlet(classOf[ActivityServlet], classOf[UploadServlet], classOf[RateServlet], classOf[DetailServlet])
-    bindServlet(classOf[NoticeServlet], classOf[ImporterServlet])
+    bind(classOf[SyncServlet], classOf[DeviceServlet], classOf[SigninServlet], classOf[CourseTableServlet])
+    bind(classOf[ActivityServlet], classOf[UploadServlet], classOf[RateServlet], classOf[DetailServlet])
+    bind(classOf[NoticeServlet], classOf[ImporterServlet])
 
     bind("dataSource", classOf[JndiDataSourceFactory]).constructor("jdbc/edu-attendance-ws").property("resourceRef", "true")
     bind(classOf[JdbcExecutor]).constructor(ref("dataSource")) //.property("showSql", "true")
@@ -49,14 +49,5 @@ class DefaultModule extends AbstractBindModule {
     bind(classOf[BaseDataService])
     bind(classOf[DataImporter])
     bind(classOf[DialectFactory]).constructor(ref("dataSource"))
-  }
-
-  private def bindServlet(classes: Class[_]*) {
-    classes foreach { clazz =>
-      //      val packageName = clazz.getPackage().getName()
-      //      var name = replace(packageName, "org.openurp.edu.attendance.ws", "")
-      //      name = replace(name, ".web", "") + "." + lowerCase(substringBefore(clazz.getSimpleName(), "Servlet"))
-      bind(clazz)
-    }
   }
 }
