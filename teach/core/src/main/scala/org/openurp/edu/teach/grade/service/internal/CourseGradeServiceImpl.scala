@@ -158,7 +158,7 @@ class CourseGradeServiceImpl extends CourseGradeService {
    */
   private def updateGradeState(grade: Grade, state: GradeState) {
     if (null != grade && null != state) {
-      grade.markStyle = state.scoreMarkStyle
+      grade.markStyle = state.markStyle
       grade.status = state.status
     }
   }

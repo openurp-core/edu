@@ -27,7 +27,6 @@
     <dependency>
       <groupId>org.openurp.edu.base</groupId>
       <artifactId>openurp-edu-base-model</artifactId>
-      <version>${openurp.base.version}</version>
     </dependency>
   </dependencies>
 

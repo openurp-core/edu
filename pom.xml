@@ -16,6 +16,8 @@
     <bundle.symbolicName>org.openurp.edu.core.parent</bundle.symbolicName>
     <bundle.namespace>org.openurp.edu</bundle.namespace>
     <openurp.platform.version>0.0.2-SNAPSHOT</openurp.platform.version>
+    <openurp.edu.version>0.0.1</openurp.edu.version>
+    <openurp.hr.version>0.0.1</openurp.hr.version>
     <openurp.base.version>0.0.1</openurp.base.version>
   </properties>
   
@@ -31,4 +33,40 @@
       <artifactId>beangle-data-model</artifactId>
     </dependency>
   </dependencies>
+
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.openurp.base</groupId>
+        <artifactId>openurp-base-model</artifactId>
+        <version>${openurp.base.version}</version>
+      </dependency>
+    <dependency>
+      <groupId>org.openurp.platform</groupId>
+      <artifactId>openurp-platform-ds</artifactId>
+      <version>${openurp.platform.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openurp.edu.base</groupId>
+      <artifactId>openurp-edu-base-model</artifactId>
+      <version>${openurp.edu.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openurp.edu.teach</groupId>
+      <artifactId>openurp-edu-teach-domain</artifactId>
+      <version>${openurp.edu.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openurp.edu.base</groupId>
+      <artifactId>openurp-edu-base-core</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.openurp.edu.teach</groupId>
+      <artifactId>openurp-edu-teach-model</artifactId>
+<version>${openurp.edu.version}</version>
+    </dependency>
+    </dependencies>
+  </dependencyManagement>
 </project>

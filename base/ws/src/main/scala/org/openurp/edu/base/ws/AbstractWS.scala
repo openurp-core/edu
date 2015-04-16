@@ -138,7 +138,7 @@ class AbstractWS[T <: Entity[_ <: java.io.Serializable]] extends AbstractEntityA
           try {
             PropertyUtils.copyProperty(obj, key, value, conversion)
           } catch {
-            case t: Throwable => warn(key + " can't copied.")
+            case t: Throwable => logger.warn(key + " can't copied.")
           }
         }
       }

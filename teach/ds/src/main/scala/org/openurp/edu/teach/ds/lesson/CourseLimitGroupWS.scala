@@ -3,9 +3,9 @@ package org.openurp.edu.teach.ds.lesson
 import org.beangle.data.jpa.dao.OqlBuilder
 import org.beangle.webmvc.api.annotation.{ mapping, response }
 import org.beangle.webmvc.entity.action.RestfulService
-import org.openurp.edu.teach.lesson.{ CourseLimitGroup, Lesson }
+import org.openurp.edu.teach.lesson.{ LessonLimitGroup, Lesson }
 
-class CourseLimitGroupWS extends RestfulService[CourseLimitGroup] {
+class LessonLimitGroupWS extends RestfulService[LessonLimitGroup] {
 
   @response
   @mapping("semester/{semesterId}")
@@ -14,7 +14,7 @@ class CourseLimitGroupWS extends RestfulService[CourseLimitGroup] {
     query.join("lesson.teachClass.limitGrouops", "limitGroup")
     query.select("limitGroup")
     //FIXEDME
-    //    put("properties", OutputProperties.courseLimitGroups(isRequestCsv))
+    //    put("properties", OutputProperties.LessonLimitGroups(isRequestCsv))
     query.limit(getPageLimit)
     entityDao.search(query)
   }
@@ -26,7 +26,7 @@ class CourseLimitGroupWS extends RestfulService[CourseLimitGroup] {
     query.join("lesson.teachClass.limitGrouops", "limitGroup")
     query.select("limitGroup")
     //FIXEDME
-    //    put("properties", OutputProperties.courseLimitGroups(isRequestCsv))
+    //    put("properties", OutputProperties.LessonLimitGroups(isRequestCsv))
     entityDao.search(query)
   }
 }

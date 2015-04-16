@@ -5,7 +5,7 @@ import org.openurp.base.Semester
 import org.openurp.code.BaseCode
 import org.openurp.edu.base.Student
 import org.openurp.edu.base.Course
-import org.openurp.edu.teach.lesson.{ CourseLimitGroup, CourseSchedule, CourseTake, ExamSchedule, Lesson, TeachClass }
+import org.openurp.edu.teach.lesson.{ LessonLimitGroup, CourseSchedule, CourseTake, ExamSchedule, Lesson, TeachClass }
 import org.openurp.edu.teach.schedule.CourseActivity
 
 object OutputProperties {
@@ -43,12 +43,12 @@ object OutputProperties {
     }
   }
 
-  def courseLimitGroups(isCsv: Boolean): List[Tuple2[Class[_], List[String]]] = {
+  def LessonLimitGroups(isCsv: Boolean): List[Tuple2[Class[_], List[String]]] = {
     if (isCsv) {
-      List(classOf[CourseLimitGroup] -> List("lesson", "maxCount", "curCount", "forClass"),
+      List(classOf[LessonLimitGroup] -> List("lesson", "maxCount", "curCount", "forClass"),
         classOf[Entity[_]] -> List("id"))
     } else {
-      List(classOf[CourseLimitGroup] -> List("lesson", "maxCount", "curCount", "forClass", "items"),
+      List(classOf[LessonLimitGroup] -> List("lesson", "maxCount", "curCount", "forClass", "items"),
         classOf[Entity[_]] -> List("id"))
     }
   }

@@ -4,9 +4,9 @@ import org.beangle.data.jpa.dao.OqlBuilder
 import org.beangle.data.model.Entity
 import org.beangle.webmvc.api.annotation.{ mapping, response }
 import org.beangle.webmvc.entity.action.RestfulService
-import org.openurp.edu.teach.lesson.{ CourseLimitItem, Lesson }
+import org.openurp.edu.teach.lesson.{ LessonLimitItem, Lesson }
 
-class CourseLimitItemWS extends RestfulService[CourseLimitItem] {
+class LessonLimitItemWS extends RestfulService[LessonLimitItem] {
 
   @response
   @mapping("semester/{semesterId}")
@@ -19,7 +19,7 @@ class CourseLimitItemWS extends RestfulService[CourseLimitItem] {
       case Some(groupId) => query.where("limitItem.group.id=:groupId", groupId)
       case _ => query.limit(getPageLimit)
     }
-    put("properties", List(classOf[CourseLimitItem] -> List("meta", "group", "operator", "content"),
+    put("properties", List(classOf[LessonLimitItem] -> List("meta", "group", "operator", "content"),
       classOf[Entity[_]] -> List("id")))
     entityDao.search(query)
   }

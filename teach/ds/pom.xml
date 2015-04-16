@@ -18,12 +18,10 @@
     <dependency>
       <groupId>org.openurp.platform</groupId>
       <artifactId>openurp-platform-ds</artifactId>
-      <version>${openurp.platform.version}</version>
     </dependency>
     <dependency>
       <groupId>org.openurp.base</groupId>
       <artifactId>openurp-base-model</artifactId>
-      <version>${project.version}</version>
     </dependency>
         <dependency>
       <groupId>org.beangle.webmvc</groupId>
@@ -36,7 +34,6 @@
     <dependency>
       <groupId>org.openurp.edu.teach</groupId>
       <artifactId>openurp-edu-teach-model</artifactId>
-      <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>javax.servlet</groupId>

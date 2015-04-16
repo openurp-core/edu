@@ -24,12 +24,10 @@
     <dependency>
       <groupId>org.openurp.edu.base</groupId>
       <artifactId>openurp-edu-base-model</artifactId>
-      <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>org.openurp.base</groupId>
       <artifactId>openurp-base-model</artifactId>
-      <version>${project.version}</version>
     </dependency>
     <dependency>
       <groupId>org.beangle.data</groupId>

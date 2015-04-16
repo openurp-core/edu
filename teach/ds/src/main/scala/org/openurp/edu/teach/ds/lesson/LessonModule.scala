@@ -6,8 +6,8 @@ class LessonModule extends AbstractBindModule {
   protected override def binding() {
     bind(classOf[CourseTakeWS])
     bind(classOf[LessonWS])
-    bind(classOf[CourseLimitGroupWS])
-    bind(classOf[CourseLimitItemWS])
+    bind(classOf[LessonLimitGroupWS])
+    bind(classOf[LessonLimitItemWS])
     bind(classOf[TeachersWS])
     bind(classOf[TeacherWS])
     bind(classOf[StdWS])

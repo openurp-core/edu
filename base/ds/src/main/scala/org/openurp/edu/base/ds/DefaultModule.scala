@@ -1,8 +1,7 @@
 package org.openurp.edu.base.ds
 
 import org.beangle.commons.inject.bind.AbstractBindModule
-import org.beangle.webmvc.config.action.JekyllMvcAction
-import org.openurp.edu.base.ds.code.{ StdLabelTypeWS, StdLabelWS, StdStatusWS, StdTypeWS }
+import org.openurp.edu.base.ds.code.{ CourseCategoryWS, CourseTypeWS, ExamModeWS, ExamStatusWS, StdLabelTypeWS, StdLabelWS, StdStatusWS, StdTypeWS }
 
 class DefaultModule extends AbstractBindModule {
 
@@ -16,7 +15,10 @@ class DefaultModule extends AbstractBindModule {
     bind(classOf[StudentWS], classOf[StudentJournalWS])
     bind(classOf[AdminclassWS])
 
-    bind(classOf[JekyllMvcAction])
+    bind(classOf[CourseWS], classOf[CourseHourWS])
+
+    bind(classOf[CourseTypeWS], classOf[CourseCategoryWS], classOf[ExamModeWS],
+      classOf[ExamStatusWS])
   }
 
 }

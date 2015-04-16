@@ -27,12 +27,12 @@ class DefaultMarkStyleStrategy extends MarkStyleStrategy {
   def configMarkStyle(gs: CourseGradeState, gradeTypes: Seq[GradeType]) {
     val gradeState = gs.asInstanceOf[CourseGradeState]
     val setting = settings.getSetting(gradeState.lesson.project)
-    if (isDefault(gradeState.scoreMarkStyle))
-      gradeState.scoreMarkStyle = getDefaultCourseGradeMarkStyle(gradeState, setting)
+    if (isDefault(gradeState.markStyle))
+      gradeState.markStyle = getDefaultCourseGradeMarkStyle(gradeState, setting)
     for (`type` <- gradeTypes) {
       val typeState = getState(gradeState, `type`)
-      if (null == typeState.scoreMarkStyle) {
-        typeState.scoreMarkStyle = getDefaultExamGradeMarkStyle(typeState, setting)
+      if (null == typeState.markStyle) {
+        typeState.markStyle = getDefaultExamGradeMarkStyle(typeState, setting)
       }
     }
     entityDao.saveOrUpdate(gradeState)
@@ -60,12 +60,12 @@ class DefaultMarkStyleStrategy extends MarkStyleStrategy {
    */
   protected def getDefaultExamGradeMarkStyle(state: GradeState, setting: CourseGradeSetting): ScoreMarkStyle = {
     if (state.gradeType.isGa) {
-      state.asInstanceOf[GaGradeState].gradeState.scoreMarkStyle
+      state.asInstanceOf[GaGradeState].gradeState.markStyle
     } else {
       val typeState = state.asInstanceOf[ExamGradeState]
       if (typeState.gradeType.id == GradeType.Delay) {
         val endGradeState = typeState.gradeState.getState(new GradeTypeBean(GradeType.End))
-        if (null == endGradeState) typeState.gradeState.scoreMarkStyle else endGradeState.scoreMarkStyle
+        if (null == endGradeState) typeState.gradeState.markStyle else endGradeState.markStyle
       } else {
         entityDao.get(classOf[ScoreMarkStyle], Integer.valueOf(ScoreMarkStyle.Percent))
       }

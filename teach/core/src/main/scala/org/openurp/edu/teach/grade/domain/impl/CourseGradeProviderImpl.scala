@@ -74,7 +74,7 @@ class CourseGradeProviderImpl extends CourseGradeProvider with Logging {
       gradeMap.put(std, new collection.mutable.ListBuffer[CourseGrade])
     }
     for (g <- allGrades) gradeMap(g.std) += g
-    debug(s"Get ${stds.size}'s grade using $sw")
+    logger.debug(s"Get ${stds.size}'s grade using $sw")
     gradeMap
   }
 
