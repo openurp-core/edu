@@ -1,7 +1,7 @@
 package org.openurp.edu.base.ws
 
 import org.openurp.code.BaseCode
-import org.beangle.webmvc.entity.action.AbstractEntityAction
+import org.beangle.webmvc.entity.action.EntityAction
 import org.beangle.webmvc.api.annotation.mapping
 import org.beangle.webmvc.api.annotation.response
 import org.beangle.webmvc.api.annotation.param
@@ -27,7 +27,7 @@ import org.beangle.commons.lang.ClassLoaders
 import org.beangle.webmvc.api.context.Params
 import org.beangle.data.jpa.dao.OqlBuilder
 
-class AbstractWS[T <: Entity[_ <: java.io.Serializable]] extends AbstractEntityAction[T] {
+class AbstractWS[T <: Entity[_ <: java.io.Serializable]] extends ActionSupport with EntityAction[T] {
   
 
   @response

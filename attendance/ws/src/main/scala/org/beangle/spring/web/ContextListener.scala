@@ -78,12 +78,12 @@ class ContextListener extends ServletContextListener with Logging {
   private def determineContextClass(servletContext: ServletContext): Class[_] = {
     val ctxClassName = servletContext.getInitParameter("contextClass")
     if (ctxClassName != null) {
-      ClassLoaders.loadClass(ctxClassName)
+      ClassLoaders.load(ctxClassName)
     } else {
       val propUrl = ClassLoaders.getResource("org/springframework/web/context/ContextLoader.properties")
       if (null != propUrl) {
         val properties = IOs.readJavaProperties(propUrl)
-        ClassLoaders.loadClass(properties("org.springframework.web.context.WebApplicationContext"))
+        ClassLoaders.load(properties("org.springframework.web.context.WebApplicationContext"))
       } else
         classOf[XmlWebApplicationContext]
     }

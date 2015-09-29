@@ -40,17 +40,17 @@
     </dependency>
     <dependency>
       <groupId>org.beangle.data</groupId>
-      <artifactId>beangle-data-jdbc</artifactId>
+      <artifactId>beangle-data-jdbc_2.11</artifactId>
       <version>${beangle.data.version}</version>
     </dependency>
     <dependency>
       <groupId>org.beangle.commons</groupId>
-      <artifactId>beangle-commons-web</artifactId>
+      <artifactId>beangle-commons-web_2.11</artifactId>
       <version>${beangle.commons.version}</version>
     </dependency>
     <dependency>
       <groupId>org.beangle.spring</groupId>
-      <artifactId>beangle-spring-context</artifactId>
+      <artifactId>beangle-spring-context_2.11</artifactId>
       <version>${beangle.spring.version}</version>
     </dependency>
     <dependency>

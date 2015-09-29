@@ -19,7 +19,7 @@
   <dependencies>
     <dependency>
       <groupId>org.beangle.data</groupId>
-      <artifactId>beangle-data-jpa</artifactId>
+      <artifactId>beangle-data-jpa_2.11</artifactId>
     </dependency>
     <dependency>
       <groupId>org.openurp.edu.base</groupId>
@@ -31,7 +31,7 @@
     </dependency>
     <dependency>
       <groupId>org.beangle.data</groupId>
-      <artifactId>beangle-data-jdbc</artifactId>
+      <artifactId>beangle-data-jdbc_2.11</artifactId>
     </dependency>
     <dependency>
       <groupId>org.hibernate</groupId>
