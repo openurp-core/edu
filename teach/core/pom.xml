@@ -10,7 +10,7 @@
   <artifactId>openurp-edu-teach-core</artifactId>
   <packaging>jar</packaging>
   <name>OpenURP Edu Teach Core</name>
-  
+
   <properties>
     <bundle.symbolicName>org.openurp.edu.teach.core</bundle.symbolicName>
     <bundle.namespace>org.openurp.edu.teach</bundle.namespace>

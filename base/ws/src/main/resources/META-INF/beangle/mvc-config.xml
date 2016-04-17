@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <profiles>
-  <profile name="openurp-edu-base-ws" pattern="org.openurp.edu.*.ws">
+  <profile name="openurp-edu-base-ds" pattern="org.openurp.edu.*.ds">
    <action suffix="WS" defaultMethod="index"/>
    <url path="/{project}" suffix=""  style="plur-seo" />
    <interceptors>
       <interceptor name="web.Interceptor.hibernate"/>
       <interceptor name="web.Interceptor.cors"/>
-      <!-- <interceptor name="web.Interceptor.security"/>-->
+      <interceptor name="web.Interceptor.security"/>
     </interceptors>
   </profile>
 </profiles>

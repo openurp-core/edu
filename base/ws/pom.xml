@@ -6,16 +6,9 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.openurp.edu.base</groupId>
   <artifactId>openurp-edu-base-ws</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
-  <name>OpenURP Edu Base Web Service</name>
-  
-	<properties>
-	  <beangle.webmvc.version>0.2.7-SNAPSHOT</beangle.webmvc.version>
-	   <beangle.security.version>4.0.7-SNAPSHOT</beangle.security.version>
-	</properties>
+  <name>OpenURP Edu Base Data Web Service</name>
 
   <dependencies>
     <dependency>
@@ -23,8 +16,8 @@
       <artifactId>beangle-data-jpa_2.11</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.openurp.platform</groupId>
-      <artifactId>openurp-platform-ds</artifactId>
+      <groupId>org.openurp.platform.api</groupId>
+      <artifactId>openurp-platform-api-ds</artifactId>
     </dependency>
     <dependency>
       <groupId>org.openurp.base</groupId>
@@ -33,21 +26,10 @@
     <dependency>
       <groupId>org.openurp.edu.base</groupId>
       <artifactId>openurp-edu-base-model</artifactId>
-      <version>0.0.2-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>com.alibaba</groupId>
-      <artifactId>fastjson</artifactId>
-      <version>1.1.15</version>
-    </dependency>
-    <dependency>
-      <groupId>org.beangle.template</groupId>
-      <artifactId>beangle-template-freemarker</artifactId>
-      <version>0.0.2</version>
     </dependency>
   </dependencies>
 </project>

@@ -14,22 +14,18 @@
 
   <dependencies>
     <dependency>
-      <groupId>org.openurp.platform</groupId>
-      <artifactId>openurp-platform-web</artifactId>
-      <version>${project.version}</version>
+      <groupId>org.openurp.platform.api</groupId>
+      <artifactId>openurp-platform-api-web</artifactId>
     </dependency>
     <dependency>
       <groupId>org.openurp.base</groupId>
       <artifactId>openurp-base-core</artifactId>
-      <version>${project.version}</version>
       <scope>compile</scope>
     </dependency>
     <dependency>
       <groupId>org.openurp.edu.teach</groupId>
       <artifactId>openurp-edu-teach-core</artifactId>
-      <version>${project.version}</version>
       <scope>compile</scope>
     </dependency>
   </dependencies>
 </project>
-

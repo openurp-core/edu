@@ -2,15 +2,11 @@ package org.openurp.edu.teach.ws.grade
 
 import org.beangle.webmvc.api.action.ActionSupport
 import org.beangle.webmvc.api.annotation.param
-import org.openurp.edu.teach.grade.service.GpaStatService
 import org.beangle.webmvc.api.annotation.response
 import org.beangle.webmvc.api.annotation.mapping
 import org.beangle.data.jpa.dao.OqlBuilder
 import org.beangle.data.model.dao.EntityDao
-import org.openurp.base.Semester
 import org.beangle.commons.collection.Properties
-import org.openurp.edu.teach.grade.domain.StdSemesterGpa
-import org.openurp.edu.base.Student
 
 class GpaStatAction extends ActionSupport {
 

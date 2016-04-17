@@ -10,17 +10,14 @@
   <artifactId>openurp-edu-teach-service-parent</artifactId>
   <packaging>pom</packaging>
   <name>OpenURP Edu Teach Service Parent</name>
-  
+
   <properties>
     <bundle.symbolicName>org.openurp.edu.teach.service.parent</bundle.symbolicName>
     <bundle.namespace>org.openurp.edu.teach</bundle.namespace>
-    <openurp.platform.version>0.0.2-SNAPSHOT</openurp.platform.version>
-    <openurp.base.version>0.0.1</openurp.base.version>
   </properties>
 
   <modules>
     <module>core</module>
-    <module>ds</module>
     <module>ws</module>
   </modules>
 
@@ -28,7 +25,6 @@
     <dependency>
       <groupId>org.openurp.edu.base</groupId>
       <artifactId>openurp-edu-base-model</artifactId>
-      <version>${openurp.base.version}</version>
     </dependency>
   </dependencies>
 

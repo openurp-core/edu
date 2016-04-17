@@ -1,26 +1,24 @@
 package org.openurp.edu.base.ws
 
+import org.openurp.edu.base.model.{ Student, StudentState }
 import org.beangle.data.jpa.dao.OqlBuilder
 import org.beangle.webmvc.api.context.Params
 import org.beangle.webmvc.entity.action.RestfulService
+import org.openurp.base.model.Department
+import org.beangle.data.model.Entity
+import org.openurp.edu.base.model.Major
+import org.openurp.edu.base.code.model.StdType
+import org.openurp.edu.base.model.Adminclass
 import org.beangle.webmvc.api.annotation.mapping
-import org.openurp.edu.base.model.StudentBean
 import org.beangle.webmvc.api.annotation.response
 import org.beangle.webmvc.api.annotation.param
-import org.beangle.data.model.Entity
-import org.openurp.edu.base.Student
-import org.openurp.base.Department
-import org.openurp.edu.base.Adminclass
-import org.openurp.code.geo.Country
-import org.openurp.edu.base.code.StdType
-import org.openurp.code.person.Nation
-import org.openurp.edu.base.Major
-import org.openurp.people.base.Person
-import org.openurp.code.person.Gender
-import org.openurp.code.person.IdType
+import org.openurp.code.person.model.Gender
+import org.openurp.code.geo.model.Country
+import org.openurp.code.person.model.Nation
+import org.openurp.code.person.model.IdType
+import org.openurp.people.base.model.Person
 
-class StudentWS extends AbstractWS[Student] {
-  
+class StudentWS extends ProjectRestfulService[Student] {
   override def getQueryBuilder(): OqlBuilder[Student] = {
     put("properties", List(this.entityType -> List("id", "code", "person", "department", "stdType", "major", "adminclass"),
       classOf[Person] -> List("id", "name"), classOf[Department] -> List("id", "name"),
@@ -43,3 +41,11 @@ class StudentWS extends AbstractWS[Student] {
     super.info(id)
   }
 }
+
+class StudentStateWS extends RestfulService[StudentState] {
+  override def getQueryBuilder(): OqlBuilder[StudentState] = {
+    super.getQueryBuilder().where(this.shortName + ".std.project.code = :project", Params.get("project").get)
+  }
+
+}
+

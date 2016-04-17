@@ -10,7 +10,7 @@
   <artifactId>openurp-edu-base-core</artifactId>
   <packaging>jar</packaging>
   <name>OpenURP Edu Base Core</name>
-  
+
   <properties>
     <bundle.symbolicName>org.openurp.edu.base.core</bundle.symbolicName>
     <bundle.namespace>org.openurp.edu.base</bundle.namespace>

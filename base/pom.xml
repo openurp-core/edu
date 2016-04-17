@@ -11,7 +11,7 @@
   <packaging>pom</packaging>
   <version>0.0.1-SNAPSHOT</version>
   <name>OpenURP Edu Base Core Parent</name>
-  
+
   <properties>
     <bundle.symbolicName>org.openurp.edu.base.core.parent</bundle.symbolicName>
     <bundle.namespace>org.openurp.edu.base</bundle.namespace>
@@ -19,7 +19,6 @@
 
   <modules>
     <module>core</module>
-    <module>ds</module>
     <module>ws</module>
   </modules>
 

@@ -1,7 +1,7 @@
 package org.openurp.edu.base.code.service
 
 import org.openurp.code.BaseCode
-import org.openurp.edu.base.Project
+import org.openurp.edu.base.model.Project
 
 trait ProjectCodeService {
 

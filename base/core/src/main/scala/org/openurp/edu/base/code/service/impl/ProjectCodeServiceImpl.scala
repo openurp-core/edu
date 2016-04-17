@@ -3,7 +3,7 @@ package org.openurp.edu.base.code.service.impl
 import org.beangle.data.jpa.dao.OqlBuilder
 import org.beangle.data.model.dao.EntityDao
 import org.openurp.code.BaseCode
-import org.openurp.edu.base.Project
+import org.openurp.edu.base.model.Project
 import org.openurp.edu.base.code.service.ProjectCodeService
 
 class ProjectCodeServiceImpl(entityDao: EntityDao) extends ProjectCodeService {
