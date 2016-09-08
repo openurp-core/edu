@@ -100,9 +100,9 @@ class BaseDataService extends Initializing {
   }
 
   def init() {
-    semesterCache = cacheManager.getCache("semester")
-    courseCache = cacheManager.getCache("course")
-    teacherCache = cacheManager.getCache("teacher")
-    adminclassCache = cacheManager.getCache("adminclass")
+    semesterCache = cacheManager.getCache("semester",classOf[String], classOf[Int])
+    courseCache = cacheManager.getCache("course",classOf[Number], classOf[CourseBean])
+    teacherCache = cacheManager.getCache("teacher",classOf[Number],classOf[ String] )
+    adminclassCache = cacheManager.getCache("adminclass",classOf[Number],classOf[ String] )
   }
 }

@@ -6,15 +6,14 @@
     <artifactId>openurp-edu-core-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <groupId>org.openurp.edu.base</groupId>
-  <artifactId>openurp-edu-base-core-parent</artifactId>
+  <groupId>org.openurp.edu.grade</groupId>
+  <artifactId>openurp-edu-grade-core-parent</artifactId>
   <packaging>pom</packaging>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>OpenURP Edu Base Core Parent</name>
+  <name>OpenURP Edu Grade core Parent</name>
 
   <properties>
-    <bundle.symbolicName>org.openurp.edu.base.core.parent</bundle.symbolicName>
-    <bundle.namespace>org.openurp.edu.base</bundle.namespace>
+    <bundle.symbolicName>org.openurp.edu.grade.core.arent</bundle.symbolicName>
+    <bundle.namespace>org.openurp.edu.grade</bundle.namespace>
   </properties>
 
   <modules>

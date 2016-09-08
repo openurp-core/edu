@@ -7,5 +7,5 @@ trait ProjectCodeService {
 
   def getCodes[T <: BaseCode](project: Project, clazz: Class[T]): Seq[T]
 
-  def getCode[T <: BaseCode](clazz: Class[T], id: Integer): T
+  def getCode[T <: BaseCode](clazz: Class[T], id: Int): T
 }

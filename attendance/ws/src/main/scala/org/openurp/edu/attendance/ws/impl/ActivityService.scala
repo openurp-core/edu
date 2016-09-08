@@ -77,6 +77,6 @@ class ActivityService extends Logging with Initializing {
     rs
   }
   def init() {
-    cache = cacheManager.getCache("lesson")
+    cache = cacheManager.getCache("lesson",classOf[Long], classOf[ActivityBean])
   }
 }

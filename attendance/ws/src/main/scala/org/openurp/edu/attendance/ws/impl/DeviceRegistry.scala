@@ -66,7 +66,7 @@ class DeviceRegistry extends Initializing with Logging {
   }
 
   def init() {
-    cache = cacheManager.getCache("device")
+    cache = cacheManager.getCache("device", classOf[Int], classOf[Device])
   }
 
 }

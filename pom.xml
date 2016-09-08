@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.openurp</groupId>
     <artifactId>openurp-parent</artifactId>
-    <version>0.0.14</version>
+    <version>0.1.0</version>
   </parent>
   <groupId>org.openurp.edu</groupId>
   <artifactId>openurp-edu-core-parent</artifactId>
@@ -15,22 +15,21 @@
   <properties>
     <bundle.symbolicName>org.openurp.edu.core.parent</bundle.symbolicName>
     <bundle.namespace>org.openurp.edu</bundle.namespace>
-    <openurp.platform.version>0.0.2-SNAPSHOT</openurp.platform.version>
-    <openurp.eduapi.version>0.0.2</openurp.eduapi.version>
-    <openurp.hrapi.version>0.0.2</openurp.hrapi.version>
-    <openurp.baseapi.version>0.0.2</openurp.baseapi.version>
+    <openurp.platform.version>0.0.8</openurp.platform.version>
+    <openurp.api.version>0.0.9-SNAPSHOT</openurp.api.version>
+    <hibernate.version>4.3.1.Final</hibernate.version>
   </properties>
 
   <modules>
     <module>base</module>
-    <module>teach</module>
+    <module>grade</module>
     <module>attendance</module>
   </modules>
 
   <dependencies>
     <dependency>
       <groupId>org.beangle.data</groupId>
-      <artifactId>beangle-data-model_2.11</artifactId>
+      <artifactId>beangle-data-model_2.12</artifactId>
     </dependency>
   </dependencies>
 
@@ -39,12 +38,12 @@
     <dependencies>
       <dependency>
         <groupId>org.openurp.base</groupId>
-        <artifactId>openurp-base-model</artifactId>
-        <version>${openurp.baseapi.version}</version>
+        <artifactId>openurp-base-api</artifactId>
+        <version>${openurp.api.version}</version>
       </dependency>
       <dependency>
         <groupId>org.openurp.platform.api</groupId>
-        <artifactId>openurp-platform-api-ds</artifactId>
+        <artifactId>openurp-platform-api-datasource</artifactId>
         <version>${openurp.platform.version}</version>
       </dependency>
       <dependency>
@@ -53,40 +52,36 @@
         <version>${openurp.platform.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.openurp.platform.api</groupId>
-        <artifactId>openurp-platform-api-ws</artifactId>
-        <version>${openurp.platform.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.openurp.base</groupId>
-        <artifactId>openurp-base-core</artifactId>
-        <version>${openurp.baseapi.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.openurp.edu.teach</groupId>
-        <artifactId>openurp-edu-teach-core</artifactId>
-        <version>${project.version}</version>
-      </dependency>
-      <dependency>
         <groupId>org.openurp.edu.base</groupId>
-        <artifactId>openurp-edu-base-model</artifactId>
-        <version>${openurp.eduapi.version}</version>
+        <artifactId>openurp-edu-base-api</artifactId>
+        <version>${openurp.api.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.openurp.edu.teach</groupId>
-        <artifactId>openurp-edu-teach-domain</artifactId>
-        <version>${openurp.eduapi.version}</version>
+        <groupId>org.openurp.edu.grade</groupId>
+        <artifactId>openurp-edu-grade-api</artifactId>
+        <version>${openurp.api.version}</version>
       </dependency>
+
       <dependency>
         <groupId>org.openurp.edu.base</groupId>
         <artifactId>openurp-edu-base-core</artifactId>
         <version>${project.version}</version>
       </dependency>
       <dependency>
-        <groupId>org.openurp.edu.teach</groupId>
-        <artifactId>openurp-edu-teach-model</artifactId>
-        <version>${openurp.eduapi.version}</version>
+        <groupId>org.openurp.edu.grade</groupId>
+        <artifactId>openurp-edu-grade-core</artifactId>
+        <version>${project.version}</version>
       </dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>${hibernate.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-ehcache</artifactId>
+      <version>${hibernate.version}</version>
+    </dependency>
     </dependencies>
   </dependencyManagement>
 </project>
